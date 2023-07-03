@@ -1,0 +1,30 @@
+<!-- login.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Включена двухфакторная аутентификация</div>
+                    <div class="card-body">
+                        <!-- Flash messages -->
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ messages[0] }}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form action="{{ url_for('login_two_factor_check') }}" method="post">
+                            <div class="form-group">
+                                <label for="code">Введите код из приложения</label>
+                                <input type="text" class="form-control" id="code" name="code" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Подтвердить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

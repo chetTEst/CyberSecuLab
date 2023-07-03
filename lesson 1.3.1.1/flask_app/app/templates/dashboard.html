@@ -1,0 +1,30 @@
+<!-- dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+        <h1 class="mb-4">Доступные файлы</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        <ul class="list-group">
+            {% for file in files %}
+                <li class="list-group-item">
+                    {{ file.path }}
+                    <a href="{{ url_for('download_file', filename=file.path) }}" class="btn btn-primary btn-sm ml-2">Скачать</a>
+                </li>
+            {% else %}
+                <li class="list-group-item">Нет доступных файлов</li>
+            {% endfor %}
+        </ul>
+    <div class="mt-4">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Выйти</a>
+        <a href="{{ url_for('two_factor_authentication') }}" class="btn btn-success">Двухфакторная аутентификация</a>
+    </div>
+    </div>
+{% endblock %}

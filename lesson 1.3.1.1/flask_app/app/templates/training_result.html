@@ -1,0 +1,27 @@
+<!-- session_login.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <h1>Сессия тренировки {{ session }}</h1>
+        <div class="row">
+            <div class="col">
+                <h4>Логины:</h4>
+                <ul class="list-group">
+                    {% for login in logins %}
+                        <li class="list-group-item">{{ login }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Пароли:</h4>
+                <ul class="list-group">
+                    {% for password in passwords %}
+                        <li class="list-group-item">{{ password }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <a href="{{ session_link }}" class="btn btn-primary mt-3">Страница тренировки {{ session_link }}</a>
+    </div>
+{% endblock %}

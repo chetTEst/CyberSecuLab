@@ -1,0 +1,11 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <form action="{{ url_for('start_training') }}" method="post">
+                <button type="submit" class="btn btn-primary btn-lg">Начать тренировку</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
