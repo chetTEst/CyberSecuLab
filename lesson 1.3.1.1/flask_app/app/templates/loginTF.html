@@ -15,7 +15,7 @@
                                 </div>
                             {% endif %}
                         {% endwith %}
-                        <form action="{{ url_for('login_two_factor_check') }}" method="post">
+                        <form action="{{ action_link }}" method="post">
                             <div class="form-group">
                                 <label for="code">Введите код из приложения</label>
                                 <input type="text" class="form-control" id="code" name="code" required>

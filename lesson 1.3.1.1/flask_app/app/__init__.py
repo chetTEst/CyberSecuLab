@@ -19,7 +19,7 @@ app = create_app()
 from . import CreateDb
 # from . import SetUsers
 # SetUsers.setUsertStart()
-# from . import SetFilesPremission
+from . import SetFilesPremission
 from . import routes
 
 

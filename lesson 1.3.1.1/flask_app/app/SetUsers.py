@@ -15,14 +15,14 @@ def setUserSession(n):
         session_number += 1
         def generate_random_word_with_digits(length):
             with open('word_for_pass.txt') as f:
-                string = random.choice(f.readlines()).strip()
-                return ''.join(random.choice(string.ascii_letters) for _ in range(len(string)-length))
+                word = random.choice(f.readlines()).strip()
+                return ''.join([str(session_number)] + list(word) + [random.choice(string.digits) for _ in range(length-len(word))])
         halfN = n // 2
         for i in range(n):
             if i < halfN:
-                role = 'user'
+                role = 0
             else:
-                role = 'admin'
+                role = 1
             username = generate_random_word_with_digits(10)  # 10-character username
             password = generate_random_word_with_digits(10)  # 10-character password
             password_hash = generate_password_hash(password)
@@ -35,8 +35,8 @@ def setUserSession(n):
         db.session.add(session)
         db.session.commit()
         # Pass the logins and passwords to the template
-        logins_markup = Markup('<br>'.join(logins))
-        passwords_markup = Markup('<br>'.join(passwords))
+        logins_markup = logins
+        passwords_markup = passwords
         return (session_number, logins_markup, passwords_markup)
 def setUsertStart():
     with app.app_context():
@@ -53,13 +53,13 @@ def setUsertStart():
             username = 'user'  # 10-character username
             password = 'user'  # 10-character password
             password_hash = generate_password_hash(password)
-            user = User(username=username, password=password_hash, role='user', session=session_number)
+            user = User(username=username, password=password_hash, role=0, session=session_number)
             db.session.add(user)
             for _ in range(20):
                 username = generate_random_string(10) # 10-character username
                 password = generate_random_string(10) # 10-character password
                 password_hash = generate_password_hash(password)
-                user = User(username=username, password=password_hash, role='user', session=session_number)
+                user = User(username=username, password=password_hash, role=0, session=session_number)
                 db.session.add(user)
                 # Write the username and password to the file
                 f.write(f'{username}:{password}:user\n')
@@ -69,7 +69,7 @@ def setUsertStart():
                 username = generate_random_string(10) # 10-character username
                 password = generate_random_string(10) # 10-character password
                 password_hash = generate_password_hash(password)
-                user = User(username=username, password=password_hash, role='admin', session=session_number)
+                user = User(username=username, password=password_hash, role=1, session=session_number)
                 db.session.add(user)
                 # Write the username and password to the file
                 f.write(f'{username}:{password}:admin\n')

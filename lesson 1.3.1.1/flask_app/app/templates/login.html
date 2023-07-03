@@ -15,7 +15,7 @@
                                 </div>
                             {% endif %}
                         {% endwith %}
-                        <form action="/login" method="post">
+                        <form action="/session{{ session_link }}/login" method="post">
                             <div class="form-group">
                                 <label for="username">Имя пользователя</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Введите имя пользователь">

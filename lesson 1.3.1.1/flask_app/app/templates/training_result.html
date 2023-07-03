@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container mt-4">
-        <h1>Сессия тренировки {{ session }}</h1>
+        <h1>Сессия тренировки №{{ session_link }}</h1> <a href="/session{{ session_link }}/login" target="_blank" class="btn btn-primary mt-3">Страница тренировки session{{ session_link }}/login</a>
         <div class="row">
             <div class="col">
                 <h4>Логины:</h4>
@@ -22,6 +22,5 @@
                 </ul>
             </div>
         </div>
-        <a href="{{ session_link }}" class="btn btn-primary mt-3">Страница тренировки {{ session_link }}</a>
     </div>
 {% endblock %}

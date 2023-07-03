@@ -4,7 +4,7 @@ import qrcode
 from base64 import b64encode
 from functools import wraps
 from io import BytesIO
-from flask import render_template, request, redirect, url_for, flash, send_from_directory, Markup
+from flask import render_template, request, redirect, url_for, flash, send_from_directory, Markup, jsonify, session
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 from . import app
@@ -37,15 +37,27 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/start-training', methods=['POST'])
-def start_training():
-    session_link, logins_markup, passwords_markup = setUserSession(20)
-    return render_template('training_result.html', session_link=session_link, logins=logins_markup, passwords=passwords_markup)
+@app.route('/start-training-async', methods=['POST'])
+def start_training_async():
+    session_link, logins_markup, passwords_markup = setUserSession(12)
+    session['session_link'] = session_link
+    session['logins'] = logins_markup
+    session['passwords'] = passwords_markup
+    response = {
+        'redirect_url': url_for('start_training')
+    }
+    return jsonify(response)
 
+@app.route('/start-training', methods=['GET', 'POST'])
+def start_training():
+    session_link = session.get('session_link')
+    logins_markup = session.get('logins')
+    passwords_markup = session.get('passwords')
+    return render_template('training_result.html', session_link=session_link, logins=logins_markup, passwords=passwords_markup)
 
 @app.route('/session<int:session_number>')
 def index(session_number):
-    return render_template('login.html')
+    return render_template('login.html', session_link=session_number)
 
 @app.route('/session<int:session_number>/login', methods=['GET', 'POST'])
 def login(session_number):
@@ -57,20 +69,19 @@ def login(session_number):
         user = User.query.filter_by(username=username).first()
 
         # Verify the password using its hash
-        if user and check_password_hash(user.password, password):
+        if user and check_password_hash(user.password, password) and user.session == session_number:
             login_user(user, remember=remember)
-            if current_user.two_factor_enabled:
+            if user.two_factor_enabled:
                 return redirect(url_for('login_two_factor'))
             else:
                 user.authenticated = True
                 db.session.add(user)
                 db.session.commit()
-                return redirect(url_for('dashboard'))
-
+                return redirect(url_for('dashboard', session_number=session_number))
         else:
-            flash('Не верные имя пользователя или пароль')
+            flash('Не верные имя пользователя или пароль сессии')
 
-    return render_template('login.html')
+    return render_template('login.html', session_link=session_number)
 
 @app.route('/session<int:session_number>/logout')
 @login_required
@@ -79,7 +90,7 @@ def logout(session_number):
     db.session.add(current_user)
     db.session.commit()
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('login', session_number=session_number))
 
 @app.route('/session<int:session_number>/dashboard')
 @login_required
@@ -89,7 +100,7 @@ def dashboard(session_number):
     user_role = current_user.role
 
     # Get all files that the user has permission to access
-    permissions = Permission.query.filter_by(role=user_role).all()
+    permissions = Permission.query.filter(Permission.role <= user_role).all()
 
     # Get the ids of the files that the user has permission to access
     file_ids = [permission.file_id for permission in permissions]
@@ -103,9 +114,10 @@ def dashboard(session_number):
 
     # Filter the files based on the user's permissions
     accessible_files = [{"path":file} for file in all_files if file in [f.path for f in files]]
-    print(accessible_files)
 
-    return render_template('dashboard.html', files=accessible_files)
+    return render_template('dashboard.html', files=accessible_files,
+                           logout_link=url_for('logout', session_number=session_number),
+                           two_factor_authentication_link = url_for('two_factor_authentication', session_number=session_number))
 
 
 
@@ -127,7 +139,7 @@ def two_factor_authentication():
 
     # Generate a QR code for the secret key
     totp = pyotp.totp.TOTP(secret_key)
-    qr_code = qrcode.make(totp.provisioning_uri(name=current_user.username, issuer_name='сетевая безопасность'))
+    qr_code = qrcode.make(totp.provisioning_uri(name=current_user.username, issuer_name='Урок сетевая безопасность'))
     qr_code = qr_code.resize((200, 200))
     # Convert the QR code image to bytes
     qr_code_bytes = BytesIO()
@@ -136,9 +148,9 @@ def two_factor_authentication():
     qr_code_base64 = b64encode(qr_code_bytes.getvalue()).decode('utf-8')
     return render_template('two_factor_authentication.html', qr_code=qr_code_base64)
 
-@app.route('/two-factor-verification', methods=['POST'])
+@app.route('/session<int:session_number>/two-factor-verification', methods=['POST'])
 @login_required
-def two_factor_verification():
+def two_factor_verification(session_number):
     user_code = request.form.get('code')
 
     # Verify the OTP provided by the user
@@ -147,20 +159,20 @@ def two_factor_verification():
         current_user.two_factor_enabled = True
         db.session.commit()
         flash('Двухфакторная аутентификация подключена!')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard', session_number=session_number))
     else:
         flash('Не правильный код.')
         return redirect(url_for('two_factor_authentication'))
 
-@app.route('/login-two-factor')
+@app.route('/session<int:session_number>/login-two-factor')
 @anonymous_required
-def login_two_factor():
-    return render_template('loginTF.html')
+def login_two_factor(session_number):
+    return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
 
 
-@app.route('/login-two-factor-check', methods=['POST'])
+@app.route('/session<int:session_number>/login-two-factor-check', methods=['POST'])
 @anonymous_required
-def login_two_factor_check():
+def login_two_factor_check(session_number):
     user_code = request.form.get('code')
     # Verify the OTP provided by the user
     totp = pyotp.TOTP(current_user.two_factor_secret)
@@ -168,7 +180,7 @@ def login_two_factor_check():
         current_user.authenticated = True
         db.session.add(current_user)
         db.session.commit()
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard', session_number=session_number))
     else:
         flash('Не правильный код.')
-        return render_template('loginTF.html')
+        return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
