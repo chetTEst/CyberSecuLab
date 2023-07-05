@@ -1,0 +1,18 @@
+# Use the official Python base image
+FROM python:3.9
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the requirements.txt file and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install MySQL client
+RUN apt-get update && apt-get install -y default-mysql-client
+
+# Copy the project files to the working directory
+COPY flask_app .
+
+# Set the entrypoint command to start the Flask app
+CMD ["uwsgi", "--ini", "uwsgi.ini"]

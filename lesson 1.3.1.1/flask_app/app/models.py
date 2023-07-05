@@ -1,5 +1,7 @@
+import pymysql
 from flask_sqlalchemy import SQLAlchemy
 
+pymysql.install_as_MySQLdb()
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -12,7 +14,7 @@ class User(db.Model):
     active = db.Column(db.Boolean, default=True)  # Add this
     authenticated = db.Column(db.Boolean, default=False)
     two_factor_enabled = db.Column(db.Boolean, default=False)
-    two_factor_secret = db.Column(db.String(16))
+    two_factor_secret = db.Column(db.String(128))
     anonymous = db.Column(db.Boolean, default=False)
     session = db.Column(db.Integer, nullable=False)
     @property

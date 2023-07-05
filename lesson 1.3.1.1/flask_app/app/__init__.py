@@ -8,7 +8,7 @@ app = Flask(__name__)
 db = SQLAlchemy()
 
 def create_app():
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson1311:lesson1311@localhost:33061/lesson1311' #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
     app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app

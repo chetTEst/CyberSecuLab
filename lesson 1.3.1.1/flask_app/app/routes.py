@@ -72,7 +72,7 @@ def login(session_number):
         if user and check_password_hash(user.password, password) and user.session == session_number:
             login_user(user, remember=remember)
             if user.two_factor_enabled:
-                return redirect(url_for('login_two_factor'))
+                return redirect(url_for('login_two_factor', session_number=session_number))
             else:
                 user.authenticated = True
                 db.session.add(user)
@@ -98,6 +98,7 @@ def dashboard(session_number):
     # Get the role of the current user
 
     user_role = current_user.role
+    user_two_factor = current_user.two_factor_enabled
 
     # Get all files that the user has permission to access
     permissions = Permission.query.filter(Permission.role <= user_role).all()
@@ -117,8 +118,8 @@ def dashboard(session_number):
 
     return render_template('dashboard.html', files=accessible_files,
                            logout_link=url_for('logout', session_number=session_number),
-                           two_factor_authentication_link = url_for('two_factor_authentication', session_number=session_number))
-
+                           two_factor_authentication_link=url_for('two_factor_authentication', session_number=session_number),
+                           user_two_factor=user_two_factor)
 
 
 @app.route('/download/<path:filename>')
@@ -127,9 +128,9 @@ def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
 
 
-@app.route('/two_factor_authentication')
+@app.route('/session<int:session_number>/two_factor_authentication')
 @login_required
-def two_factor_authentication():
+def two_factor_authentication(session_number):
     # Generate a new secret key for the user
     secret_key = pyotp.random_base32()
 
@@ -146,7 +147,9 @@ def two_factor_authentication():
     qr_code.save(qr_code_bytes, format='PNG')
     qr_code_bytes.seek(0)
     qr_code_base64 = b64encode(qr_code_bytes.getvalue()).decode('utf-8')
-    return render_template('two_factor_authentication.html', qr_code=qr_code_base64)
+    return render_template('two_factor_authentication.html', qr_code=qr_code_base64,
+                           two_factor_verification_link=url_for('two_factor_verification', session_number=session_number),
+                           dashboard_link=url_for('dashboard', session_number=session_number))
 
 @app.route('/session<int:session_number>/two-factor-verification', methods=['POST'])
 @login_required
@@ -162,12 +165,12 @@ def two_factor_verification(session_number):
         return redirect(url_for('dashboard', session_number=session_number))
     else:
         flash('Не правильный код.')
-        return redirect(url_for('two_factor_authentication'))
+        return redirect(url_for('two_factor_authentication', session_number=session_number))
 
 @app.route('/session<int:session_number>/login-two-factor')
 @anonymous_required
 def login_two_factor(session_number):
-    return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
+    return render_template('loginTF.html', action_link=url_for('login_two_factor_check', session_number=session_number))
 
 
 @app.route('/session<int:session_number>/login-two-factor-check', methods=['POST'])

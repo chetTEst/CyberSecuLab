@@ -24,7 +24,7 @@
         </ul>
     <div class="mt-4">
         <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
-        <a href="{{ two_factor_authentication }}" class="btn btn-success">Двухфакторная аутентификация</a>
+        <a href="{{ two_factor_authentication_link }}" class="{% if user_two_factor %}btn btn-second disabled{% else %}btn btn-success{% endif %}">Двухфакторная аутентификация</a>
     </div>
     </div>
 {% endblock %}

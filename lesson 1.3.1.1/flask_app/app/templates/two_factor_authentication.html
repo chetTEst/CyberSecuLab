@@ -10,7 +10,7 @@
                     </div>
                 {% endif %}
             {% endwith %}
-        <form action="{{ url_for('two_factor_verification') }}" method="post">
+        <form action="{{ two_factor_verification_link }}" method="post">
             <div class="form-group">
                 <label for="code">Введите код из приложения</label>
                 <input type="text" class="form-control" id="code" name="code" required>
@@ -18,7 +18,7 @@
             <button type="submit" class="btn btn-primary">Подтвердить</button>
         </form>
         <div class="mt-4">
-                <a href="{{ url_for('dashboard') }}" class="btn btn-info">Назад</a>
+                <a href="{{ dashboard_link }}" class="btn btn-info">Назад</a>
         </div>
 </div>
 {% endblock %}
