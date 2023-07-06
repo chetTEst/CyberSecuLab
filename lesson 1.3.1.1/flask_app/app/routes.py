@@ -1,6 +1,7 @@
 # routes.py
 import pyotp
 import qrcode
+import json
 from base64 import b64encode
 from functools import wraps
 from io import BytesIO
@@ -132,7 +133,10 @@ def download_file(filename):
 @login_required
 def two_factor_authentication(session_number):
     # Generate a new secret key for the user
-    secret_key = pyotp.random_base32()
+    if not current_user.two_factor_secret:
+        secret_key = pyotp.random_base32()
+    else:
+        secret_key = current_user.two_factor_secret
 
     # Save the secret key to the user's model
     current_user.two_factor_secret = secret_key
@@ -158,6 +162,7 @@ def two_factor_verification(session_number):
 
     # Verify the OTP provided by the user
     totp = pyotp.TOTP(current_user.two_factor_secret)
+    print(totp)
     if totp.verify(user_code):
         current_user.two_factor_enabled = True
         db.session.commit()
@@ -181,9 +186,25 @@ def login_two_factor_check(session_number):
     totp = pyotp.TOTP(current_user.two_factor_secret)
     if totp.verify(user_code):
         current_user.authenticated = True
+        current_user.two_factor_enter = True
         db.session.add(current_user)
         db.session.commit()
         return redirect(url_for('dashboard', session_number=session_number))
     else:
         flash('Не правильный код.')
         return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
+
+
+@app.route('/update_badges', methods=['GET'])
+def update_badges():
+    data = {}
+    session = request.args.get('session_id')
+    users = User.query.filter_by(session=session).all()  # Замените это на ваш запрос к БД
+    for user in users:
+        data[user.username] = {
+            'authenticated': user.authenticated,
+            'two_factor_enabled': user.two_factor_enabled,
+            'authenticated_two_factor_enabled': user.two_factor_enter
+        }
+    return jsonify(data)
+

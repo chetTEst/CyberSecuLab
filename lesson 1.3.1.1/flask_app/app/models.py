@@ -15,8 +15,11 @@ class User(db.Model):
     authenticated = db.Column(db.Boolean, default=False)
     two_factor_enabled = db.Column(db.Boolean, default=False)
     two_factor_secret = db.Column(db.String(128))
+    two_factor_enter = db.Column(db.Boolean, default=False)
     anonymous = db.Column(db.Boolean, default=False)
     session = db.Column(db.Integer, nullable=False)
+    two_factor_enter = db.Column(db.Boolean, default=False)
+
     @property
     def is_active(self):
         return self.active
