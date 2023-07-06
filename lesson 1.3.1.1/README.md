@@ -21,7 +21,7 @@
 
 Для запуска приложения на своем сервере вы можете использовать контейнеры:
 
-```
+```commandline
 docker-compose up -d
 ```
 
@@ -32,3 +32,9 @@ mysql+pymysql://lesson1311:lesson1311@<адрес>:33061/lesson1311
 ```
 
 А так же указать необходимые логины, пароли и имена базы данных в [docker-compose.yml](docker-compose.yml)
+
+Либо вы можете использовать SQLite:
+
+```python
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
+```
