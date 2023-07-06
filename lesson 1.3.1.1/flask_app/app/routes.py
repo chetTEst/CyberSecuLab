@@ -72,6 +72,8 @@ def login(session_number):
         # Verify the password using its hash
         if user and check_password_hash(user.password, password) and user.session == session_number:
             login_user(user, remember=remember)
+            if not user.first_enter:
+                user.first_enter = True
             if user.two_factor_enabled:
                 return redirect(url_for('login_two_factor', session_number=session_number))
             else:
@@ -202,7 +204,7 @@ def update_badges():
     users = User.query.filter_by(session=session).all()  # Замените это на ваш запрос к БД
     for user in users:
         data[user.username] = {
-            'authenticated': user.authenticated,
+            'authenticated': user.first_enter,
             'two_factor_enabled': user.two_factor_enabled,
             'authenticated_two_factor_enabled': user.two_factor_enter
         }

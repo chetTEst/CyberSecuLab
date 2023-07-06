@@ -19,6 +19,7 @@ class User(db.Model):
     anonymous = db.Column(db.Boolean, default=False)
     session = db.Column(db.Integer, nullable=False)
     two_factor_enter = db.Column(db.Boolean, default=False)
+    first_enter = db.Column(db.Boolean, default=False)
 
     @property
     def is_active(self):
