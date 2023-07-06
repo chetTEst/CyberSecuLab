@@ -1,6 +1,6 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.11
 
-RUN apt-get update && apt-get install -y cron default-mysql-client
+RUN apt-get update && apt-get install -y cron && apt-get install -y default-mysql-client
 COPY ./flask_app /app
 
 COPY ./crontab /etc/cron.d/crontab
