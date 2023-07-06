@@ -18,6 +18,5 @@ services:
       dockerfile: Dockerfile_tiangolo
     ports:
       - "8080:80"
-    command: sh -c "cron && tail -f /dev/null"   # Start cron and keep container running
 volumes:
   db_data:
