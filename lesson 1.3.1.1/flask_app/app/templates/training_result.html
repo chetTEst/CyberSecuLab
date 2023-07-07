@@ -13,6 +13,7 @@
                             <span id="{{ login }}_login" class="badge bg-secondary">Вход</span>
                             <span id="{{ login }}_2fa" class="badge bg-secondary">2FA</span>
                             <span id="{{ login }}_2fa_login" class="badge bg-secondary">Вход с 2FA</span>
+                            <span id="{{ login }}_check_message" class="badge bg-secondary">Сообщение</span>
                         </li>
                     {% endfor %}
                 </ul>
@@ -43,6 +44,9 @@
                 }
                 if (data[login]['authenticated_two_factor_enabled']) {
                     $("#" + login + "_2fa_login").removeClass("bg-secondary").addClass("bg-success");
+                }
+                if (data[login]['check_message_is_true']) {
+                    $("#" + login + "_check_message").removeClass("bg-secondary").addClass("bg-success");
                 }
             }
         }

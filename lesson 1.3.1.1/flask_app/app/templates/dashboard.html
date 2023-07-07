@@ -27,4 +27,34 @@
         <a href="{{ two_factor_authentication_link }}" class="{% if user_two_factor %}btn btn-second disabled{% else %}btn btn-success{% endif %}">Двухфакторная аутентификация</a>
     </div>
     </div>
+ <hr class="mt-5">
+  <div class="container">
+    <h1>Web-приложение</h1>
+    <div class="form-group">
+      <label for="message">Сообщение:</label>
+      <input type="text" class="form-control" id="message" placeholder="Введите сообщение">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="sendMessage()">Передать сообщение</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var message = document.getElementById("message").value;
+      var form = document.createElement("form");
+      form.method = "POST";
+      form.action = "/session{{ session_number }}/resultmessage";
+      form.target = "_blank";
+
+      var input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "message";
+      input.value = message;
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+
+  </script>
+
 {% endblock %}

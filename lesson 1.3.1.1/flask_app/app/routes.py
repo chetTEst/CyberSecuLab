@@ -1,6 +1,7 @@
 # routes.py
 import pyotp
 import qrcode
+import string
 import json
 from base64 import b64encode
 from functools import wraps
@@ -14,6 +15,13 @@ from .SetUsers import setUserSession
 from os import listdir
 from config import path
 from os.path import join as pjoin
+from random import choice, randint
+
+def generate_sequences(length):
+    sequence1 = ''.join(choice(string.ascii_letters) for _ in range(length))
+    sequence2 = sequence1[:-1] + choice(string.ascii_letters.replace(sequence1[-1], ''))
+    sequence3 = sequence1[:-2] + choice(string.ascii_letters.replace(sequence1[-2], ''))
+    return sequence1, sequence2, sequence3
 
 
 def anonymous_required(f):
@@ -122,7 +130,8 @@ def dashboard(session_number):
     return render_template('dashboard.html', files=accessible_files,
                            logout_link=url_for('logout', session_number=session_number),
                            two_factor_authentication_link=url_for('two_factor_authentication', session_number=session_number),
-                           user_two_factor=user_two_factor)
+                           user_two_factor=user_two_factor,
+                           session_number=session_number)
 
 
 @app.route('/download/<path:filename>')
@@ -206,7 +215,63 @@ def update_badges():
         data[user.username] = {
             'authenticated': user.first_enter,
             'two_factor_enabled': user.two_factor_enabled,
-            'authenticated_two_factor_enabled': user.two_factor_enter
+            'authenticated_two_factor_enabled': user.two_factor_enter,
+            'check_message_is_true': user.check_message
         }
     return jsonify(data)
 
+@app.route('/session<int:session_number>/resultmessage', methods=['POST'])
+@login_required
+def resultmessage(session_number):
+    message = request.form.get('message')
+    wrong_answer = request.form.get('va')
+    message_original = message
+    answer1, answer2, answer3 = generate_sequences(15)
+    modification_type = randint(1, 3)  # Случайным образом выбираем тип изменения
+    def integrity(message):
+        modification_type = randint(1, 2)
+        if modification_type == 1:
+            position = randint(0, len(message) - 1)  # Случайным образом выбираем позицию для удаления символа
+            modified_message = message[:position] + message[position + 1:]
+            return modified_message
+        else:
+            position = randint(0, len(message) - 1)  # Случайным образом выбираем позицию для замены символа
+            random_char = chr(randint(32, 126))  # Случайным образом выбираем символ ASCII
+            modified_message = message[:position] + random_char + message[position + 1:]
+        return modified_message
+    def availability(message):
+        position = randint(0, len(message) - 3) # Случайным образом выбираем окончание сообщения
+        modified_message = f'{message[:position]}... Сообщение больше не доступно'
+        return modified_message
+    def confidentiality(message):
+        modified_message = f'Служба контроля за сообщениями проверила ваше сообщение: "{message}"'
+        return modified_message
+
+    if modification_type == 1:
+        answer = answer1
+        message = integrity(message)
+    elif modification_type == 2:
+        answer = answer2
+        message = availability(message)
+    elif modification_type == 3:
+        answer = answer3
+        message = confidentiality(message)
+    if wrong_answer:
+        flash('Ой, ответ не верный. Давай по-новой!')
+    return render_template("returnmessage.html",
+                           answer=answer,
+                           answer1=answer1,
+                           answer2=answer2,
+                           answer3=answer3,
+                           message=message,
+                           dashboard_link=url_for('dashboard', session_number=session_number),
+                           session_number=session_number,
+                           message_original=message_original)
+
+
+@app.route('/record-answer', methods=['POST'])
+@anonymous_required
+def record_answer():
+    current_user.check_message = True
+    db.session.commit()
+    return jsonify({'success': True})

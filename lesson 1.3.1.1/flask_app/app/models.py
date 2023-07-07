@@ -20,6 +20,7 @@ class User(db.Model):
     session = db.Column(db.Integer, nullable=False)
     two_factor_enter = db.Column(db.Boolean, default=False)
     first_enter = db.Column(db.Boolean, default=False)
+    check_message = db.Column(db.Boolean, default=False)
 
     @property
     def is_active(self):

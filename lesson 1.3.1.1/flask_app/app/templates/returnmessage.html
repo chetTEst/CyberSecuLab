@@ -1,0 +1,75 @@
+<!-- returnmessge.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <p class="h3">Результат</p>
+    <p class="lead">Сообщение: <strong>{{ message }}</strong></p>
+    {% with messages = get_flashed_messages() %}
+    <p id="result" {% if messages %} class="text-danger" {% endif %}>{% if messages %}{{ messages[0] }}{% endif %}</p>
+    {% endwith %}
+    <p>Что произошло с сообщением?</p>
+    <div class="row">
+      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer1 }}')">Нарушена Целостность</button>
+      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer2 }}')">Нарушена Доступность</button>
+      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer3 }}')">Нарушена Конфиденциальность</button>
+    </div>
+    <div class="mt-4">
+        <a href="{{ dashboard_link }}" class="btn btn-info">Назад</a>
+    </div>
+
+  </div>
+
+  <script>
+   function checkAnswer(answer) {
+      var modificationType = "{{ answer }}";
+      var resultElement = document.getElementById("result");
+
+      if (answer === modificationType) {
+        resultElement.textContent = sendAnswer(resultElement);
+        resultElement.classList.add("text-success");
+        resultElement.classList.remove("text-danger");
+      } else {
+        sendMessage();
+      }
+    }
+
+    function sendAnswer() {
+    var formData = new FormData();
+    formData.append('is_correct', true);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/record-answer', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                console.log("Ответ записан в базу данных.");
+            }
+        }
+    };
+    xhr.send(formData);
+    return 'Правильно! Ответ записан в базу данных.';
+    }
+
+    function sendMessage() {
+      var form = document.createElement("form");
+      form.method = "POST";
+      form.action = "/session{{ session_number }}/resultmessage";
+
+      var input1 = document.createElement("input");
+      input1.type = "hidden";
+      input1.name = "message";
+      input1.value = "{{ message_original }}";
+      var input2 = document.createElement("input");
+      input2.type = "hidden";
+      input2.name = "va";
+      input2.value = "va";
+
+      form.appendChild(input1);
+      form.appendChild(input2);
+      document.body.appendChild(form);
+      form.submit();
+    }
+
+  </script>
+{% endblock %}
