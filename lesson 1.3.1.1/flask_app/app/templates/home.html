@@ -3,18 +3,31 @@
 {% block content %}
     <div class="container mt-4">
         <div class="row justify-content-md-center">
-            <button id="start-training-btn" type="submit" class="btn btn-primary btn-lg" onclick="startTraining()">Начать тренировку</button>
+            <form id="training-form">
+                <div class="mb-3">
+                    <label for="student-count" class="form-label">Количество учащихся</label>
+                    <input type="number" class="form-control" id="student-count" min="1" max="30" required>
+                    <small id="student-count-help" class="form-text text-muted">Максимальное количество учащихся - 30.</small>
+                </div>
+                <button id="start-training-btn" type="submit" class="btn btn-primary btn-lg">Начать тренировку</button>
+            </form>
         </div>
     </div>
 <script>
-    function startTraining() {
+    document.getElementById("training-form").addEventListener('submit', function(e) {
+        e.preventDefault();
         var startButton = document.getElementById("start-training-btn");
+        var studentCount = document.getElementById("student-count").value;
+
         startButton.disabled = true;
         startButton.innerHTML = '<span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span> Начинаем загрузку...';
 
         $.ajax({
             url: '{{ url_for('start_training_async') }}',
             type: 'POST',
+            data: {
+                'student_count': studentCount
+            },
             success: function(response) {
                 window.location.href = response.redirect_url;
             },
@@ -24,7 +37,6 @@
                 startButton.innerHTML = 'Начать тренировку';
             }
         });
-    }
+    });
 </script>
-
 {% endblock %}

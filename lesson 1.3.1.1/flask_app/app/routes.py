@@ -6,7 +6,7 @@ import json
 from base64 import b64encode
 from functools import wraps
 from io import BytesIO
-from flask import render_template, request, redirect, url_for, flash, send_from_directory, Markup, jsonify, session
+from flask import render_template, request, redirect, url_for, flash, send_from_directory, Markup, jsonify, session, abort
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 from . import app
@@ -48,7 +48,10 @@ def home():
 
 @app.route('/start-training-async', methods=['POST'])
 def start_training_async():
-    session_link, logins_markup, passwords_markup = setUserSession(12)
+    student_count = int(request.form.get('student_count'))
+    if student_count > 30:
+        abort(400, "Максимальное ко-во учеников: 30.")
+    session_link, logins_markup, passwords_markup = setUserSession(student_count)
     session['session_link'] = session_link
     session['logins'] = logins_markup
     session['passwords'] = passwords_markup

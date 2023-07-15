@@ -11,3 +11,5 @@ RUN pip install -r /var/www/requirements.txt
 COPY ./crontab /etc/cron.d
 RUN chmod 0644 /etc/cron.d/delete_data
 RUN crontab /etc/cron.d/delete_data
+
+ENTRYPOINT service start cron

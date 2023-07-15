@@ -18,7 +18,5 @@ services:
       dockerfile: Dockerfile_tiangolo
     ports:
       - "8080:80"
-    command:
-      - service cron start
 volumes:
   db_data:
