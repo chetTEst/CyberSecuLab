@@ -1,4 +1,7 @@
 # -*- cuding: utf-8 -*-
+'''
+Файл позволяет составить свой список слов из большого словаря
+'''
 from collections import defaultdict
 from random import seed, shuffle
 
@@ -17,5 +20,5 @@ with open('russian_nouns.txt', encoding='utf-8') as f:
     seed()
     shuffle(words)
     with open('flask_app/text_for_tasks', 'w', encoding='utf-8') as o:
-        o.write('\n'.join(words[:20]))
+        o.write('\n'.join(words[:30])) # указать необходимо кол-во слов тут
     

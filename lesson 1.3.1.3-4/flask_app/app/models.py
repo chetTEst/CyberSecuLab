@@ -23,6 +23,10 @@ class User(db.Model):
     q3_obj = db.relationship('Questions', foreign_keys=[q3])
     q4 = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
     q4_obj = db.relationship('Questions', foreign_keys=[q4])
+    a1 = db.Column(db.Boolean, default=False)
+    a2 = db.Column(db.Boolean, default=False)
+    a3 = db.Column(db.Boolean, default=False)
+    a4 = db.Column(db.Boolean, default=False)
 
     @property
     def is_active(self):

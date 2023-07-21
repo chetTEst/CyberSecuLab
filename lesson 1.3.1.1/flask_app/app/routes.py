@@ -1,8 +1,32 @@
 # routes.py
+
+'''
+Welcome to the open-source file for the "Automatic Security Training and Testing System"
+developed by Alexey Chetverov. This application aims to provide a robust tool for learning
+and enhancing cybersecurity skills.
+
+The system presented in this repository is designed to facilitate the process of education,
+self-assessment, and comprehensive exploration of various aspects of cybersecurity. Users
+will be able to utilize its functionalities to train their skills, test their knowledge, and
+delve into different cybersecurity domains.
+
+One of the unique features of this project is its licensing under Apache 2.0.
+This means that users have the right to copy and distribute the software while preserving
+the author's copyright. The open-source nature of the code allows the community to contribute
+to the project's development, enhance its functionalities, and address potential issues.
+
+We invite all interested individuals to join this exciting endeavor and contribute to the
+growth of a tool that can make the world of cybersecurity even more reliable and secure.
+Your ideas, feedback, and suggestions are warmly welcomed as they will help us improve
+this experience further.
+
+Thank you for your interest in this project, and we hope that this system will become
+a valuable asset for anyone seeking to ensure data and information security in the modern
+digital landscape.'''
+
 import pyotp
 import qrcode
 import string
-import json
 from base64 import b64encode
 from functools import wraps
 from io import BytesIO
@@ -65,6 +89,9 @@ def start_training():
     session_link = session.get('session_link')
     logins_markup = session.get('logins')
     passwords_markup = session.get('passwords')
+    if not session_link or not logins_markup or not passwords_markup:
+        # Перенаправляем на главную страницу
+        return redirect(url_for('home'))
     return render_template('training_result.html', session_link=session_link, logins=logins_markup, passwords=passwords_markup)
 
 @app.route('/session<int:session_number>')
@@ -110,6 +137,7 @@ def logout(session_number):
 @login_required
 def dashboard(session_number):
     # Get the role of the current user
+
 
     user_role = current_user.role
     user_two_factor = current_user.two_factor_enabled

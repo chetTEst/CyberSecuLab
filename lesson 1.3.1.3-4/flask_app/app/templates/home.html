@@ -9,6 +9,21 @@
                     <input type="number" class="form-control" id="student-count" min="1" max="30" required>
                     <small id="student-count-help" class="form-text text-muted">Максимальное количество учащихся - 30.</small>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Выберите часть</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="part" id="part1" value="0" checked>
+                        <label class="form-check-label" for="part1">
+                            Часть 1 (Анаграмма, Шифры Цезаря,  Азбука морзе, Атбаш, Брайля)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="part" id="part2" value="1">
+                        <label class="form-check-label" for="part2">
+                            Часть 2 (Шифры  Атбаш, Азбука Брайля, избыточная информация (соленый язык))
+                        </label>
+                    </div>
+                </div>
                 <button id="start-training-btn" type="submit" class="btn btn-primary btn-lg">Начать тренировку</button>
             </form>
         </div>
@@ -18,6 +33,7 @@
         e.preventDefault();
         var startButton = document.getElementById("start-training-btn");
         var studentCount = document.getElementById("student-count").value;
+        var part = document.querySelector('input[name="part"]:checked').value;
 
         startButton.disabled = true;
         startButton.innerHTML = '<span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span> Начинаем загрузку...';
@@ -26,7 +42,8 @@
             url: '{{ url_for('start_training_async') }}',
             type: 'POST',
             data: {
-                'student_count': studentCount
+                'student_count': studentCount,
+                'part': part
             },
             success: function(response) {
                 window.location.href = response.redirect_url;
