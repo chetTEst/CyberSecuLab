@@ -28,11 +28,11 @@ from flask_sqlalchemy import SQLAlchemy
 from config import path
 from os.path import join as pjoin
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 db = SQLAlchemy()
 
 def create_app():
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db') #'mysql+pymysql://lesson1311:lesson1311@localhost:33061/lesson1311'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson13134:lesson13134@192.168.1.71:33062/lesson13134'#'sqlite:///' + pjoin(path, 'tmp', 'lesson.db') #'mysql+pymysql://lesson13134:lesson13134@localhost:33062/lesson13134'
     app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w!!'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app

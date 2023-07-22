@@ -192,7 +192,7 @@ def setQuestions():
 
     with app.app_context():
         dataCipherType = ['anagram', 'cesar_e', 'cesar_d', 'morze', 'atbash_e', 'atbash_d', 'braile', 'salt_lang']
-        def setCipherType(data):  # Анаграмма, Шифры Цезаря, Атбаш, Азбука морзе, Брайля, избыточная информация (соленый язык)
+        def setCipherType(data):  # Анаграмма, Шифры Цезаря, Атбаш, Азбука морзе, Шрифт Брайля, избыточная информация (соленый язык)
             for idx, type in enumerate(data):
                 type = CipherType(id=idx + 1, type=type)
                 db.session.add(type)

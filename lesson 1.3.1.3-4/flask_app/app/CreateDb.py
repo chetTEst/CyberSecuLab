@@ -1,5 +1,5 @@
 from . import app
-from .models import db, User, Session, CipherType, Questions
+from .models import db, Session, User, CipherType, Questions
 
 db.init_app(app)
 

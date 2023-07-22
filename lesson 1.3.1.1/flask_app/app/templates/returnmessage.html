@@ -9,9 +9,9 @@
     {% endwith %}
     <p>Что произошло с сообщением?</p>
     <div class="row">
-      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer1 }}')">Нарушена Целостность</button>
-      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer2 }}')">Нарушена Доступность</button>
-      <button type="button" class="btn btn-outline-primary" onclick="checkAnswer('{{ answer3 }}')">Нарушена Конфиденциальность</button>
+      <button type="button" class="btn btn-outline-primary mr-1" onclick="checkAnswer('{{ answer1 }}')">Нарушена Целостность</button>
+      <button type="button" class="btn btn-outline-primary mr-1" onclick="checkAnswer('{{ answer2 }}')">Нарушена Доступность</button>
+      <button type="button" class="btn btn-outline-primary mr-1" onclick="checkAnswer('{{ answer3 }}')">Нарушена Конфиденциальность</button>
     </div>
     <div class="mt-4">
         <a href="{{ dashboard_link }}" class="btn btn-info">Назад</a>

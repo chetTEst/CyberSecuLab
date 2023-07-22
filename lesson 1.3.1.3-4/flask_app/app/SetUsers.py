@@ -27,11 +27,12 @@ def setUserSession(n, part):
             username = generate_random_word_with_digits(10)  # 10-character username
             password = generate_random_word_with_digits(10)  # 10-character password
             password_hash = generate_password_hash(password)
-            q1 = random.choice(questions[0])[0]
-            q2 = random.choice(questions[1])[0]
-            q3 = random.choice(questions[2])[0]
-            q4 = random.choice(questions[3])[0]
-            user = User(username=username, password=password_hash, session=session_number,
+            q1 = Questions.query.get(random.choice(questions[0])[0])
+            q2 = Questions.query.get(random.choice(questions[1])[0])
+            q3 = Questions.query.get(random.choice(questions[2])[0])
+            q4 = Questions.query.get(random.choice(questions[3])[0])
+            session_obj = Session.query.get(session_number)
+            user = User(username=username, password=password_hash, session=session_obj,
                         q1=q1, q2=q2, q3=q3, q4=q4)
             db.session.add(user)
             logins.append(username)

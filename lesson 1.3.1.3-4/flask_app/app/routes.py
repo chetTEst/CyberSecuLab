@@ -95,7 +95,8 @@ def login(session_number):
         user = User.query.filter_by(username=username).first()
 
         # Verify the password using its hash
-        if user and check_password_hash(user.password, password) and user.session == session_number:
+        session_obj = Session.query.get(session_number)
+        if user and check_password_hash(user.password, password) and user.session == session_obj:
             login_user(user, remember=remember)
             user.authenticated = True
             db.session.add(user)
@@ -109,8 +110,7 @@ def login(session_number):
 @app.route('/session<int:session_number>/dashboard')
 @login_required
 def dashboard(session_number):
-    questions_ids = [current_user.q1, current_user.q2, current_user.q3, current_user.q4]
-    questions = Questions.query.filter(Questions.id.in_(questions_ids)).all()
+    questions = [current_user.q1, current_user.q2, current_user.q3, current_user.q4]
     # Преобразование вопросов в список словарей
     questions_list = [{'id': q.id, 'text': q.text} for q in questions]  # не включаем 'answer'
     # Передача списка в шаблон
@@ -132,7 +132,8 @@ def get_user_answers():
 @app.route('/update_badges', methods=['GET'])
 def update_badges():
     data = {}
-    session = request.args.get('session_id')
+    session_id = request.args.get('session_id')
+    session = Session.query.get(session_id)
     users = User.query.filter_by(session=session).all()
     for user in users:
         data[user.username] = {
