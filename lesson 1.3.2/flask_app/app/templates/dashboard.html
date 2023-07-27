@@ -1,0 +1,180 @@
+<!-- dashboard.html -->
+
+{% extends 'baseToast.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Рабочая панель взвода Антивирусов</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Имя фала</th>
+                <th scope="col">Скачать для анализа</th>
+                <th scope="col">Это вирус?</th>
+                <th scope="col">Проверка файла</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+                <tr data-is-virus="{{ file.isVirus }}" data-checked="false">
+                    <td>{{ file.filename }}</td>
+                    <td><a href="{{ url_for('download_file', filename=file.filename) }}" class="btn btn-primary btn-sm disabled" id="download-btn-{{ loop.index }}" onclick="return checkVirus({{ loop.index }});">Скачать</a></td>
+                    <td><input type="checkbox" id="checkbox-{{ loop.index }}" onchange="disableDownload({{ loop.index }})"></td>
+                    <td><a href="https://www.virustotal.com/gui/file/{{ file.hash }}/detection" target="_blank" class="btn btn-info btn-sm" onclick="enableDownload({{ loop.index }})">Проверить hash на Virustotal</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Нет доступных файлов</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-4">
+        <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
+        <a href="" class="btn btn-success" onclick="checkAnswers(); return false;">Проверить ответы</a>
+        <a id="nexttask" href="{{ firewall_link }}" class="btn btn-primary" hidden disabled>Следующее задание</a>
+    </div>
+</div>
+
+<script>
+  $('#nexttask').removeAttr('hidden').hide()
+  function checkVirus(index) {
+    var row = document.getElementById("download-btn-" + index).parentNode.parentNode;
+    var isVirus = row.getAttribute("data-is-virus") === 'True';
+    if (isVirus) {
+        $('#virusModal').modal('show');
+        return false;
+    }
+    return true;
+  }
+
+  function enableDownload(index) {
+    var row = document.getElementById("download-btn-" + index).parentNode.parentNode;
+    row.setAttribute("data-checked", "true");
+
+    var downloadButton = document.getElementById("download-btn-" + index);
+    downloadButton.classList.remove("disabled");
+  }
+
+  function disableDownload(index) {
+    var row = document.getElementById("download-btn-" + index).parentNode.parentNode;
+    var isChecked = row.getAttribute("data-checked") === 'true';
+
+    if (!isChecked) {
+      return;
+    }
+
+    var checkbox = document.getElementById("checkbox-" + index);
+    var downloadButton = document.getElementById("download-btn-" + index);
+
+    if (checkbox.checked){
+     downloadButton.classList.add("disabled");
+    }
+    else{
+     downloadButton.classList.remove("disabled");
+    }
+  }
+
+ function showToastMessage(message, messageType) {
+    var toastElement = $('#toastMessage');
+    toastElement.find('.toast-body').text(message);
+
+    // Настройка класса alert и текста заголовка
+    var alertClass = "alert ";
+    var alertTitle = "";
+    if (messageType === "success") {
+        alertClass += "alert-success";
+        alertTitle = "ОТЛИЧНО!";
+    } else if (messageType === "danger") {
+        alertClass += "alert-danger";
+        alertTitle = "ВНИМАНИЕ!";
+    } else {
+        alertClass += "alert-info";
+        alertTitle = "ИНФОРМАЦИЯ";
+    }
+    toastElement.find('#toast-header').removeClass('alert alert-success alert-danger alert-info').addClass(alertClass);
+    toastElement.find('#toastheader').text(alertTitle);
+
+    // Показать всплывающее сообщение с задержкой в 15 секунд перед автоматическим закрытием
+    toastElement.toast({ delay: 15000 });
+    toastElement.toast('show');
+}
+    function checkAnswers() {
+        var allCorrect = true;
+        $('tr[data-is-virus]').each(function() {
+            var isVirus = $(this).attr('data-is-virus') === 'True';
+            var isChecked = $(this).find('input[type=checkbox]').is(':checked');
+            if (isVirus !== isChecked) {
+                allCorrect = false;
+                return false;  // break the loop
+            }
+        });
+        if (allCorrect) {
+            $.ajax({
+                url: "/check_answer",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ answer: 'a1' }),
+                dataType: 'json',
+                success: function() {
+                    showToastMessage("Поздравляем! Все ответы верны. Вы успешно справились с задачей взвода антивируса. КиберХранитель гордиться вами! Так держать.", "success");
+                    $('#nexttask').fadeIn().prop('disabled', false);
+                    return false;
+                },
+                error: function() {
+                    showToastMessage("Произошла какая-то дичь. Мы уже знаем о ней, возможно даже разбираемся. Но это не точно. Ошибка: при сохранении в базу данных.");
+                    return false;
+                    }
+            });
+        } else {
+            showToastMessage("Странно, но ответ не правильный. Посмотрите внимательней. Возможно где-то кроется вирус, а может отметили что-то лишнее.", "danger");
+            return false;
+        }
+    }
+
+
+    $(document).ready(function() {
+    // AJAX запрос к серверу при загрузке страницы
+    $.ajax({
+        url: '{{ url_for('get_user_answers') }}',  // Маршрут на сервере, который возвращает текущие значения `a`
+        type: 'GET',
+        success: function(response) {
+            if (response.a1){
+            $('#nexttask').fadeIn().prop('disabled', false);
+            }
+        }
+        });
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="virusModal" tabindex="-1" role="dialog" aria-labelledby="virusModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 role="alert" class="modal-title alert alert-danger" id="virusModalLabel">КАТАСТРОФА!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body alert alert-warning m-2" role="alert">
+        Вы скачали вирус, вашему компьютеру грозит опасность! Но все в порядке, мы вовремя перехватили этот файл и его уничтожили, вам больше ничего не грозит
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ой извините, я больше так не буду</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

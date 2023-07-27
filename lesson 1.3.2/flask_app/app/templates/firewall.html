@@ -1,0 +1,133 @@
+<!-- dashboard.html -->
+
+{% extends 'baseToast.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Рабочая панель корпуса Брендмауэров</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Номер порта</th>
+                <th scope="col">Выбрать действие</th>
+                <th scope="col">Что это за порт?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for port in ports %}
+                <tr data-is-virus="{{ port.isDanger }}" data-enabled="">
+                    <td><h5><span class="badge badge-pill badge-secondary" id="port-{{ loop.index }}">{{ port.number }}</span></h5></td>
+                    <td>
+                        <div class="dropdown">
+                          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Выбрать действие
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn-success" href="#" onclick="enablePort({{ loop.index }}); return false;">Разрешить</a>
+                            <a class="dropdown-item btn-danger" href="#" onclick="disablePort({{ loop.index }}); return false;">Запретить</a>
+                          </div>
+                        </div>
+                    </td>
+                    <td><a tabindex="0" class="btn btn-info" role="button" data-toggle="popover" data-trigger="focus" title="{{ port.number }}" data-content="{{ port.about }}">Информация</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Нет доступных Портов</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-4">
+        <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
+        <a href="" class="btn btn-success" onclick="checkAnswers(); return false;">Проверить ответы</a>
+    </div>
+</div>
+
+<script>
+  $(function () {
+   $('[data-toggle="popover"]').popover({trigger: 'focus'})
+  })
+
+  function enablePort(number){
+  var row = document.getElementById("port-" + number).parentNode.parentNode.parentNode;
+  row.setAttribute("data-enabled", "false");
+  $("#port-"+number).removeClass('badge-danger badge-secondary').addClass('badge-success');
+  }
+
+  function disablePort(number){
+  var row = document.getElementById("port-" + number).parentNode.parentNode.parentNode;
+  row.setAttribute("data-enabled", "true");
+  $("#port-"+number).removeClass('badge-success badge-secondary').addClass('badge-danger');
+  }
+
+
+ function showToastMessage(message, messageType) {
+    var toastElement = $('#toastMessage');
+    toastElement.find('.toast-body').text(message);
+
+    // Настройка класса alert и текста заголовка
+    var alertClass = "alert ";
+    var alertTitle = "";
+    if (messageType === "success") {
+        alertClass += "alert-success";
+        alertTitle = "ОТЛИЧНО!";
+    } else if (messageType === "danger") {
+        alertClass += "alert-danger";
+        alertTitle = "ВНИМАНИЕ!";
+    } else {
+        alertClass += "alert-info";
+        alertTitle = "ИНФОРМАЦИЯ";
+    }
+    toastElement.find('#toast-header').removeClass('alert alert-success alert-danger alert-info').addClass(alertClass);
+    toastElement.find('#toastheader').text(alertTitle);
+
+    // Показать всплывающее сообщение с задержкой в 15 секунд перед автоматическим закрытием
+    toastElement.toast({ delay: 15000 });
+    toastElement.toast('show');
+}
+    function checkAnswers() {
+        var allCorrect = true;
+        $('tr[data-is-virus]').each(function() {
+            var isVirus = $(this).attr('data-is-virus') === 'True';
+            var isChecked = $(this).attr('data-enabled') === 'true';
+            if (isVirus !== isChecked) {
+                allCorrect = false;
+                return false;  // break the loop
+            }
+        });
+
+        if (allCorrect) {
+            $.ajax({
+                url: "/check_answer",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ answer: 'a2' }),
+                dataType: 'json',
+                success: function() {
+                    showToastMessage("Поздравляем! Все ответы верны. Вы успешно справились с задачей Корпуса Брандмауэров. КиберХранитель гордиться вами! Так держать.", "success");
+                    return false;
+                },
+                error: function() {
+                    showToastMessage("Произошла какая-то дичь. Мы уже знаем о ней, возможно даже разбираемся. Но это не точно. Ошибка: при сохранении в базу данных.");
+                    return false;
+                    }
+            });
+        } else {
+            showToastMessage("Странно, но ответ не правильный. Посмотрите внимательней. Возможно где-то осталась незакрытая дверь, ну или вы закрыли лишнюю и теперь в курьер не может доставить важную информацию", "danger");
+            return false;
+        }
+    }
+</script>
+
+
+
+
+{% endblock %}
