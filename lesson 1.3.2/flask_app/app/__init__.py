@@ -33,7 +33,7 @@ app = Flask(__name__, static_folder='static')
 db = SQLAlchemy()
 
 def create_app():
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson132:lesson132@192.168.1.71:33062/lesson132' #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')  #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db') #'mysql+pymysql://lesson1311:lesson1311@localhost:33061/lesson1311'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson132:lesson132@192.168.1.71:33063/lesson132' #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')  #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db') #'mysql+pymysql://lesson1311:lesson1311@localhost:33061/lesson1311'
     app.config['SECRET_KEY'] = 'NH}!112R3Se}X8|"%<8w'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app
