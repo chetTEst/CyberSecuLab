@@ -1,7 +1,7 @@
-version: '3'
+version: '3.3'
 services:
-  web:
-    image: httpd:2.4
+  cyberbingo:
+    image: httpd:latest
     volumes:
       - ./www:/usr/local/apache2/htdocs/
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
