@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+<head>
+    <title>Игра: Кибер-Бинго</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="css\css.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Игра Кибер-Бинго</h1>
+        <h5 class="card-title text-center" id="instructionText">Кликните "Начать игру в бинго"</h5>
+        <div class="card mx-auto" style="width: 50rem;">
+            <div class="card-body">
+                <p class="card-text text-center" id="textOutput">Вы готовы Дети?</p>
+                <button class="btn btn-primary btn-block mt-5" id="startButton">Начать игру в бинго</button>
+                <button class="btn btn-success btn-block mt-3" id="nextButton" disabled>Следующее</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript\bingo.js"></script>
+</body>
+</html>

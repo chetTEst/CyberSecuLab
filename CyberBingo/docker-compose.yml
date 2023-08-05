@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: httpd:2.4
+    volumes:
+      - ./www:/usr/local/apache2/htdocs/
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - 8083:80
