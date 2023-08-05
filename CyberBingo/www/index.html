@@ -8,19 +8,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="css\css.css">
 </head>
-<body>
-    <div class="container">
-        <h1 class="text-center mt-5">Игра Кибер-Бинго</h1>
-        <h5 class="card-title text-center" id="instructionText">Кликните "Начать игру в бинго"</h5>
-        <div class="card mx-auto" style="width: 50rem;">
-            <div class="card-body">
-                <p class="card-text text-center" id="textOutput">Вы готовы Дети?</p>
-                <button class="btn btn-primary btn-block mt-5" id="startButton">Начать игру в бинго</button>
-                <button class="btn btn-success btn-block mt-3" id="nextButton" disabled>Следующее</button>
+<body class="d-flex flex-column h-100">
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <h1 class="text-center mt-5">Игра Кибер-Бинго</h1>
+            <h5 class="card-title text-center" id="instructionText">Кликните "Начать игру в бинго"</h5>
+            <div class="card mx-auto" style="width: 50rem;">
+                <div class="card-body">
+                    <p class="card-text text-center" id="textOutput">Вы готовы Дети?</p>
+                    <button class="btn btn-primary btn-block mt-5" id="startButton">Начать игру в бинго</button>
+                    <button class="btn btn-success btn-block mt-3" id="nextButton" disabled>Следующее</button>
+                </div>
             </div>
         </div>
-    </div>
-
+    </main>
     <script src="javascript\bingo.js"></script>
+    <footer class="footer bg-light position-sticky" style="bottom: 0; width: 100%; height: 60px; line-height: 60px;">
+        <div class="container">
+            <span class="text-muted" style="font-size: 9pt; text-align: right; display: block;"><a target="_blank" href="https://github.com/chetTEst/CyberSecuLab">Создано Четверовым А.В.. Распространяется по лицензии Apache 2.0</a></span>
+        </div>
+    </footer>
 </body>
 </html>
