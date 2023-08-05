@@ -10,7 +10,7 @@
 
 Карточки доступны тут [карточки](https://drive.google.com/file/d/1aTltsVhXtvI3Q9NT7m0AEwdW-bVG490b/view?usp=sharing)
 
-**Demo:** [https://lesson1311.kasperstudent.ru/](https://lesson1311.kasperstudent.ru/)
+**Demo:** [https://cyberbingo.kasperstudent.ru/](https://cyberbingo.kasperstudent.ru/)
 
 Вид страницы 1:
 
