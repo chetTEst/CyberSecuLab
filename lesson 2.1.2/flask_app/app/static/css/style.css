@@ -1,0 +1,24 @@
+/* styles.css */
+@font-face {
+    font-family: "Kaspersky Sans Regular";
+    src: url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.eot");
+    src: url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a246b8d5a19583f1aeb36a51d584344b.svg#Kaspersky Sans Regular")format("svg");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}

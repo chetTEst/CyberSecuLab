@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  db_lesson212:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "33064:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: lesson212
+      MYSQL_DATABASE: lesson212
+      MYSQL_USER: lesson212
+      MYSQL_PASSWORD: lesson212
+  lesson212:
+    build:
+      context: .
+      dockerfile: Dockerfile_tiangolo
+    ports:
+      - "8084:80"
+volumes:
+  db_data:

@@ -1,0 +1,52 @@
+<!-- session_login.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <h1>Сессия тренировки №{{ session_link }}</h1> <a href="/session{{ session_link }}/login" target="_blank" class="btn btn-primary mt-3">Страница тренировки session{{ session_link }}/login</a>
+        <div class="row">
+            <div class="col">
+                <h4>Логины:</h4>
+                <ul class="list-group">
+                    {% for login in logins %}
+                        <li class="list-group-item">{{ loop.index }}). {{ login }}
+                            <span id="{{ login }}_a1" class="badge bg-secondary">Защита от DDoS</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Пароли:</h4>
+                <ul class="list-group">
+                    {% for password in passwords %}
+                        <li class="list-group-item">{{ loop.index }}). {{ password }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script>
+ function updateBadges() {
+    $.ajax({
+        url: "/update_badges?session_id={{ session_link }}",
+        method: "GET",
+        success: function(data) {
+            for (var login in data) {
+                if (data[login]['a1']) {
+                    $("#" + login + "_a1").removeClass("bg-secondary").addClass("bg-success");
+                }
+            }
+        }
+    });
+}
+
+// Запуск функции сразу после загрузки страницы и каждые 10 секунд
+$(document).ready(function() {
+    updateBadges();
+    setInterval(updateBadges, 10000);
+});
+
+</script>
+
+{% endblock %}

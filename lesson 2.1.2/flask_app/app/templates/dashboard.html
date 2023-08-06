@@ -1,0 +1,63 @@
+<!-- dashboard.html -->
+
+{% extends 'baseToast.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Рабочая панель «Системного администратора»</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">IP адрес</th>
+                <th scope="col">Нагрузка</th>
+                <th scope="col">CAPTCHA</th>
+                <th scope="col">Выбрать действие</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for ip in ips %}
+                <tr data-is-virus="{{ ip.isDanger }}" data-enabled="">
+                    <td><h5><span class="badge badge-pill badge-secondary" id="port-{{ loop.index }}">{{ ip.number }}</span></h5></td>
+                    <td>
+                        <div class="progress">
+                            <div id="progress-{{ loop.index }}" class="progress-bar progress-bar-striped bg-info progress-bar-animated" style="width: {{ ip.value }}%" role="progressbar" aria-valuenow="{{ ip.value }}" aria-valuemin="0" aria-valuemax="100" data-initial-value="{{ ip.value }}"></div>
+                        </div>
+                    </td>
+                    <td><input type="checkbox" id="checkbox-{{ loop.index }}"></td>
+                    <td>
+                        <div class="dropdown">
+                          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Выбрать действие
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn-success" href="#" onclick="enablePort({{ loop.index }}); return false;">Пропустить</a>
+                            <a class="dropdown-item btn-danger" href="#" onclick="disablePort({{ loop.index }}); return false;">Блокировать</a>
+                          </div>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Нет доступных Портов</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-4">
+        <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
+        <a href="" class="btn btn-success" onclick="checkAnswers(); return false;">Проверить ответы</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dasboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/progressBar.js') }}"></script>
+{% endblock %}

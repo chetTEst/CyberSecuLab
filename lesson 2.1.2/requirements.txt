@@ -1,0 +1,6 @@
+PyMySQL
+Flask
+flask-login
+Flask-SQLAlchemy
+uwsgi
+cryptography
