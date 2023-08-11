@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ace.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/github.css') }}">
+
+    <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <div id="table-head">
+                    <p>У вас есть таблица <b>Деревья</b>:</p>
+                </div>
+
+                <!-- Добавление таблицы перед question-area -->
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Запись</th>
+                            <th>Тип</th>
+                            <th>Съедобное</th>
+                            <th>Плод</th>
+                            <th>Урожай</th>
+                            <th>Год</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set data = [
+                            (1, 'Яблоня', 1, 'Голден', 2000, 2019),
+                            (2, 'Вишня', 1, 'Жуковская', 1000, 2022),
+                            (3, 'Тополь', 0, '-', 0, 0),
+                            (4, 'Яблоня', 1, 'Гала', 2000, 2020),
+                            (5, 'Яблоня', 1, 'Карамелька', 2100, 2020),
+                            (6, 'Яблоня', 1, 'Фуджи', 2000, 2020),
+                            (7, 'Яблоня', 1, 'Симиренко', 1900, 2019),
+                            (8, 'Вишня', 1, 'Молодежная', 1000, 2022),
+                            (9, 'Вишня', 1, 'Волочаевка', 1500, 2021),
+                            (10, 'Вишня', 1, 'Харитоновская', 1400, 2022),
+                            (11, 'Вишня', 1, 'Харитоновская', 1500, 2021),
+                            (12, 'Береза', 0, '-', 0, 0)
+                        ] %}
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item[0] }}</td>
+                            <td>{{ item[1] }}</td>
+                            <td>{{ "Да" if item[2] == 1 else "Нет" }}</td>
+                            <td>{{ item[3] }}</td>
+                            <td>{{ item[4] }}</td>
+                            <td>{{ item[5] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- Конец добавления таблицы -->
+                <div id="question-area">
+                    <!-- Вопросы будут добавлены сюда динамически -->
+                </div>
+                <div id="progress-bar" class="mt-4 mb-4">
+                    <!-- Показатель прогресса будет добавлен сюда динамически -->
+                </div>
+                <form id="quiz-form">
+                    <div class="mb-3">
+                        <label for="editor" class="form-label">Ваш ответ</label>
+                        <!-- Замена input элемента на div для ACE Editor -->
+                        <div id="editor" style="height: 200px;"></div>
+                    </div>
+                    <button id="submit-answer-btn" type="submit" class="btn btn-primary btn-lg">Проверить</button>
+                    <div id="feedback" class="mt-3"></div>
+                </form>
+                <div class="mt-4">
+                    <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-mysql.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-text.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-github.js"></script>
+
+    <script>
+        // Загрузите необходимые модули
+        var oop = ace.require("ace/lib/oop");
+        var MysqlHighlightRules = ace.require("ace/mode/mysql_highlight_rules").MysqlHighlightRules;
+        var TextMode = ace.require("ace/mode/text").Mode;
+
+        // Создайте кастомные правила подсветки на основе правил MySQL
+        function CustomHighlightRules() {
+            MysqlHighlightRules.call(this);
+
+            // Ваши кастомные ключевые слова
+            var customKeywords = "выбери|где|значение|изхранилища|обновить|положив|удалить|установить|ВЫБЕРИ|ГДЕ|ЗНАЧЕНИЕ|ИзХранилища|ОБНОВИТЬ|ПоложиВ|УДАЛИТЬ|УСТАНОВИТЬ";
+
+            // Создайте новое правило для кастомных ключевых слов
+            var customRule = {
+                token: "keyword",
+                regex: customKeywords
+            };
+
+            // Добавьте ваше кастомное правило в начало массива правил
+            this.$rules.start.unshift(customRule);
+        }
+
+        oop.inherits(CustomHighlightRules, MysqlHighlightRules);
+
+        // Создайте кастомный режим на основе режима MySQL
+        function CustomMode() {
+            TextMode.call(this);
+            this.HighlightRules = CustomHighlightRules;
+        }
+
+        oop.inherits(CustomMode, TextMode);
+
+        // Устанавливаем режим для редактора
+        var editor = ace.edit("editor");
+        editor.session.setMode(new CustomMode());
+        editor.setTheme("ace/theme/github");
+
+
+
+        var questions = {{ questions|tojson }}; // Это список вопросов
+        var currentQuestionIndex = 0; // Это индекс текущего вопроса в массиве вопросов
+           function EndTest() {
+        $('#quiz-form').hide();
+        $('#progress-bar').hide();
+
+        // Показываем уведомление в #question-area
+        $('#question-area').html(
+            '<div class="alert alert-success" role="alert">' +
+                '<h4 class="alert-heading">Поздравляем!</h4>' +
+                '<p>Вы освоили основные команды языка «Запросик»</p>' +
+                '<hr>' +
+                '<p class="mb-0">Артур поздравляет вас, вы ответили на все вопросы!<br/>Вы супер-Молодец.</p>' +
+            '</div>'
+        );
+    }
+
+    function loadQuestion() {
+        // Загрузка вопроса
+        if (currentQuestionIndex < 4) {
+            var currentQuestion = questions[currentQuestionIndex];
+            $('#question-area').html(currentQuestion.text);
+            updateProgressBar();
+            }
+        else {
+            // Иначе все вопросы уже отвечены, скрываем форму и бейджи вопросов
+            EndTest();
+        }
+    }
+
+    function updateProgressBar() {
+        var progressBar = '';
+        for (var i = 0; i < questions.length; i++) {
+            var btnClass = i < currentQuestionIndex ? 'btn-success' : i == currentQuestionIndex ? 'btn-primary' : 'btn-secondary';
+            progressBar += '<button type="button" class="btn ' + btnClass + ' mr-1" data-toggle="tooltip" data-placement="top" title="Номер вопроса">' + (i + 1) + '</button>';
+        }
+        $('#progress-bar').html(progressBar);
+    }
+
+    function submitAnswer() {
+        // Проверка ответа
+        $('#quiz-form').submit(function(e) {
+            e.preventDefault();
+            var startButton = document.getElementById("submit-answer-btn");
+            startButton.disabled = true;
+            startButton.innerHTML = '<span class="spinner-grow" style="width: 1.5rem; height: 1.5rem;" role="status" aria-hidden="true"></span> Проверяем...';
+            var answer = editor.getValue();
+            var questionId = questions[currentQuestionIndex].id;
+            $.ajax({
+                url: '{{ url_for('check_answer') }}',
+                type: 'POST',
+                data: {
+                    'question_id': questionId,
+                    'answer': answer
+                },
+                success: function(response) {
+                var alertClass = response.correct ? 'success' : 'danger';
+                var alertMessage = response.correct ? 'Правильный ответ!' : 'Неправильный ответ. Попробуйте еще раз.';
+                startButton.disabled = false;
+                startButton.innerHTML = 'Проверить';
+                $('#feedback').html(
+                    '<div id ="question_alert" class="alert alert-' + alertClass + ' alert-dismissible fade show" role="alert">' +
+                        alertMessage +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span>' +
+                        '</button>' +
+                    '</div>'
+                );
+
+                // Создать таблицу с данными
+                $("#responseTable").remove();
+                var tableHtml = '<table id="responseTable" class="table table-bordered table-striped table-sm">';
+                tableHtml += '<tbody>';
+                for (var i = 0; i < response.data.length; i++) {
+                    var item = response.data[i];
+                    tableHtml += '<tr>';
+                    for (var j = 0; j < item.length; j++) {
+                        tableHtml += '<td>' + item[j] + '</td>';
+                    }
+                    tableHtml += '</tr>';
+                }
+                tableHtml += '</tbody></table>';
+
+                // Вставить таблицу после кнопки "Проверить"
+                $('#feedback').after(tableHtml);
+
+
+                // Закрыть уведомление через 2 секунды
+                window.setTimeout(function() {
+                    $("#question_alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();
+                    });
+                }, 2000);
+
+
+                if (response.correct) {
+                    currentQuestionIndex++; // Переходим к следующему вопросу
+                    loadQuestion();
+                }
+            }
+            });
+        });
+    }
+
+
+    $(document).ready(function() {
+    // AJAX запрос к серверу при загрузке страницы
+    $.ajax({
+        url: '{{ url_for('get_user_answers') }}',  // Маршрут на сервере, который возвращает текущие значения `a`
+        type: 'GET',
+        success: function(response) {
+            // Обновление currentQuestionIndex, чтобы он указывал на первый вопрос, у которого `a` равно `False`
+            var answers = [response.a1, response.a2, response.a3, response.a4];
+            currentQuestionIndex = answers.findIndex(function(a) {
+                return a === false;
+            });
+
+            if (currentQuestionIndex !== -1) {
+                loadQuestion();
+            } else {
+               // Иначе все вопросы уже отвечены, скрываем форму и бейджи вопросов
+                EndTest();
+            }
+        }
+    });
+        submitAnswer();
+    });
+    </script>
+{% endblock %}
