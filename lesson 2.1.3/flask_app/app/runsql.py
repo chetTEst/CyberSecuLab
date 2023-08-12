@@ -1,4 +1,3 @@
-from config import path, JOBE_SERVER_URL, X_API_KEY
 from urllib.error import HTTPError
 import json
 import http.client
@@ -47,8 +46,7 @@ class JobeRun:
             response = connect.getresponse()
             if method == 'PUT':
                 return response.status
-            if method == 'DELETE':
-                print('DELETE: ', response.status)
+            if method == 'HEAD':
                 return response.status
             if response.status != 204:
                 content = response.read().decode('utf8')
@@ -98,39 +96,44 @@ class JobeRun:
                 print("Error output:")
                 print(ro['stderr'])
 
-    def upload_file(self, file_path):
+    def upload_file(self, file_path, file_id=None):
         '''Upload a file to Jobe Server using PUT, fallback to POST if needed.
            Return the file identifier.'''
         with open(file_path, "rb") as file:
             # Encoding the file content to base64
             file_content = base64.b64encode(file.read()).decode('utf-8')
-
-        # Try uploading using PUT first
+        if file_id:
+            resource_put = f'/jobe/index.php/restapi/files/{file_id}'
+            result = self.do_http('HEAD', resource_put)
+            if result == 204:
+                return file_id
         unique_file_id = str(uuid.uuid4())  # Generate a unique file ID
         resource_put = f'/jobe/index.php/restapi/files/{unique_file_id}'
         data = json.dumps({'file_contents': file_content})
         result = self.do_http('PUT', resource_put, data)
         if result == 204:
             return unique_file_id
-        return result.get('file_id', None)
+        return  None
 
 
 class JobeRunExtended(JobeRun):
 
-    def execute_sql(self, db_file_path, sql_query):
+    def execute_sql(self, db_file_path, sql_query, file_id=None):
         # 1. Upload the SQLite3 DB file to Jobe server
-        db_file_id = self.upload_file(db_file_path)
+        if not file_id:
+            file_id = self.upload_file(db_file_path)
 
         # 2. Create the Python code to execute the SQL query on the uploaded DB
         python_code = f"""
 import sqlite3
 
 # Load the database
-conn = sqlite3.connect('/home/jobe/files/{db_file_id}')  # Assuming the uploaded file retains its original extension on Jobe server
+conn = sqlite3.connect('/home/jobe/files/{file_id}')  # Assuming the uploaded file retains its original extension on Jobe server
 cursor = conn.cursor()
 
 # Execute the query
 cursor.execute(\"\"\"{sql_query}\"\"\")
+conn.commit()
 results = cursor.fetchall()
 
 # Close the connection
@@ -143,8 +146,20 @@ for row in results:
 
         # 3. Run the generated Python code on the Jobe server
         result_obj = self.run_test('python3', python_code, 'execute_sql.py')
-        #self.display_result(result_obj)
-        # Extract and return the result
+        print(result_obj)
+        err = result_obj.get('stderr', None)
+        errs = {'syntax error': [' Ошибка синтаксиса '],
+                'no such colum': [' Не верно описано Поле(Нет такого) '],
+                'incomplete input': [' Команда не распознана или не полная '],
+                'no such table': [' Неизвестное Хранилище '],
+                'default': [' Ошибка у которой нет имени ']
+                }
+        if err:
+            for er in errs:
+                if er in err:
+                    return errs[er]
+            else:
+                return errs['default']
         # Assuming stdout contains the result rows printed line by line
         return result_obj.get('stdout', '').splitlines()
 

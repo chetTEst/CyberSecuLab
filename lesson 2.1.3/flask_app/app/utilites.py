@@ -8,7 +8,7 @@ def restore_sql_query(query_string):
         "выбери": "SELECT",
         "ИзХранилища": "FROM",
         "изхранилища": "FROM",
-        "Где": "WHERE",
+        "где": "WHERE",
         "ГДЕ": "WHERE",
         "ОБНОВИТЬ": "UPDATE",
         "обновить": "UPDATE",

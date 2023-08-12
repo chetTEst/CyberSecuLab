@@ -5,7 +5,6 @@ from .models import db, User, Session, Tasks
 from flask import Markup
 from . import app
 from os.path import join
-from shutil import copy2
 from config import path
 
 def setUserSession(n):
@@ -18,13 +17,7 @@ def setUserSession(n):
         session = Session(number=session_number)
         db.session.add(session)
         db.session.commit()
-        questions = [db.session.query(Tasks.id).filter(Tasks.number == i).all() for i in range(1, 6)]
-        def copy_db_for_user(unique_user_id, source_db_path):
-            # Создайте имя файла на основе идентификатора пользователя
-            destination_db_name = join('users_db', f"db_{unique_user_id}.sqlite3")
-            destination_db_path = join(source_db_path, destination_db_name)
-            # Копирование файла базы данных
-            copy2(join(source_db_path, 'base.sqlite3'), destination_db_path)
+        questions = [db.session.query(Tasks.id).filter(Tasks.number == i).all() for i in range(1, 8)]
         def generate_random_word_with_digits(length):
             with open('word_for_pass.txt') as f:
                 word = random.choice(f.readlines()).strip()
@@ -32,7 +25,6 @@ def setUserSession(n):
         for i in range(n):
             username = generate_random_word_with_digits(10)  # 10-character username
             password = generate_random_word_with_digits(10)  # 10-character password
-            copy_db_for_user(username, join(path, 'tmp'))
             password_hash = generate_password_hash(password)
             session_obj = Session.query.get(session_number)
             user = User(username=username, password=password_hash, session=session_obj,
@@ -40,7 +32,10 @@ def setUserSession(n):
                         q2=Tasks.query.get(random.choice(questions[1])[0]),
                         q3=Tasks.query.get(random.choice(questions[2])[0]),
                         q4=Tasks.query.get(random.choice(questions[3])[0]),
-                        q5=Tasks.query.get(random.choice(questions[4])[0]))
+                        q5=Tasks.query.get(random.choice(questions[4])[0]),
+                        q6=Tasks.query.get(random.choice(questions[5])[0]),
+                        q7=Tasks.query.get(random.choice(questions[6])[0]),
+                        )
             db.session.add(user)
             logins.append(username)
             passwords.append(password)

@@ -17,11 +17,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(128), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
-    active = db.Column(db.Boolean, default=True)  # Add this
+    active = db.Column(db.Boolean, default=True)
     authenticated = db.Column(db.Boolean, default=False)
     anonymous = db.Column(db.Boolean, default=False)
     session_id = db.Column(db.Integer, db.ForeignKey('session.id'), nullable=False)
     session = db.relationship('Session')
+    uuid_db = db.Column(db.String(36), unique=True, nullable=True)
+    reference_uuid_db = db.Column(db.String(36), unique=True, nullable=True)
     q1_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
     q1 = db.relationship('Tasks', foreign_keys=[q1_id])
     q2_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
@@ -32,11 +34,20 @@ class User(db.Model):
     q4 = db.relationship('Tasks', foreign_keys=[q4_id])
     q5_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
     q5 = db.relationship('Tasks', foreign_keys=[q5_id])
+    q6_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
+    q6 = db.relationship('Tasks', foreign_keys=[q6_id])
+    q7_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
+    q7 = db.relationship('Tasks', foreign_keys=[q7_id])
     a1 = db.Column(db.Boolean, default=False)
     a2 = db.Column(db.Boolean, default=False)
     a3 = db.Column(db.Boolean, default=False)
     a4 = db.Column(db.Boolean, default=False)
     a5 = db.Column(db.Boolean, default=False)
+    a6 = db.Column(db.Boolean, default=False)
+    a7 = db.Column(db.Boolean, default=False)
+    check_a3 = db.Column(db.Boolean, default=False)
+    check_a4 = db.Column(db.Boolean, default=False)
+    check_a5 = db.Column(db.Boolean, default=False)
 
     @property
     def is_active(self):
@@ -60,5 +71,6 @@ class Tasks(db.Model):
     number = db.Column(db.Integer, nullable=False)
     text = db.Column(db.Text, nullable=False)
     reference = db.Column(db.Text, nullable=False)
+    chek_reference = db.Column(db.Text, nullable=True)
 
 
