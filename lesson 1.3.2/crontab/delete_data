@@ -1,2 +1,2 @@
-0 23 * * * mysql -u lesson13134 -plesson13134 -h db_lesson13134 -P 3306 -e "DELETE FROM lesson13134.users"
-30 23 * * * mysql -u lesson13134 -plesson13134 -h db_lesson13134 -P 3306 -e "DELETE FROM lesson13134.session"
+0 23 * * * mysql -u lesson132 -plesson132 -h db_lesson132 -P 3306 -e "DELETE FROM lesson132.users"
+30 23 * * * mysql -u lesson132 -plesson132 -h db_lesson132 -P 3306 -e "DELETE FROM lesson132.session"
