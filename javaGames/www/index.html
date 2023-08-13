@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+<head>
+    <title>Язык программирования «ДжаваИгры»</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css\css.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images\apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images\favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images\favicon-16x16.png">
+
+</head>
+<body class="d-flex flex-column h-100" style="padding-top: 15px">
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <h5 class="card-title text-center" id="instructionText">Язык программирования «ДжаваИгры»</h5>
+            <div class="card mx-auto" style="width: 50rem;  border: none;">
+                <div class="mb-4">
+                        <label for="editor" class="form-label">Ваша программа:</label>
+                        <!-- Замена input элемента на div для ACE Editor -->
+                        <div id="editor" style="height: 300px; border: 10px solid #ccc;">пусть твоеИмя = спросить("Как тебя зовут?", "Аноним");
+кричалка("Привет, " + твоеИмя + "!");
+                        </div>
+                </div>
+                <div id="progress-bar" class="d-flex justify-content-center mt-3 mb-3">
+                    <!-- Показатель прогресса будет добавлен сюда динамически -->
+                </div>
+                <div class="card-body">
+                    <div class="btn-group btn-group-justify d-flex" role="group">
+                        <a class="btn btn-success mr-2 ml-2 flex-fill disabled" id="backButton" disabled>Предыдущая программа</a>
+                        <button class="btn btn-primary btn-block mr-2 ml-2 flex-fill" id="startButton">Запустить игру</button>
+                        <a class="btn btn-success mr-2 ml-2 flex-fill" id="nextButton">Следующая программа</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-text.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-xcode.js"></script>
+    <script src="javascript/codeInterpiller.js"></script>
+    <script>
+        // Загрузите необходимые модули
+        var oop = ace.require("ace/lib/oop");
+        var JavaScriptHighlightRules = ace.require("ace/mode/javascript_highlight_rules").JavaScriptHighlightRules;
+        var TextMode = ace.require("ace/mode/text").Mode;
+
+        // Создайте кастомные правила подсветки на основе правил JavaScript
+        function CustomHighlightRules() {
+            JavaScriptHighlightRules.call(this); // Используйте JavaScriptHighlightRules
+
+            // Ваши кастомные ключевые слова
+            var customKeywords = "округлить|случайное_число|кричалка|пусть|задачка|Сообщить|спросить|для|новый|Дата|получитьГод|Число|Математика|развилка|второй_путь";
+
+            // Создайте новое правило для кастомных ключевых слов
+            var customRule = {
+                token: "keyword",
+                regex: "(\\.\s*|{\s*|})?\\s*(" + customKeywords + ")"
+            };
+
+            // Добавить кастомное правило в начало массива правил
+            this.$rules.start.unshift(customRule);
+        }
+
+        oop.inherits(CustomHighlightRules, JavaScriptHighlightRules);
+
+        // Создайте кастомный режим на основе режима Text
+        function CustomMode() {
+            TextMode.call(this);
+            this.HighlightRules = CustomHighlightRules;
+        }
+
+        oop.inherits(CustomMode, TextMode);
+
+        // Устанавливаем режим для редактора
+        var editor = ace.edit("editor");
+        editor.session.setMode(new CustomMode());
+        editor.setTheme("ace/theme/xcode");
+
+        // Инициализация интерпретатора
+        const interpreter = new JavaIgryInterpreter();
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            // Извлечение кода из редактора ACE
+            const codeInJavaIgry = editor.getValue();
+
+            // Выполнение кода с помощью интерпретатора
+            interpreter.execute(codeInJavaIgry);
+        });
+    </script>
+    <script src="javascript/programs.js"></script>
+    <footer class="footer bg-light position-sticky" style="bottom: 0; width: 100%; height: 60px; line-height: 60px;">
+        <div class="container">
+            <span class="text-muted" style="font-size: 9pt; text-align: right; display: block;"><a target="_blank" href="https://github.com/chetTEst/CyberSecuLab">Создано Четверовым А.В.. Распространяется по лицензии Apache 2.0</a></span>
+        </div>
+    </footer>
+</body>
+</html>
