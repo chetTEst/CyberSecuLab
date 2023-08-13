@@ -193,6 +193,9 @@ def reset_database():
         db.session.commit()
         if current_user_uuid_db_reference:
             current_user.reference_uuid_db = current_user_uuid_db_reference
+            current_user.check_a3 = False
+            current_user.check_a4 = False
+            current_user.check_a5 = False
             db.session.commit()
             return jsonify({'dbupdate': True})
         else:
