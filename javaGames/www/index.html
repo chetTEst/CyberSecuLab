@@ -52,16 +52,26 @@
             JavaScriptHighlightRules.call(this); // Используйте JavaScriptHighlightRules
 
             // Ваши кастомные ключевые слова
-            var customKeywords = "округлить|случайное_число|кричалка|пусть|задачка|Сообщить|спросить|для|новый|Дата|получитьГод|Число|Математика|развилка|второй_путь";
+            var specialKeywords = "развилка|второй_путь";
+            var customKeywords = "округлить|случайное_число|кричалка|пусть|задачка|Сообщить|спросить|для|новый|Дата|получитьГод|Число|Математика";
 
             // Создайте новое правило для кастомных ключевых слов
+            var specialRule = {
+                token: function(value) {
+                    if (value.startsWith("}")) {
+                        return ["text", "keyword"];
+                    }
+                    return "keyword";
+                },
+                regex: "(}?\\s*)(" + specialKeywords + ")"
+            };
             var customRule = {
                 token: "keyword",
-                regex: "(\\.\s*|{\s*|})?\\s*(" + customKeywords + ")"
-            };
+                regex: "(\\.)?(" + customKeywords + ")"
 
+            };
             // Добавить кастомное правило в начало массива правил
-            this.$rules.start.unshift(customRule);
+            this.$rules.start.unshift(customRule, specialRule);
         }
 
         oop.inherits(CustomHighlightRules, JavaScriptHighlightRules);
