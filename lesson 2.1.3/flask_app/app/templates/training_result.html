@@ -15,6 +15,8 @@
                             <span id="{{ login }}_q3" class="badge bg-secondary">q3</span>
                             <span id="{{ login }}_q4" class="badge bg-secondary">q4</span>
                             <span id="{{ login }}_q5" class="badge bg-secondary">q5</span>
+                            <span id="{{ login }}_q6" class="badge bg-secondary">q6</span>
+                            <span id="{{ login }}_q7" class="badge bg-secondary">q7</span>
                         </li>
                     {% endfor %}
                 </ul>
@@ -51,6 +53,12 @@
                 }
                 if (data[login]['a5']) {
                     $("#" + login + "_q5").removeClass("bg-secondary").addClass("bg-success");
+                }
+                if (data[login]['a6']) {
+                    $("#" + login + "_q6").removeClass("bg-secondary").addClass("bg-success");
+                }
+                if (data[login]['a7']) {
+                    $("#" + login + "_q7").removeClass("bg-secondary").addClass("bg-success");
                 }
             }
         }

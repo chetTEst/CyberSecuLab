@@ -49,6 +49,9 @@ class User(db.Model):
     check_a4 = db.Column(db.Boolean, default=False)
     check_a5 = db.Column(db.Boolean, default=False)
 
+
+
+
     @property
     def is_active(self):
         return self.active

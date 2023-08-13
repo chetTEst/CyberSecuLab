@@ -131,10 +131,21 @@ import sqlite3
 conn = sqlite3.connect('/home/jobe/files/{file_id}')  # Assuming the uploaded file retains its original extension on Jobe server
 cursor = conn.cursor()
 
-# Execute the query
-cursor.execute(\"\"\"{sql_query}\"\"\")
-conn.commit()
-results = cursor.fetchall()
+sql_query = \"\"\"{sql_query}\"\"\"
+
+if not sql_query:
+    sql_query = ' '
+queries = sql_query.split(';')
+results = []
+for query in queries:
+    if '?' in query:
+        cursor.execute(sql_query, ("';ВЫБЕРИ Тип, Съедобное, Плод, Урожай, Год ИзХранилища Деревья --",))
+        results = cursor.fetchall()
+        break
+    if query and not '--' in query:  # Check if the query is not just whitespace or empty
+        cursor.execute(f\"\"\"{{query}}\"\"\")
+        conn.commit()
+        results = cursor.fetchall()
 
 # Close the connection
 conn.close()
@@ -143,7 +154,7 @@ conn.close()
 for row in results:
     print(row)
 """
-
+        print(sql_query)
         # 3. Run the generated Python code on the Jobe server
         result_obj = self.run_test('python3', python_code, 'execute_sql.py')
         print(result_obj)

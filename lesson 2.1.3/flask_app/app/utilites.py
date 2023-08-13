@@ -1,4 +1,4 @@
-def restore_sql_query(query_string):
+def restore_sql_query(query_string, injection=False):
     translation = {
         "положив": "INSERT INTO",
         "ПоложиВ": "INSERT INTO",
@@ -27,8 +27,8 @@ def restore_sql_query(query_string):
         "Деревья": "Trees",
         # Дополните словарь для других команд
     }
-
+    if injection:
+        query_string = query_string.replace('[ТЕКСТ_ЗАПРОСА]', injection)
     for key, value in translation.items():
         query_string = query_string.replace(key, value)
-
     return query_string
