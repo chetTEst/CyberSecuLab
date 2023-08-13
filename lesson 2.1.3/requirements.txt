@@ -4,4 +4,3 @@ flask-login
 Flask-SQLAlchemy
 uwsgi
 cryptography
-requests

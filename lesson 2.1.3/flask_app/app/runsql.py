@@ -134,12 +134,12 @@ cursor = conn.cursor()
 sql_query = \"\"\"{sql_query}\"\"\"
 
 if not sql_query:
-    sql_query = ' '
+    sql_query = ' !'
 queries = sql_query.split(';')
 results = []
 for query in queries:
     if '?' in query:
-        cursor.execute(sql_query, ("';ВЫБЕРИ Тип, Съедобное, Плод, Урожай, Год ИзХранилища Деревья --",))
+        cursor.execute(sql_query, ("';ВЫБЕРИ Тип, Съедобное, Плод, Урожай, Год ИзХранилища Деревья; --",))
         results = cursor.fetchall()
         break
     if query and not '--' in query:  # Check if the query is not just whitespace or empty
@@ -163,6 +163,7 @@ for row in results:
                 'no such colum': [' Не верно описано Поле(Нет такого) '],
                 'incomplete input': [' Команда не распознана или не полная '],
                 'no such table': [' Неизвестное Хранилище '],
+                'unrecognized token': [' Нераспознанная лексема '],
                 'default': [' Ошибка у которой нет имени ']
                 }
         if err:

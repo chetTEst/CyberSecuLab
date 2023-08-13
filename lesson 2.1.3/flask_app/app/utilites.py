@@ -1,11 +1,12 @@
 def restore_sql_query(query_string, injection=False):
     translation = {
-        "положив": "INSERT INTO",
-        "ПоложиВ": "INSERT INTO",
+        "положитьв": "INSERT INTO",
+        "ПоложитьВ": "INSERT INTO",
+        "ПОЛОЖИТЬВ": "INSERT INTO",
         "значение": "VALUES",
         "ЗНАЧЕНИЕ": "VALUES",
-        "ВЫБЕРИ": "SELECT",
-        "выбери": "SELECT",
+        "ВЫБРАТЬ": "SELECT",
+        "выбрать": "SELECT",
         "ИзХранилища": "FROM",
         "изхранилища": "FROM",
         "где": "WHERE",
