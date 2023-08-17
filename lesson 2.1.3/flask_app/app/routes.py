@@ -108,7 +108,7 @@ def login(session_number):
         user = User.query.filter_by(username=username).first()
 
         # Verify the password using its hash
-        session_obj = Session.query.get(session_number)
+        session_obj = db.session.query(Session).filter_by(number=session_number).first()
         if user and check_password_hash(user.password, password) and user.session == session_obj:
             login_user(user, remember=remember)
             user.authenticated = True
@@ -167,8 +167,8 @@ def get_user_answers():
 def update_badges():
     data = {}
     session_id = request.args.get('session_id')
-    session = Session.query.get(session_id)
-    users = User.query.filter_by(session=session).all()
+    session_obj = db.session.query(Session).filter_by(number=session_id).first()
+    users = User.query.filter_by(session=session_obj).all()
     for user in users:
         data[user.username] = {
             'a1': user.a1,
@@ -241,7 +241,7 @@ def check_answer():
         # выполняем запрос пользователя и проверяем его на наличие ошибок. Нет элементов в ответе - все прошло без ошибок
         setSQLfromuser = jobe_extended.execute_sql(join(path, 'tmp', 'base.sqlite3'), restore_sql_query(answer),
                                                    file_id=db_file_id)
-        print('setSQLfromuser')
+
         if not setSQLfromuser:
             # Проверка состояни я БД пользователя после удачного запроса
             results = jobe_extended.execute_sql(join(path, 'tmp', 'base.sqlite3'), question.chek_reference,
@@ -261,7 +261,7 @@ def check_answer():
             setattr(current_user, 'check_a' + str(question.number), True)
             db.session.commit()
     elif question.number in [6, 7]:  # обработка первых двух вопросов
-        print(answer)
+
         answer = answer.split('@@!!@@AD@@!!@@')
         if current_user_reference_uuid_db:  # Проверка наличия файла БД в посочнице для эталонного запроса
             check_file = jobe_extended.upload_file(join(path, 'tmp', 'base.sqlite3'),

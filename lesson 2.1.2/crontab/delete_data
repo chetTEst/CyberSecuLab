@@ -1,2 +1,2 @@
-0 23 * * * mysql -u lesson212 -plesson212 -h db_lesson212 -P 3306 -e "DELETE FROM lesson212.users"
-30 23 * * * mysql -u lesson212 -plesson212 -h db_lesson212 -P 3306 -e "DELETE FROM lesson212.session"
+0 23 * * * root /usr/local/bin/cron-script-delete-from-users.sh
+30 23 * * * root /usr/local/bin/cron-script-delete-from-session.sh

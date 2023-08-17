@@ -23,6 +23,8 @@ def setUserSession(n, part):
             with open('word_for_pass.txt') as f:
                 word = random.choice(f.readlines()).strip()
                 return ''.join([str(session_number)] + list(word) + [random.choice(string.digits) for _ in range(length-len(word))])
+
+        session_obj = db.session.query(Session).filter_by(number=session_number).first()
         for i in range(n):
             username = generate_random_word_with_digits(10)  # 10-character username
             password = generate_random_word_with_digits(10)  # 10-character password
@@ -31,7 +33,6 @@ def setUserSession(n, part):
             q2 = Questions.query.get(random.choice(questions[1])[0])
             q3 = Questions.query.get(random.choice(questions[2])[0])
             q4 = Questions.query.get(random.choice(questions[3])[0])
-            session_obj = Session.query.get(session_number)
             user = User(username=username, password=password_hash, session=session_obj,
                         q1=q1, q2=q2, q3=q3, q4=q4)
             db.session.add(user)
@@ -47,7 +48,6 @@ def setUsertStart():
     with app.app_context():
         session_number = db.session.query(db.func.max(Session.number)).scalar() or 0
         session_number += 1
-        print(session_number)
         # Generate a random string of the given length
         def generate_random_string(length):
             return ''.join(random.choice(string.ascii_letters) for _ in range(length))

@@ -251,11 +251,8 @@ def setQuestions():
                 db.session.add(question)
             db.session.commit()
 
-# Костыли перезапуска для созданной базы данных
-try:
+if Questions.query.count() == 0:
     setQuestions()
-except:
-    pass
 
 
 

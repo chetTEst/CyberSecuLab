@@ -27,4 +27,3 @@ for d in data:
     check_file = jobe_extended.upload_file(join(path, 'tmp', 'base.sqlite3'))
     results = jobe_extended.execute_sql(join(path, 'tmp', 'base.sqlite3'), d['reference'], db_file_id=check_file)
     results = jobe_extended.execute_sql(join(path, 'tmp', 'base.sqlite3'), 'SELECT * FROM Trees', db_file_id=check_file)
-    print(results)

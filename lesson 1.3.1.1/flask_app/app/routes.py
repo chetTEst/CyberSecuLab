@@ -204,7 +204,6 @@ def two_factor_verification(session_number):
 
     # Verify the OTP provided by the user
     totp = pyotp.TOTP(current_user.two_factor_secret)
-    print(totp)
     if totp.verify(user_code):
         current_user.two_factor_enabled = True
         db.session.commit()

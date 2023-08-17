@@ -95,7 +95,7 @@ def login(session_number):
         user = User.query.filter_by(username=username).first()
 
         # Verify the password using its hash
-        session_obj = Session.query.get(session_number)
+        session_obj = db.session.query(Session).filter_by(number=session_number).first()
         if user and check_password_hash(user.password, password) and user.session == session_obj:
             login_user(user, remember=remember)
             user.authenticated = True
@@ -133,8 +133,8 @@ def get_user_answers():
 def update_badges():
     data = {}
     session_id = request.args.get('session_id')
-    session = Session.query.get(session_id)
-    users = User.query.filter_by(session=session).all()
+    session_obj = db.session.query(Session).filter_by(number=session_number).first()
+    users = User.query.filter_by(session=session_obj).all()
     for user in users:
         data[user.username] = {
             'a1': user.a1,

@@ -25,28 +25,36 @@
 
 ![Страница ученика](https://forai.school1409.ru/_media/1322.png)
 
+
+в файле [docker-compose.yml](docker-compose.yml) необходимо указать требуемые вам настройки работы с базой данных
+
+```
+    environment:
+      MYSQL_ROOT_PASSWORD: lesson132
+      MYSQL_DATABASE: lesson132
+      MYSQL_USER: lesson132
+      MYSQL_PASSWORD: lesson132
+      ....
+        environment:
+      DB_HOST: db_lesson132
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: lesson132
+      DB_DATABASE: lesson132
+      DB_USER: lesson132
+      DB_PASSWORD: lesson132
+```
+
 Для запуска приложения на своем сервере вы можете использовать контейнеры:
 
 ```commandline
 docker-compose up -d
 ```
 
-После запуска контейнера должен "вылететь" контейнер приложения. Это связано с тем, что контейнер базы данных
-запускается медленнее. Через 5-10 секунд, а может и больше запустите контейнер приложения вновь:
+После запуска контейнера lesson132 запускается с задержкой опрашивая каждый 5 секунд базу данных. Это связано с тем, что контейнер базы данных
+запускается медленнее. Через 5-10 секунд, а может и больше приложение стартанёт
 
-```commandline
-docker start lesson132_lesson132_1
-```
 
-в файле [__init__.py](flask_app%2Fapp%2F__init__.py) необходимо указать адрес вашего сервера для работы с базой данных
-
-```
-mysql+pymysql://lesson132:lesson132@<адрес>:33062/lesson132
-```
-
-А так же указать необходимые логины, пароли и имена базы данных в [docker-compose.yml](docker-compose.yml)
-
-Либо вы можете использовать SQLite:
+Вы можете использовать и SQLite [__init__.py](flask_app%2Fapp%2F__init__.py), но это только на этапе отладки:
 
 ```python
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')

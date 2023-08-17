@@ -42,7 +42,6 @@ def setUsertStart():
     with app.app_context():
         session_number = db.session.query(db.func.max(Session.number)).scalar() or 0
         session_number += 1
-        print(session_number)
         # Generate a random string of the given length
         def generate_random_string(length):
             return ''.join(random.choice(string.ascii_letters) for _ in range(length))

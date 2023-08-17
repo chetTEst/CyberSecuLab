@@ -3,8 +3,6 @@ services:
   db_lesson1311:
     image: mysql:latest
     restart: always
-    ports:
-      - "33061:3306"
     volumes:
       - db_data:/var/lib/mysql
     environment:
@@ -18,5 +16,14 @@ services:
       dockerfile: Dockerfile_tiangolo
     ports:
       - "8080:80"
+    environment:
+      DB_HOST: db_lesson1311
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: lesson1311
+      DB_DATABASE: lesson1311
+      DB_USER: lesson1311
+      DB_PASSWORD: lesson1311
+      FLASK_ENV: production
+    command: ["/usr/local/bin/wait-for-db.sh"]
 volumes:
   db_data:

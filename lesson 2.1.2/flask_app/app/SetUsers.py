@@ -21,6 +21,8 @@ def setUserSession(n):
             with open('word_for_pass.txt') as f:
                 word = random.choice(f.readlines()).strip()
                 return ''.join([str(session_number)] + list(word) + [random.choice(string.digits) for _ in range(length-len(word))])
+
+        session_obj = db.session.query(Session).filter_by(number=session_number).first()
         for i in range(n):
             username = generate_random_word_with_digits(10)  # 10-character username
             password = generate_random_word_with_digits(10)  # 10-character password
@@ -31,7 +33,7 @@ def setUserSession(n):
             random.shuffle(questiosShuffle)
             for idx, question in enumerate(questiosShuffle):
                 questiosShuffle[idx] = IPs.query.get(question[0])
-            session_obj = Session.query.get(session_number)
+
             user = User(username=username, password=password_hash, session=session_obj,
                         q1=questiosShuffle[0], q2=questiosShuffle[1], q3=questiosShuffle[2], q4=questiosShuffle[3],
                         q5=questiosShuffle[4], q6=questiosShuffle[5], q7=questiosShuffle[6], q8=questiosShuffle[7],

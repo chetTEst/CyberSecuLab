@@ -26,14 +26,20 @@ digital landscape.'''
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import path
+from config import path, db_host, db_port, db_user, db_pass, db_name
 from os.path import join as pjoin
+from os import environ
 
 app = Flask(__name__, static_folder='static')
 db = SQLAlchemy()
 
 def create_app():
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson1311:lesson1311@192.168.1.71:33061/lesson1311' #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db') #'mysql+pymysql://lesson1311:lesson1311@localhost:33061/lesson1311'
+    if environ.get('FLASK_ENV') == 'production':
+        # Запущено через wsgi
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
+    else:
+        # Запущено через run.py
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
     app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app
