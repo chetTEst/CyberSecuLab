@@ -22,29 +22,42 @@
 
 ![Страница ученика](https://forai.school1409.ru/_media/2124.png)
 
+Дв файле [docker-compose.yml](docker-compose.yml) необходимо указать требуемые вам настройки работы с базой данных
+
+```
+    environment:
+      MYSQL_ROOT_PASSWORD: lesson212
+      MYSQL_DATABASE: lesson212
+      MYSQL_USER: lesson212
+      MYSQL_PASSWORD: lesson212
+      ....
+        environment:
+      DB_HOST: db_lesson212
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: lesson212
+      DB_DATABASE: lesson212
+      DB_USER: lesson212
+      DB_PASSWORD: lesson212
+```
+
 Для запуска приложения на своем сервере вы можете использовать контейнеры:
 
 ```commandline
 docker-compose up -d
 ```
 
-После запуска контейнера должен "вылететь" контейнер приложения. Это связано с тем, что контейнер базы данных
-запускается медленнее. Через 5-10 секунд, а может и больше запустите контейнер приложения вновь:
+После запуска контейнера lesson212 запускается с задержкой опрашивая каждый 5 секунд базу данных. Это связано с тем, что контейнер базы данных
+запускается медленнее. Через 5-10 секунд, а может и больше приложение стартанёт
 
-```commandline
-docker start lesson212_lesson212_1
-```
 
-в файле [__init__.py](flask_app%2Fapp%2F__init__.py) необходимо указать адрес вашего сервера для работы с базой данных
-
-```
-mysql+pymysql://lesson212:lesson212@<адрес>:33064/lesson212
-```
-
-А так же указать необходимые логины, пароли и имена базы данных в [docker-compose.yml](docker-compose.yml)
-
-Либо вы можете использовать SQLite:
+Вы можете использовать и SQLite [__init__.py](flask_app%2Fapp%2F__init__.py), но это только на этапе отладки. Через
+переменные окружения определяется как был осуществлен запуск, в контейнере или через run:
 
 ```python
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
+    if environ.get('FLASK_ENV') == 'production':
+        # Запущено через wsgi
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
+    else:
+        # Запущено через run.py
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
 ```

@@ -14,3 +14,30 @@
 6. [lesson 2.1.2](lesson%202.1.2): Практическая учебная тренировка на отработку понимания принципов работы DDoS фильтрации трафика.
 7. [lesson 2.1.3](lesson%202.1.3): Практическая учебная тренировка на отработку понимания принципов запросов к базе данных на языке SQL. На основе вымышленного языка программирования «Запросик».
 В котором синтаксис и команды заимствованы из SQL, но адаптированны под детскую аудиторию, плохо владеющей клавиатурой на латинице.
+
+### Некоторые особенности
+
+Каждое приложение содержит cron
+
+```commandline
+0 23 * * * root /usr/local/bin/cron-script-delete-from-users.sh
+30 23 * * * root /usr/local/bin/cron-script-delete-from-session.sh
+```
+
+И соответствующие ему скрипты:
+
+```commandline
+#cron-script-delete-from-session.sh
+#!/bin/bash
+
+mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "DELETE FROM \`$DB_DATABASE\`.session"
+```
+
+```commandline
+#cron-script-delete-from-users.sh
+#!/bin/bash
+
+mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "DELETE FROM \`$DB_DATABASE\`.users"
+```
+
+**По этому будьте внимательны, раз в сутки таблицы обнуляются.**

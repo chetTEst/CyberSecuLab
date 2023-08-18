@@ -54,8 +54,14 @@ docker-compose up -d
 запускается медленнее. Через 5-10 секунд, а может и больше приложение стартанёт
 
 
-Вы можете использовать и SQLite [__init__.py](flask_app%2Fapp%2F__init__.py), но это только на этапе отладки:
+Вы можете использовать и SQLite [__init__.py](flask_app%2Fapp%2F__init__.py), но это только на этапе отладки. Через
+переменные окружения определяется как был осуществлен запуск, в контейнере или через run:
 
 ```python
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
+    if environ.get('FLASK_ENV') == 'production':
+        # Запущено через wsgi
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
+    else:
+        # Запущено через run.py
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
 ```
