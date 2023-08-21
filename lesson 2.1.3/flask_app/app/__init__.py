@@ -40,7 +40,6 @@ def create_app():
     else:
         # Запущено через run.py
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://lesson213:lesson213@192.168.1.71:33062/lesson213' #'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')#'mysql+pymysql://lesson213:lesson213@192.168.1.71:33062/lesson213'
     app.config['SECRET_KEY'] = 'NH}!112R36565Se}X8|"%<!@8w'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app
