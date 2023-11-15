@@ -251,8 +251,9 @@ def setQuestions():
                 db.session.add(question)
             db.session.commit()
 
-if Questions.query.count() == 0:
-    setQuestions()
+with app.app_context():
+    if Questions.query.count() == 0:
+        setQuestions()
 
 
 

@@ -1,5 +1,4 @@
 import random
-import base64
 from .models import db, Questions, Ports
 from . import app
 

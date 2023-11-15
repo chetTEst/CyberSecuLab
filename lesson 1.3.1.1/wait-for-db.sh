@@ -2,7 +2,7 @@
 
 set -e > /var/log/wait-for-db.sh.log 2>&1
 
-host="${DB_HOST:-db_lesson132}"
+host="${DB_HOST:-db_lesson1311}"
 port="${DB_PORT:-3306}"
 
 until nc -z -v -w30 $host $port; do

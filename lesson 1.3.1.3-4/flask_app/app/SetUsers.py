@@ -3,7 +3,6 @@ import random
 import string
 from werkzeug.security import generate_password_hash
 from .models import db, User, Session, Questions
-from flask import Markup
 from . import app
 
 def setUserSession(n, part):

@@ -26,11 +26,11 @@ a valuable asset for anyone seeking to ensure data and information security in t
 digital landscape.'''
 
 from functools import wraps
-from flask import render_template, request, redirect, url_for, flash, Markup, jsonify, session, abort, send_from_directory
+from flask import render_template, request, redirect, url_for, flash, jsonify, session, abort, send_from_directory
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 from . import app
-from .models import db, User, Session, Questions, Ports
+from .models import db, User, Session
 from .SetUsers import setUserSession
 from config import path
 

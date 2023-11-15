@@ -6,4 +6,4 @@ services:
       - ./www:/usr/local/apache2/htdocs/
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
     ports:
-      - 8083:80
+      - 8082:80

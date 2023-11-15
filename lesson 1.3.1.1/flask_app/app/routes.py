@@ -30,7 +30,7 @@ import string
 from base64 import b64encode
 from functools import wraps
 from io import BytesIO
-from flask import render_template, request, redirect, url_for, flash, send_from_directory, Markup, jsonify, session, abort
+from flask import render_template, request, redirect, url_for, flash, send_from_directory, jsonify, session, abort
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 from . import app
@@ -40,6 +40,7 @@ from os import listdir
 from config import path
 from os.path import join as pjoin
 from random import choice, randint
+
 
 def generate_sequences(length):
     sequence1 = ''.join(choice(string.ascii_letters) for _ in range(length))
@@ -83,6 +84,7 @@ def start_training_async():
         'redirect_url': url_for('start_training')
     }
     return jsonify(response)
+
 
 @app.route('/start-training', methods=['GET', 'POST'])
 def start_training():

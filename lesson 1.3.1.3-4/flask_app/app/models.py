@@ -16,7 +16,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(128), unique=True, nullable=False)
-    password = db.Column(db.String(128), nullable=False)
+    password = db.Column(db.String(256), nullable=False)
     active = db.Column(db.Boolean, default=True)  # Add this
     authenticated = db.Column(db.Boolean, default=False)
     anonymous = db.Column(db.Boolean, default=False)
