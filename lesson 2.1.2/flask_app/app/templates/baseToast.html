@@ -7,13 +7,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="{{ url_for('static', filename='css/bootstrap_4.5.0_css_bootstrap.min.css') }}" rel="stylesheet">
-</head>
     <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap_4.5.0_js_bootstrap.min.js') }}"></script>
+</head>
+
 <body class="d-flex flex-column h-100">
 
   <!--Toast сообщение -->
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastMessage" style="position: fixed; top: 20%; right: 50%; transform: translate(50%, -50%); z-index: 9999;">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastMessage" style="position: fixed; top: 20%; right: 35%; transform: translate(50%, -50%); z-index: 500;">
     <div id="toast-header" role="alert">
       <strong id="toastheader">Сообщение</strong>
           <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Закрыть">
