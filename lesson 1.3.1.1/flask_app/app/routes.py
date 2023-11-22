@@ -52,7 +52,10 @@ def generate_sequences(length):
 def anonymous_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if current_user.is_anonymous:
+        session_number = kwargs.get('session_number', None)
+        if session_number is not None:
+            return redirect(url_for('login', session_number=session_number))
+        else:
             return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated_function
@@ -127,6 +130,7 @@ def login(session_number):
     return render_template('login.html', session_link=session_number)
 
 @app.route('/session<int:session_number>/logout')
+@anonymous_required
 @login_required
 def logout(session_number):
     current_user.authenticated = False
@@ -136,6 +140,7 @@ def logout(session_number):
     return redirect(url_for('login', session_number=session_number))
 
 @app.route('/session<int:session_number>/dashboard')
+@anonymous_required
 @login_required
 def dashboard(session_number):
     # Get the role of the current user
@@ -174,6 +179,7 @@ def download_file(filename):
 
 
 @app.route('/session<int:session_number>/two_factor_authentication')
+@anonymous_required
 @login_required
 def two_factor_authentication(session_number):
     # Generate a new secret key for the user
@@ -200,6 +206,7 @@ def two_factor_authentication(session_number):
                            dashboard_link=url_for('dashboard', session_number=session_number))
 
 @app.route('/session<int:session_number>/two-factor-verification', methods=['POST'])
+@anonymous_required
 @login_required
 def two_factor_verification(session_number):
     user_code = request.form.get('code')

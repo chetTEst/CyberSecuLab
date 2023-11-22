@@ -38,7 +38,10 @@ from config import path
 def anonymous_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if current_user.is_anonymous:
+        session_number = kwargs.get('session_number', None)
+        if session_number is not None:
+            return redirect(url_for('login', session_number=session_number))
+        else:
             return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated_function
@@ -171,6 +174,7 @@ def check_answer():
 
 
 @app.route('/session<int:session_number>/logout')
+@anonymous_required
 @login_required
 def logout(session_number):
     current_user.authenticated = False
