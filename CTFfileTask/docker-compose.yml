@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  cyberbingo:
+    image: httpd:latest
+    volumes:
+      - ./www:/usr/local/apache2/htdocs/
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - 8080:80
