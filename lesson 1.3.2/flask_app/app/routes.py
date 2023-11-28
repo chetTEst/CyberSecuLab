@@ -33,18 +33,69 @@ from . import app
 from .models import db, User, Session
 from .SetUsers import setUserSession
 from config import path
+import re
+from icecream import ic
+ic.disable()
+
+
+def check_login(session_number):
+    ic()
+    try:
+        if current_user.authenticated:
+            ic()
+            return ic(redirect(url_for('dashboard', session_number=session_number))), True
+
+    except:
+        return ic(redirect(url_for('login', session_number=session_number))), False
 
 
 def anonymous_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        # Проверка, вошел ли пользователь в систему
+        if current_user.is_authenticated:
+            # Если пользователь вошел, выполняем оригинальную функцию
+            return f(*args, **kwargs)
         session_number = kwargs.get('session_number', None)
         if session_number is not None:
             return redirect(url_for('login', session_number=session_number))
         else:
-            return redirect(url_for('login'))
+            return render_template("errors.html")
         return f(*args, **kwargs)
     return decorated_function
+
+
+def extract_session_number(url):
+    # Шаблон регулярного выражения для поиска номера сессии
+    pattern = r'/session(\d+)'
+
+    # Поиск совпадений в URL
+    match = re.search(pattern, url)
+
+    # Если найдено совпадение, возвращаем номер сессии
+    if match:
+        return match.group(1)  # group(1) возвращает значение первой группы захвата
+    else:
+        return None
+
+
+def error_do(requested_url):
+    ic()
+    # Проверяем, содержит ли URL паттерн /session<int:session_number>
+    if '/session' in requested_url:
+        # Извлекаем номер сессии из URL
+        session_number = ic(extract_session_number(requested_url))
+        if session_number:
+            ic()
+            return check_login(session_number)[0]
+        else:
+            ic()
+            return render_template("errors.html")
+    else:
+        # Возвращаем HTML-страницу для ошибок не связанных с сессией
+        return render_template("errors.html")
+
+
 
 
 login_manager = LoginManager()
@@ -85,10 +136,22 @@ def start_training():
 
 @app.route('/session<int:session_number>')
 def index(session_number):
-    return render_template('login.html', session_link=session_number)
+    ic()
+    try:
+        if current_user.authenticated:
+            ic()
+            return redirect(url_for('dashboard', session_number=session_number))
+
+    except:
+        return ic(redirect(url_for('login', session_number=session_number)))
+
 
 @app.route('/session<int:session_number>/login', methods=['GET', 'POST'])
 def login(session_number):
+    check_login_data = ic(check_login(session_number))
+    if check_login_data[1]:
+        return check_login_data[0]
+
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -112,6 +175,7 @@ def login(session_number):
 @app.route('/session<int:session_number>/dashboard')
 @login_required
 def dashboard(session_number):
+    ic()
     questions = [current_user.q1, current_user.q2, current_user.q3, current_user.q4,
                  current_user.q5, current_user.q6, current_user.q7, current_user.q8]
 
@@ -135,7 +199,7 @@ def firewall(session_number):
                            session_number=session_number,  ports=ports)
 
 @app.route('/get_user_answers', methods=['GET'])
-@anonymous_required
+@login_required
 def get_user_answers():
     data = {
         'a1': current_user.a1,
@@ -158,7 +222,6 @@ def update_badges():
 
 
 @app.route('/check_answer', methods=['POST'])
-@anonymous_required
 def check_answer():
     answer = request.json.get('answer')
     if answer == 'a1':
@@ -174,8 +237,8 @@ def check_answer():
 
 
 @app.route('/session<int:session_number>/logout')
-@anonymous_required
 @login_required
+@anonymous_required
 def logout(session_number):
     current_user.authenticated = False
     db.session.add(current_user)
@@ -187,3 +250,13 @@ def logout(session_number):
 @login_required
 def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
+
+@app.errorhandler(401)
+@app.errorhandler(404)
+@app.errorhandler(405)
+@app.errorhandler(500)
+def handle_error(error):
+    ic()
+    requested_url = ic(request.url)
+    return error_do(requested_url)

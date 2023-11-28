@@ -40,6 +40,9 @@ from os import listdir
 from config import path
 from os.path import join as pjoin
 from random import choice, randint
+import re
+from icecream import ic
+ic.disable()
 
 
 def generate_sequences(length):
@@ -52,13 +55,54 @@ def generate_sequences(length):
 def anonymous_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        # Проверка, вошел ли пользователь в систему
+        if current_user.is_authenticated:
+            # Если пользователь вошел, выполняем оригинальную функцию
+            return f(*args, **kwargs)
         session_number = kwargs.get('session_number', None)
         if session_number is not None:
             return redirect(url_for('login', session_number=session_number))
         else:
-            return redirect(url_for('login'))
+            return render_template("errors.html")
         return f(*args, **kwargs)
     return decorated_function
+
+
+def extract_session_number(url):
+    # Шаблон регулярного выражения для поиска номера сессии
+    pattern = r'/session(\d+)'
+
+    # Поиск совпадений в URL
+    match = re.search(pattern, url)
+
+    # Если найдено совпадение, возвращаем номер сессии
+    if match:
+        return match.group(1)  # group(1) возвращает значение первой группы захвата
+    else:
+        return None
+
+
+def error_do(requested_url):
+    ic()
+    # Проверяем, содержит ли URL паттерн /session<int:session_number>
+    if '/session' in requested_url:
+        # Извлекаем номер сессии из URL
+        session_number = ic(extract_session_number(requested_url))
+        if session_number:
+            ic()
+            try:
+                if current_user.authenticated:
+                    ic()
+                    return redirect(url_for('dashboard', session_number=session_number))
+
+            except:
+                return ic(redirect(url_for('login', session_number=session_number)))
+        else:
+            ic()
+            return render_template("errors.html")
+    else:
+        # Возвращаем HTML-страницу для ошибок не связанных с сессией
+        return render_template("errors.html")
 
 
 login_manager = LoginManager()
@@ -101,10 +145,17 @@ def start_training():
 
 @app.route('/session<int:session_number>')
 def index(session_number):
-    return render_template('login.html', session_link=session_number)
+    ic()
+    try:
+        if current_user.authenticated:
+            ic()
+            return redirect(url_for('dashboard', session_number=session_number))
 
+    except:
+        return ic(redirect(url_for('login', session_number=session_number)))
 @app.route('/session<int:session_number>/login', methods=['GET', 'POST'])
 def login(session_number):
+    ic()
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -126,12 +177,12 @@ def login(session_number):
                 return redirect(url_for('dashboard', session_number=session_number))
         else:
             flash('Не верные имя пользователя или пароль сессии')
-
+    ic()
     return render_template('login.html', session_link=session_number)
 
 @app.route('/session<int:session_number>/logout')
-@anonymous_required
 @login_required
+@anonymous_required
 def logout(session_number):
     current_user.authenticated = False
     db.session.add(current_user)
@@ -140,7 +191,6 @@ def logout(session_number):
     return redirect(url_for('login', session_number=session_number))
 
 @app.route('/session<int:session_number>/dashboard')
-@anonymous_required
 @login_required
 def dashboard(session_number):
     # Get the role of the current user
@@ -179,7 +229,6 @@ def download_file(filename):
 
 
 @app.route('/session<int:session_number>/two_factor_authentication')
-@anonymous_required
 @login_required
 def two_factor_authentication(session_number):
     # Generate a new secret key for the user
@@ -194,7 +243,16 @@ def two_factor_authentication(session_number):
 
     # Generate a QR code for the secret key
     totp = pyotp.totp.TOTP(secret_key)
-    qr_code = qrcode.make(totp.provisioning_uri(name=current_user.username, issuer_name='Урок сетевая безопасность'))
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(totp.provisioning_uri(name=current_user.username, issuer_name='Урок сетевая безопасность'))
+    qr.make(fit=True)
+    qr_code = qr.make_image(fill_color="black", back_color="white")
+    ic(qr_code)
     qr_code = qr_code.resize((200, 200))
     # Convert the QR code image to bytes
     qr_code_bytes = BytesIO()
@@ -206,7 +264,6 @@ def two_factor_authentication(session_number):
                            dashboard_link=url_for('dashboard', session_number=session_number))
 
 @app.route('/session<int:session_number>/two-factor-verification', methods=['POST'])
-@anonymous_required
 @login_required
 def two_factor_verification(session_number):
     user_code = request.form.get('code')
@@ -223,26 +280,28 @@ def two_factor_verification(session_number):
         return redirect(url_for('two_factor_authentication', session_number=session_number))
 
 @app.route('/session<int:session_number>/login-two-factor')
-@anonymous_required
 def login_two_factor(session_number):
     return render_template('loginTF.html', action_link=url_for('login_two_factor_check', session_number=session_number))
 
 
 @app.route('/session<int:session_number>/login-two-factor-check', methods=['POST'])
-@anonymous_required
 def login_two_factor_check(session_number):
-    user_code = request.form.get('code')
-    # Verify the OTP provided by the user
-    totp = pyotp.TOTP(current_user.two_factor_secret)
-    if totp.verify(user_code):
-        current_user.authenticated = True
-        current_user.two_factor_enter = True
-        db.session.add(current_user)
-        db.session.commit()
-        return redirect(url_for('dashboard', session_number=session_number))
-    else:
-        flash('Не правильный код.')
-        return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
+    requested_url = ic(request.url)
+    try:
+        user_code = request.form.get('code')
+        # Verify the OTP provided by the user
+        totp = pyotp.TOTP(current_user.two_factor_secret)
+        if totp.verify(user_code):
+            current_user.authenticated = True
+            current_user.two_factor_enter = True
+            db.session.add(current_user)
+            db.session.commit()
+            return redirect(url_for('dashboard', session_number=session_number))
+        else:
+            flash('Не правильный код.')
+            return render_template('loginTF.html', acton_link=url_for('login_two_factor_check', session_number=session_number))
+    except:
+        return error_do(requested_url)
 
 
 @app.route('/update_badges', methods=['GET'])
@@ -309,8 +368,17 @@ def resultmessage(session_number):
 
 
 @app.route('/record-answer', methods=['POST'])
-@anonymous_required
+@login_required
 def record_answer():
     current_user.check_message = True
     db.session.commit()
     return jsonify({'success': True})
+
+
+@app.errorhandler(401)
+@app.errorhandler(404)
+@app.errorhandler(405)
+@app.errorhandler(500)
+def handle_error(error):
+    requested_url = ic(request.url)
+    return error_do(requested_url)

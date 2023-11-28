@@ -6,4 +6,6 @@ flask-login
 Flask-SQLAlchemy
 uwsgi
 cryptography
-pillow
+Pillow
+icecream
+

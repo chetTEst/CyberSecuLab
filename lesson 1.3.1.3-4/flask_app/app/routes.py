@@ -33,6 +33,8 @@ from . import app
 from .models import db, User, Session, CipherType, Questions
 from .SetUsers import setUserSession
 from config import path
+from icecream import ic
+ic.disable()
 
 
 def anonymous_required(f):
@@ -121,7 +123,6 @@ def dashboard(session_number):
                            session_number=session_number,  questions=questions_list)
 
 @app.route('/get_user_answers', methods=['GET'])
-@anonymous_required
 def get_user_answers():
     data = {
         'a1': current_user.a1,
@@ -135,8 +136,8 @@ def get_user_answers():
 @app.route('/update_badges', methods=['GET'])
 def update_badges():
     data = {}
-    session_id = request.args.get('session_id')
-    session_obj = db.session.query(Session).filter_by(number=session_number).first()
+    session_id = ic(request.args.get('session_id'))
+    session_obj = db.session.query(Session).filter_by(number=session_id).first()
     users = User.query.filter_by(session=session_obj).all()
     for user in users:
         data[user.username] = {
@@ -145,11 +146,10 @@ def update_badges():
             'a3': user.a3,
             'a4': user.a4
         }
-    return jsonify(data)
+    return jsonify(ic(data))
 
 
 @app.route('/check_answer', methods=['POST'])
-@anonymous_required
 def check_answer():
     question_id = request.form.get('question_id')
     answer = request.form.get('answer')
