@@ -1,0 +1,132 @@
+<!-- dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/sha256.js') }}"></script>
+<div class="container mt-5">
+    <h1 class="mb-4">Настройки Брендмауэра</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Номер порта</th>
+                <th scope="col">Выбрать действие</th>
+                <th scope="col">Что это за порт?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for port in ports %}
+                <tr data-is-danger="{{ port.isDanger }}" data-is-answer="{{ port.isAnswer }}"  data-enabled="">
+                    <td><h5><span class="badge badge-pill badge-danger" id="port-{{ loop.index }}">{{ port.number }}</span></h5></td>
+                    <td>
+                        <div class="dropdown">
+                          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Выбрать действие
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn-success" href="#" onclick="enablePort({{ loop.index }}); return false;">Разрешить</a>
+                            <a class="dropdown-item btn-danger" href="#" onclick="disablePort({{ loop.index }}); return false;">Запретить</a>
+                          </div>
+                        </div>
+                    </td>
+                    <td><a tabindex="0" class="btn btn-info" role="button" data-toggle="popover" data-trigger="focus" title="{{ port.number }}" data-content="{{ port.about }}">Информация</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Нет доступных Портов</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+$(function () {
+    $('[data-toggle="popover"]').popover({trigger: 'focus'})
+})
+
+  function enablePort(number){
+  var row = document.getElementById("port-" + number).parentNode.parentNode.parentNode;
+  row.setAttribute("data-enabled", "true");
+  $("#port-"+number).removeClass('badge-danger badge-secondary').addClass('badge-success');
+  checkAnswers();
+  }
+
+  function disablePort(number){
+  var row = document.getElementById("port-" + number).parentNode.parentNode.parentNode;
+  row.setAttribute("data-enabled", "false");
+  $("#port-"+number).removeClass('badge-success badge-secondary').addClass('badge-danger');
+  checkAnswers();
+  }
+
+function checkAnswers() {
+    var allCorrect = true;
+    var userId = getCookie('user_id');
+    var salts = splitUserIdIntoSalts(userId);
+    var countAnswer = 0;
+    $('tr[data-is-danger]').each(function(index) {
+        var isDanger = $(this).attr('data-is-danger')
+        var isChecked = $(this).attr('data-enabled') === 'true';
+        var isAnswer = $(this).attr('data-is-answer');
+
+        // Генерация хешей для проверки
+        var isDangerHash = generateHash('False', salts[index*2 % 16]);
+        var isAnswerHash = generateHash('True', salts[index*2+1 % 16]);
+
+        if ((isDanger == isDangerHash || isAnswer == isAnswerHash) && isChecked) {
+            countAnswer++;
+        }
+    });
+        console.log('Check Answer');
+        console.log(countAnswer);
+    if ( countAnswer == 4) {
+        console.log('Check Answer: True');
+        $.ajax({
+            url: "/check_answer",
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ user_id: '{{ user_id }}' }),
+            dataType: 'json'
+        });
+    }
+}
+
+function splitUserIdIntoSalts(userId) {
+    var length = userId.length;
+    var partLength = Math.floor(length / 16);
+    var salts = [];
+
+    for (var i = 0; i < length; i += partLength) {
+        salts.push(userId.substring(i, i + partLength));
+    }
+
+    return salts;
+}
+
+function generateHash(value, salt) {
+    var hash = CryptoJS.SHA256(value + salt).toString();
+    return hash;
+}
+
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) {
+        return parts.pop().split(";").shift();
+    }
+    return null;
+}
+
+</script>
+
+
+
+
+{% endblock %}

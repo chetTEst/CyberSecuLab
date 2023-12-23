@@ -1,0 +1,11 @@
+PyMySQL
+pyotp
+qrcode
+Flask
+flask-login
+Flask-SQLAlchemy
+uwsgi
+cryptography
+Pillow
+icecream
+

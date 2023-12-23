@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Галерея изображений</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<style>
+.gallery img {
+    width: 256px;
+    height: 256px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    transition: transform .2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 600px) {
+    .gallery img {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="gallery">
+    <a href="images/2Fa.png" data-lightbox="gallery" data-title="2Fa"><img src="images/2Fa.png" alt="2Fa.png"></a>
+    <a href="images/Antivirus.png" data-lightbox="gallery" data-title="Antivirus"><img src="images/Antivirus.png" alt="Antivirus.png"></a>
+    <a href="images/CIA.png" data-lightbox="gallery" data-title="CIA"><img src="images/CIA.png" alt="CIA.png"></a>
+    <a href="images/Cyberbullying.png" data-lightbox="gallery" data-title="Cyberbullying"><img src="images/Cyberbullying.png" alt="Cyberbullying.png"></a>
+    <a href="images/Cyberia.png" data-lightbox="gallery" data-title="Cyberia"><img src="images/Cyberia.png" alt="Cyberia.png"></a>
+    <a href="images/DDoS.png" data-lightbox="gallery" data-title="DDoS"><img src="images/DDoS.png" alt="DDoS.png"></a>
+    <a href="images/Firewall.png" data-lightbox="gallery" data-title="Firewall"><img src="images/Firewall.png" alt="Firewall.png"></a>
+    <a href="images/Fishing.png" data-lightbox="gallery" data-title="Fishing"><img src="images/Fishing.png" alt="Fishing.png"></a>
+    <a href="images/MITM.png" data-lightbox="gallery" data-title="MITM"><img src="images/MITM.png" alt="MITM.png"></a>
+    <a href="images/passwords.png" data-lightbox="gallery" data-title="passwords"><img src="images/passwords.png" alt="passwords.png"></a>
+    <a href="images/SQL_Injection.png" data-lightbox="gallery" data-title="SQL_Injection"><img src="images/SQL_Injection.png" alt="SQL_Injection.png"></a>
+    <a href="images/Virus.png" data-lightbox="gallery" data-title="Virus"><img src="images/Virus.png" alt="Virus.png"></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+    'alwaysShowNavOnTouchDevices': true
+})
+</script>
+
+</body>
+</html>

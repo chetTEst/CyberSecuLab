@@ -1,0 +1,24 @@
+FROM tiangolo/uwsgi-nginx-flask:python3.11
+
+RUN apt-get update && \
+apt-get install -y cron default-mysql-client nano netcat && \
+rm -rf /var/lib/apt/lists/*
+
+COPY ./flask_app /app
+
+COPY ./flask_app/app/static /app/static
+
+COPY requirements.txt /var/www/requirements.txt
+RUN pip install -r /var/www/requirements.txt
+
+COPY ./crontab/cron-script-delete-from-users.sh /usr/local/bin/cron-script-delete-from-users.sh
+RUN chmod +x /usr/local/bin/cron-script-delete-from-users.sh
+COPY ./crontab/cron-script-delete-from-session.sh /usr/local/bin/cron-script-delete-from-session.sh
+RUN chmod +x /usr/local/bin/cron-script-delete-from-session.sh
+COPY ./crontab/delete_data /etc/cron.d
+RUN chmod 0644 /etc/cron.d/delete_data
+
+COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
+RUN chmod +x /usr/local/bin/wait-for-db.sh
+
+

@@ -1,4 +1,5 @@
 # __init__.py
+# -*- cuding: utf-8 -*-
 '''
 Welcome to the open-source file for the "Automatic Security Training and Testing System"
 developed by Alexey Chetverov. This application aims to provide a robust tool for learning
@@ -28,6 +29,8 @@ from flask_sqlalchemy import SQLAlchemy
 from config import path, db_host, db_port, db_user, db_pass, db_name
 from os.path import join as pjoin
 from os import environ
+from icecream import ic
+ic.enable()
 
 app = Flask(__name__, static_folder='static')
 db = SQLAlchemy()
@@ -38,8 +41,8 @@ def create_app():
         app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
     else:
         # Запущено через run.py
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
-    app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w!!'
+        app.config['SQLALCHEMY_DATABASE_URI'] = ic('sqlite:///' + pjoin(path, 'tmp', 'lesson.db'))
+    app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w'
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
     return app
 
@@ -48,9 +51,13 @@ app = create_app()
 
 # Register routes
 from . import CreateDb
+from . import SetTasks
 from . import SetQuestions
 from . import routes
 
+
+# from . import SetUsers
+# SetUsers.setUsertStart()
 
 
 # Run the application

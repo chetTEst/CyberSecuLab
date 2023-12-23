@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  db_basetask1:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: baseTask1
+      MYSQL_DATABASE: baseTask1
+      MYSQL_USER: baseTask1
+      MYSQL_PASSWORD: baseTask1
+  basetask1:
+    build:
+      context: .
+      dockerfile: Dockerfile_tiangolo
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db_baseTask1
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: baseTask1
+      DB_DATABASE: baseTask1
+      DB_USER: baseTask1
+      DB_PASSWORD: baseTask1
+      FLASK_ENV: production
+    command: ["/usr/local/bin/wait-for-db.sh"]
+volumes:
+  db_data:
