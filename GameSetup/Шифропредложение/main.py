@@ -1,16 +1,20 @@
 # -*- cuding: utf-8 -*-
-def cesar(message, n):
+def cesar(message: str, n) -> str:
     alphabet = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
     newMessage = ''
     key = n
     for character in message:
-        if character in alphabet:
-            position = alphabet.find(character)
+        if character.lower() in alphabet:
+            position = alphabet.find(character.lower())
             newPosition = (position + key) % 32
             newCharacter = alphabet[newPosition]
-            newMessage += newCharacter
+            if character.islower():
+                newMessage += newCharacter
+            else:
+                newMessage += newCharacter.upper()
+
         else:
-            newMessage  += character
+            newMessage += character
     return newMessage
 
 

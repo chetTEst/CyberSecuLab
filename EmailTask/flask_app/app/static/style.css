@@ -1,0 +1,45 @@
+.email-content {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.email-content h2, .email-content p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.email-content hr {
+  margin: 10px 0;
+}
+
+
+/* Rotate icon when accordion is open */
+.rotate-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+
+/* Ensure accordion button icon has space */
+.accordion-button i {
+  margin-left: auto;
+}
+
+/* Ensure the clickable area takes the full space and has a hover effect */
+.accordion-body {
+  padding: 0; /* Removes padding inside the accordion body */
+}
+
+.accordion-body a.email-item {
+  display: block; /* Make the link a block element */
+  padding: 0.5rem 1rem; /* Add some padding for spacing */
+  text-decoration: none; /* Optional: removes the underline from the link */
+  color: inherit; /* Inherits the text color from the parent */
+}
+.accordion-body a.email-item:hover {
+  background-color: #e9ecef; /* This is a Bootstrap color variable for hover */
+  text-decoration: none; /* Ensures that no underline appears on hover */
+}

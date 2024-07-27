@@ -1,0 +1,51 @@
+<!-- inbox.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+      <!-- Left Menu Accordion -->
+      <div class="col-md-3">
+        <div class="accordion" id="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Входящие <i class="bi bi-chevron-down"></i>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+              <div class="accordion-body">
+                <a href="#email1" class="email-item w-100 d-block">Письмо 1</a>
+              </div>
+              <div class="accordion-body">
+                <a href="#email2" class="email-item w-100 d-block">Письмо 1</a>
+              </div>
+
+              <!-- Repeat for other emails -->
+            </div>
+          </div>
+          <!-- Additional accordion items for other folders -->
+        </div>
+      </div>
+
+      <!-- Email Content -->
+      <div class="col-md-9">
+        <div class="border p-3">
+          <h3>Тема: Приветствие</h3>
+          <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>От</b>: john@jgraph.com</li>
+              <li class="list-group-item"><b>Кому</b>: fred@jgraph.com</li>
+              <li class="list-group-item">Вложение: нет</li>
+            </ul>
+          </div>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          <!-- Action buttons -->
+          <div class="btn-group gap-1" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-success">Ответить</button>
+            <button type="button" class="btn btn-warning">Спам</button>
+            <button type="button" class="btn btn-danger">Удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

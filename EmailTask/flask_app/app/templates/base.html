@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Служебный портал</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Служба почтовых отправлений</title>
+</head>
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js_1.14.7_umd_popper.min.js') }}"></script>
+    <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+    {% block content %}
+    {% endblock %}
+</main>
+    <footer class="footer bg-light position-sticky" style="position: absolute; bottom: 0; width: 100%; height: 60px; line-height: 60px;">
+        <div class="container">
+            <span class="text-muted" style="font-size: 9pt; text-align: right; display: block;"><a target="_blank" href="https://github.com/chetTEst/CyberSecuLab">Создано Четверовым А.В.. Распространяется по лицензии Apache 2.0</a></span>
+        </div>
+    </footer>
+<!-- Custom JavaScript for dropdown icon rotation -->
+  <script>
+    var accordionBtn = document.querySelector('.accordion-button');
+    accordionBtn.addEventListener('click', function() {
+      accordionBtn.querySelector('i').classList.toggle('rotate-icon');
+    });
+  </script>
+</body>
+</html>
