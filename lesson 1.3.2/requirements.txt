@@ -1,7 +1,9 @@
-PyMySQL
-Flask
-flask-login
-Flask-SQLAlchemy
-uwsgi
-cryptography
-icecream
+PyMySQL==1.1.1
+Flask==3.0.0
+flask-login==0.6.3
+Flask-SQLAlchemy==3.1.1
+uwsgi==2.0.28
+cryptography==44.0.0
+icecream==2.1.3
+flask-socketio==5.4.1
+requests==2.31.0

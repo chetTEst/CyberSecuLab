@@ -26,22 +26,24 @@ digital landscape.'''
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import path, db_host, db_port, db_user, db_pass, db_name
+from flask_socketio import SocketIO
+from config import path, db_host, db_port, db_user, db_pass, db_name, SECRET_KEY, PROD_STATE
 from os.path import join as pjoin
-from os import environ
 
 app = Flask(__name__, static_folder='static')
 db = SQLAlchemy()
+socketio = SocketIO()  # Инициализируем SocketIO
 
 def create_app():
-    if environ.get('FLASK_ENV') == 'production':
+    if PROD_STATE == 'production':
         # Запущено через wsgi
         app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
     else:
         # Запущено через run.py
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
-    app.config['SECRET_KEY'] = 'NH}!112R3Se}X8|"%<8w'
+    app.config['SECRET_KEY'] = SECRET_KEY
     app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
+    socketio.init_app(app)  # Инициализация WebSocket
     return app
 
 app = create_app()
@@ -55,5 +57,5 @@ from . import SetTasks
 
 # Run the application
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app, debug=True)
 

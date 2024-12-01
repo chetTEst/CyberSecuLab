@@ -25,28 +25,40 @@ Thank you for your interest in this project, and we hope that this system will b
 a valuable asset for anyone seeking to ensure data and information security in the modern
 digital landscape.'''
 
+import re
+
 from functools import wraps
 from flask import render_template, request, redirect, url_for, flash, jsonify, session, abort, send_from_directory
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-from werkzeug.security import check_password_hash
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask_socketio import SocketIO, emit, join_room
+from urllib.parse import quote, unquote
 from . import app
 from .models import db, User, Session
-from .SetUsers import setUserSession
-from config import path
-import re
+from .SetUsers import setUserSession, makeUser
+from config import path, TOKEN_API_KEY, PROD_STATE
+
 from icecream import ic
-ic.disable()
+
+ic.enable() if not PROD_STATE else ic.disable()
+
+socketio = SocketIO(app)
+
+
+def check_name_format(text):
+    ic()
+    pattern = r'^[А-ЯЁ][а-яё]+\s[А-ЯЁ][а-яё]+$'
+    if not re.match(pattern, text):
+        return False
+    return True
 
 
 def check_login(session_number):
-    ic()
     try:
         if current_user.authenticated:
-            ic()
-            return ic(redirect(url_for('dashboard', session_number=session_number))), True
+            return redirect(url_for('dashboard', session_number=session_number)), True
 
     except:
-        return ic(redirect(url_for('login', session_number=session_number))), False
+        return redirect(url_for('login', session_number=session_number)), False
 
 
 def anonymous_required(f):
@@ -62,6 +74,7 @@ def anonymous_required(f):
         else:
             return render_template("errors.html")
         return f(*args, **kwargs)
+
     return decorated_function
 
 
@@ -96,43 +109,111 @@ def error_do(requested_url):
         return render_template("errors.html")
 
 
+@socketio.on('connect')
+def handle_connect():
+    ic()
+    ic("Client connected")
+
+
+@socketio.on('join_session')
+def handle_join(data):
+    ic()
+    session_id = ic(data.get('session_id'))
+    username = ic(data.get('username'))
+    first_last_name = ic(unquote(data.get('first_last_name', 'teacher maybe')))
+    session_obj = Session.query.filter_by(number=session_id).first()
+
+    user = ic(User.query.filter_by(username=username).first())
+    if user and user.session == session_obj:
+        ic()
+        join_room(session_id)
+        emit('user_joined', {'username': username, 'first_last_name': first_last_name}, room=session_id)
+    else:
+        ic()
+        join_room(session_id)
+        emit('user_joined', {'username': 'teacher'}, room=session_id)  #
+
+
+@socketio.on('remove_user')
+def handle_remove_user(data):
+    session_id = ic(data.get('session_id'))
+    username = ic(data.get('username'))
+
+    # Удаление пользователя из базы данных
+    user = User.query.filter_by(username=username, session_id=session_id).first()
+    if user:
+        ic(f'delete {user}, {user.username}')
+        db.session.delete(user)
+        db.session.commit()
 
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
 
 # Route for the homepage with the "Start training" button
 @app.route('/')
 def home():
     return render_template('home.html')
 
+
 @app.route('/start-training-async', methods=['POST'])
 def start_training_async():
-    student_count = int(request.form.get('student_count'))
-    if student_count > 30:
-        abort(400, "Максимальное ко-во учеников: 30.")
-    session_link, logins_markup, passwords_markup = setUserSession(student_count)
-    session['session_link'] = session_link
-    session['logins'] = logins_markup
-    session['passwords'] = passwords_markup
+    ic()
+    short_link, session_number = setUserSession()
+    session['session_link'] = session_number
+    session['short_link'] = short_link
     response = {
         'redirect_url': url_for('start_training')
     }
     return jsonify(response)
 
+
+@app.route('/create-new-user', methods=['POST'])
+def create_new_user():
+    ic()
+    first_last_name = ic(request.form.get('first_last_name'))
+    if not check_name_format(first_last_name):
+        abort(400, "Не верный формат имени: Фамилия Имя")
+    session_number = int(request.form.get('session_number'))
+    username = makeUser(session_number, first_last_name)
+    session['username'] = username
+    session['first_last_name'] = first_last_name
+
+    response = {
+        'redirect_url': url_for('register', session_number=session_number)
+    }
+    return jsonify(response)
+
+
 @app.route('/start-training', methods=['GET', 'POST'])
 def start_training():
     session_link = session.get('session_link')
-    logins_markup = session.get('logins')
-    passwords_markup = session.get('passwords')
-    if not session_link or not logins_markup or not passwords_markup:
+    short_link = session.get('short_link')
+    ic()
+    if not session_link:
         # Перенаправляем на главную страницу
         return redirect(url_for('home'))
-    return render_template('training_result.html', session_link=session_link, logins=logins_markup, passwords=passwords_markup)
+
+    # Получаем объект текущей сессии
+    session_obj = Session.query.filter_by(number=session_link).first()
+    if not session_obj:
+        # Если сессия не найдена, перенаправляем на главную
+        return redirect(url_for('home'))
+
+    # Получаем всех пользователей, связанных с этой сессией
+    users = User.query.filter_by(session_id=session_obj.id).all()
+
+    # Формируем список словарей с полями first_last_name и username
+    logins = [{"first_last_name": user.first_last_name, "username": user.username} for user in users]
+
+    return render_template('training_result.html', session_link=session_link, short_link=short_link, logins=logins)
+
 
 @app.route('/session<int:session_number>')
 def index(session_number):
@@ -146,57 +227,70 @@ def index(session_number):
         return ic(redirect(url_for('login', session_number=session_number)))
 
 
-@app.route('/session<int:session_number>/login', methods=['GET', 'POST'])
+@app.route('/session<int:session_number>/register', methods=['GET', 'POST'])
+def register(session_number):
+    username = session.get('username')
+    first_last_name = session.get('first_last_name')
+    session_obj = Session.query.filter_by(number=session_number).first()
+
+    user = User.query.filter_by(username=username).first()
+    if user and user.session == session_obj:
+        login_user(user, remember=True)
+        user.authenticated = True
+        db.session.add(user)
+        db.session.commit()
+        response = redirect(url_for('dashboard', session_number=session_number))
+        response.set_cookie('session_id', str(session_number))
+        response.set_cookie('username', username)
+        response.set_cookie('first_last_name', quote(first_last_name))
+        return response
+    # Set a cookie for browser-based session tracking
+
+
+@app.route('/session<int:session_number>/login', methods=['GET'])
 def login(session_number):
     check_login_data = ic(check_login(session_number))
     if check_login_data[1]:
         return check_login_data[0]
 
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        remember = True if request.form.get('remember') else False
-
-        user = User.query.filter_by(username=username).first()
-
-        # Verify the password using its hash
-        session_obj = db.session.query(Session).filter_by(number=session_number).first()
-        if user and check_password_hash(user.password, password) and user.session == session_obj:
-            login_user(user, remember=remember)
-            user.authenticated = True
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('dashboard', session_number=session_number))
-        else:
-            flash('Не верные имя пользователя или пароль сессии')
-
     return render_template('login.html', session_link=session_number)
+
 
 @app.route('/session<int:session_number>/dashboard')
 @login_required
 def dashboard(session_number):
     ic()
+    csn = current_user.session_id
+    if csn != session_number:
+        return redirect(url_for('dashboard', session_number=csn))
     questions = [current_user.q1, current_user.q2, current_user.q3, current_user.q4,
                  current_user.q5, current_user.q6, current_user.q7, current_user.q8]
 
     # Преобразование вопросов в список словарей
-    files = [{'id': q.id, 'filename': q.filename, 'hash': q.hash, 'isVirus': q.isVirus} for q in questions]  # не включаем 'answer'
+    files = [{'id': q.id, 'filename': q.filename, 'hash': q.hash, 'isVirus': q.isVirus} for q in
+             questions]  # не включаем 'answer'
     # Передача списка в шаблон
     return render_template('dashboard.html', logout_link=url_for('logout', session_number=session_number),
-                           session_number=session_number,  files=files,
+                           session_number=session_number, files=files,
                            firewall_link=url_for('firewall', session_number=session_number))
+
 
 @app.route('/session<int:session_number>/firewall')
 @login_required
 def firewall(session_number):
+    csn = current_user.session_id
+    if csn != session_number:
+        return redirect(url_for('firewall', session_number=csn))
     questions = [current_user.q9, current_user.q10, current_user.q11, current_user.q12,
                  current_user.q13, current_user.q14, current_user.q15, current_user.q16]
 
     # Преобразование вопросов в список словарей
-    ports = [{'id': q.id, 'number': q.number, 'about': q.about, 'isDanger': q.isDanger} for q in questions]  # не включаем 'answer'
+    ports = [{'id': q.id, 'number': q.number, 'about': q.about, 'isDanger': q.isDanger} for q in
+             questions]  # не включаем 'answer'
     # Передача списка в шаблон
     return render_template('firewall.html', logout_link=url_for('logout', session_number=session_number),
-                           session_number=session_number,  ports=ports)
+                           session_number=session_number, ports=ports)
+
 
 @app.route('/get_user_answers', methods=['GET'])
 @login_required
@@ -235,7 +329,6 @@ def check_answer():
     return jsonify({'correct': False})
 
 
-
 @app.route('/session<int:session_number>/logout')
 @login_required
 @anonymous_required
@@ -246,10 +339,16 @@ def logout(session_number):
     logout_user()
     return redirect(url_for('login', session_number=session_number))
 
+
 @app.route('/download/<path:filename>')
 @login_required
 def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return str(error.description), 400
 
 
 @app.errorhandler(401)

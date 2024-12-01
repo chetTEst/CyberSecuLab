@@ -7,6 +7,7 @@
     <div class="container mt-4">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
+                <h3>Пользователь: {{ current_user.first_last_name }}</h3>
                 <div id="table-head">
                     <p>У вас есть таблица <b>Деревья</b>:</p>
                 </div>
@@ -310,5 +311,24 @@
     });
         submitAnswer();
     });
+
+function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+}
+document.addEventListener('DOMContentLoaded', () => {
+const socket = io();
+const sessionId = "{{ session_number }}";
+const username = getCookie('username');
+const first_last_name = getCookie('first_last_name');
+
+if (!sessionStorage.getItem('joined')) {
+    if (username && sessionId) {
+        socket.emit('join_session', { session_id: sessionId, username: username, first_last_name: first_last_name });
+        sessionStorage.setItem('joined', true);
+    }
+}
+});
 </script>
 {% endblock %}

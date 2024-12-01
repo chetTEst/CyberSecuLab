@@ -23,7 +23,11 @@ services:
       DB_DATABASE: lesson213
       DB_USER: lesson213
       DB_PASSWORD: lesson213
-      FLASK_ENV: production
+      FLASK_DEBUG: production
+      TOKEN_API_KEY: "token_api_"
+      X_API_KEY:  "x_api_key"
+      SECRET_KEY: "secret_key"
+      JOBE_SERVER_URL: "0.0.0.0"
     command: ["/usr/local/bin/wait-for-db.sh"]
 volumes:
   db_data:

@@ -59,3 +59,25 @@ table caption {
     caption-side: top;
 }
 
+
+.list-group-item {
+    display: flex;
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: space-between; /* Размещает элементы равномерно */
+    padding: 10px; /* Добавляет внутренние отступы */
+}
+
+.user-name {
+    flex: 1; /* Имя пользователя занимает всё доступное пространство */
+    margin-right: 10px; /* Отступ справа для бейджей */
+}
+
+.badges {
+    display: flex;
+    gap: 10px; /* Расстояние между бейджами */
+    margin-right: 20px; /* Отступ от бейджей до кнопки "Удалить" */
+}
+
+.remove-user-btn {
+    margin-left: auto; /* Прижимает кнопку к правому краю */
+}

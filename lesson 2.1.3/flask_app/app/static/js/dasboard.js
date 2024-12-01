@@ -9,7 +9,7 @@
         MysqlHighlightRules.call(this);
 
         // Ваши кастомные ключевые слова
-        var customKeywords = "выбери|где|значение|изхранилища|обновить|положив|удалить|установить|ВЫБЕРИ|ГДЕ|ЗНАЧЕНИЕ|ИзХранилища|ОБНОВИТЬ|ПоложиВ|УДАЛИТЬ|УСТАНОВИТЬ";
+        var customKeywords = "выбрать|где|значение|изхранилища|обновить|положитьв|удалить|установить|ВЫБРАТЬ|ГДЕ|ЗНАЧЕНИЕ|ИзХранилища|ОБНОВИТЬ|ПоложитьВ|ПОЛОЖИТЬВ|УДАЛИТЬ|УСТАНОВИТЬ";
 
         // Создайте новое правило для кастомных ключевых слов
         var customRule = {
@@ -43,6 +43,8 @@
     function EndTest() {
         $('#quiz-form').hide();
         $('#progress-bar').hide();
+        $('#table-head').hide();
+        $('#table-task').hide();
 
         // Показываем уведомление в #question-area
         $('#question-area').html(
@@ -65,7 +67,7 @@
         else {
             // Иначе все вопросы уже отвечены, скрываем форму и бейджи вопросов
             EndTest();
-            $('#nexttask').fadeIn().prop('disabled', false);
+            $('#nexttask').fadeIn().prop('disabled', false).addClass('btn-pulse');
         }
     }
 
@@ -175,7 +177,7 @@
                 type: 'POST',
                 success: function(response) {
                     startButton.disabled = false;
-                    startButton.innerHTML = 'Сбросить значения Базы данных';
+                    startButton.innerHTML = 'Обновить значения Базы данных';
                     var alertClass = response.dbupdate ? 'warning' : 'info';
                     var alertMessage = response.dbupdate ? 'База данных обновлена!' : 'Что-то пошло не так. Возможно даже сломалось. Попробуйте еще раз!';
                     var alertMessage = 'База данных обновлена!';
@@ -216,9 +218,28 @@
             } else {
                // Иначе все вопросы уже отвечены, скрываем форму и бейджи вопросов
                 EndTest();
-                $('#nexttask').fadeIn().prop('disabled', false);
+                $('#nexttask').fadeIn().prop('disabled', false).addClass('btn-pulse');
             }
         }
     });
         submitAnswer();
     });
+
+function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+}
+document.addEventListener('DOMContentLoaded', () => {
+const socket = io();
+const sessionId = "{{ session_number }}";
+const username = getCookie('username');
+const first_last_name = getCookie('first_last_name');
+
+if (!sessionStorage.getItem('joined')) {
+    if (username && sessionId) {
+        socket.emit('join_session', { session_id: sessionId, username: username, first_last_name: first_last_name });
+        sessionStorage.setItem('joined', true);
+    }
+}
+});

@@ -1,5 +1,6 @@
 import pymysql
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 pymysql.install_as_MySQLdb()
 db = SQLAlchemy()
@@ -16,12 +17,13 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(128), unique=True, nullable=False)
-    password = db.Column(db.String(256), nullable=False)
+    first_last_name = db.Column(db.String(128), nullable=False)
     active = db.Column(db.Boolean, default=True)
     authenticated = db.Column(db.Boolean, default=False)
     anonymous = db.Column(db.Boolean, default=False)
     session_id = db.Column(db.Integer, db.ForeignKey('session.id'), nullable=False)
     session = db.relationship('Session')
+    last_active = db.Column(db.DateTime, default=datetime.utcnow)
     uuid_db = db.Column(db.String(36), unique=True, nullable=True)
     reference_uuid_db = db.Column(db.String(36), unique=True, nullable=True)
     q1_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)

@@ -6,6 +6,7 @@
 
 <div class="container mt-5">
     <h1 class="mb-4">Рабочая панель «Системного администратора»</h1>
+    <h3>Пользователь: {{ current_user.first_last_name }}</h3>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="alert alert-success" role="alert">
@@ -60,4 +61,22 @@
 
 <script src="{{ url_for('static', filename='js/dasboard.js') }}"></script>
 <script src="{{ url_for('static', filename='js/progressBar.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const socket = io();
+const sessionId = "{{ session_number }}";
+const username = getCookie('username');
+const first_last_name = getCookie('first_last_name');
+
+if (!sessionStorage.getItem('joined')) {
+    if (username && sessionId) {
+        socket.emit('join_session', { session_id: sessionId, username: username, first_last_name: first_last_name });
+        sessionStorage.setItem('joined', true);
+    }
+}
+});
+</script>
+
+
+
 {% endblock %}
