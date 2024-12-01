@@ -23,7 +23,8 @@ services:
       DB_DATABASE: lesson132
       DB_USER: lesson132
       DB_PASSWORD: lesson132
-      FLASK_ENV: production
+      FLASK_DEBUG: production
+      TOKEN_API_KEY: "token_api_"
     command: ["/usr/local/bin/wait-for-db.sh"]
 volumes:
   db_data:

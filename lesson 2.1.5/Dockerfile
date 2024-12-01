@@ -1,28 +1,30 @@
-# Start with a lightweight Python base image
-FROM python:3.11-slim
+FROM jupyter/minimal-notebook
 
-# Install Jupyter
-RUN pip install notebook
-RUN apt-get update && \
-apt-get install -y tree
+USER root
 
-# Install the required Python libraries
-RUN pip install numpy pandas scikit-learn plotly pyarrow
+RUN apt-get update && apt-get install -y tree
+RUN pip install numpy pandas scikit-learn plotly
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Create a user to avoid running as root
-RUN useradd -m jupyteruser
-USER jupyteruser
+# Copy the notebook and supporting files
+COPY lesson2.1.5.ipynb /home/jovyan/notebook.ipynb
+COPY binary_list.py /home/jovyan/
+COPY utilities.py /home/jovyan/
+COPY AdaptiveAntivirus /home/jovyan/AdaptiveAntivirus
 
-# Set the working directory
-WORKDIR /home/jupyteruser
+# Set permissions
+RUN chown -R jovyan:users /home/jovyan
 
-COPY lesson2.1.5.ipynb /home/jupyteruser/
-COPY AdaptiveAntivirus /home/jupyteruser/AdaptiveAntivirus
-COPY utilities.py /home/jupyteruser/
-COPY binary_list.py /home/jupyteruser/
+# Remove 'pip' to prevent installing new libraries
+RUN rm /opt/conda/bin/pip \
+    && rm -rf /usr/bin/apt-get /usr/bin/apt \
+    # && /bin/bash /bin/bash_disabled \
+    && mv /usr/bin/find /usr/bin/find_disabled \
+    && mv /bin/grep /bin/grep_disabled \
+    && mv /bin/sed /bin/sed_disabled \
+    && mv /usr/bin/awk /usr/bin/awk_disabled
 
-# Expose the port Jupyter will run on
-EXPOSE 8888
+USER jovyan
 
-# Run Jupyter Notebook
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+CMD ["start-notebook.sh", "--NotebookApp.token=", "--NotebookApp.password=", "--NotebookApp.allow_origin='*'", "--ip=0.0.0.0", "--port=8888"]
+

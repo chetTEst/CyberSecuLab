@@ -26,25 +26,23 @@ digital landscape.'''
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO
-from config import path, db_host, db_port, db_user, db_pass, db_name, SECRET_KEY, PROD_STATE
+from config import path, db_host, db_port, db_user, db_pass, db_name, TOKEN_API_KEY
 from os.path import join as pjoin
 from os import environ
+from icecream import ic
+ic.disable()
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 db = SQLAlchemy()
-socketio = SocketIO()  # Инициализируем SocketIO
 
 def create_app():
-    if PROD_STATE == 'production':
+    if environ.get('FLASK_DEBUG') == 'production':
         # Запущено через wsgi
-        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
+        app.config['SQLALCHEMY_DATABASE_URI'] = ic(f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}')
     else:
         # Запущено через run.py
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + pjoin(path, 'tmp', 'lesson.db')
-    app.config['SECRET_KEY'] = SECRET_KEY
-    app.config['UPLOAD_FOLDER'] = pjoin(path, 'app', 'files')
-    socketio.init_app(app)  # Инициализация WebSocket
+    app.config['SECRET_KEY'] = 'NH}R3Se}X8|"%<8w'
     return app
 
 app = create_app()
@@ -53,10 +51,10 @@ app = create_app()
 # Register routes
 from . import CreateDb
 from . import routes
-from . import SetTasks
+
 
 
 # Run the application
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    app.run()
 

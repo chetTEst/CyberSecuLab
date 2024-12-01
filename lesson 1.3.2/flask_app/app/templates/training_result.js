@@ -1,28 +1,3 @@
-<!-- session_login.html -->
-
-{% extends 'base.html' %}
-{% block content %}
-    <div class="container mt-4">
-        <h1>Сессия тренировки №{{ session_link }}</h1> <a href="{{ short_link }}" target="_blank" class="btn btn-primary mt-3">Страница тренировки {{ short_link }}</a>
-        <div class="row">
-            <div class="col">
-                <h4>Пользователи:</h4>
-                <ul class="list-group">
-                    {% for login in logins %}
-                        <li class="list-group-item d-flex align-items-center" id ="user-{{ login.username }}"><span class="user-name flex-grow-1">{{ loop.index }}). {{ login.first_last_name }}</span>
-                            <div class="badges d-flex gap-2">
-                                <span id="{{ login.username }}_a1" class="badge bg-secondary">Антивирус</span>
-                                <span id="{{ login.username }}_a2" class="badge bg-secondary">Файрвол</span>
-                            </div>
-                            <button class="btn btn-danger btn-sm float-end remove-user-btn" data-username="{{ login.username }}">Удалить</button>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-
-<script>
 function updateBadges() {
     $.ajax({
         url: "/update_badges?session_id={{ session_link }}",
@@ -96,6 +71,3 @@ socket.on('user_joined', (data) => {
         userList.appendChild(newItem);
         }
 });
-</script>
-
-{% endblock %}

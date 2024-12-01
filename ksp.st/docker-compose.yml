@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  db_kasperstudentru:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootkasperstudentru
+      MYSQL_DATABASE: db_kasperstudentru
+      MYSQL_USER: kasperstudentru
+      MYSQL_PASSWORD: kasperstudentru
+  kasperstudentru:
+    build:
+      context: .
+      dockerfile: Dockerfile_tiangolo
+    ports:
+      - "8085:80"
+    environment:
+      DB_HOST: db_kasperstudentru
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: rootkasperstudentru
+      DB_DATABASE: db_kasperstudentru
+      DB_USER: kasperstudentru
+      DB_PASSWORD: kasperstudentru
+      FLASK_DEBUG: production
+      TOKEN_API_KEY: token
+      SECRET_KEY: key
+    command: ["/usr/local/bin/wait-for-db.sh"]
+volumes:
+  db_data:
