@@ -17,4 +17,4 @@ def create_app():
 
 app = create_app()
 
-from . import routes
+from . import CreateDb, SetQuestions, routes

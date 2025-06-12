@@ -4,8 +4,9 @@ This application provides a simple webhook based API to create tests and collect
 
 ## Features
 * Import questions from a GIFT formatted text file
-* Question types supported: single choice, text answer and matching
-* Assign random questions to users from the pool
+* Supports `// QuestionNumber:` tag for grouping questions into random pools
+* Question types supported: single choice, multiple choice, text answer and matching
+* Assign random questions to each user from every available pool
 * Submit answers and get correctness feedback
 
 ## API Endpoints

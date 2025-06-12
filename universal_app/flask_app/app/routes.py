@@ -1,7 +1,8 @@
 from flask import request, jsonify
 from . import app
-from .models import db, User, Question, Option, Assignment
+from .models import db, User, Question, Option, Assignment, Session
 from .utils import import_gift
+from .SetUsers import make_user
 import random
 
 @app.route('/webhook/import', methods=['POST'])
@@ -14,13 +15,16 @@ def webhook_import():
 
 @app.route('/webhook/create_user', methods=['POST'])
 def create_user():
-    username = request.json.get('username')
-    if not username:
-        return jsonify({'error': 'username required'}), 400
-    user = User(username=username)
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({'id': user.id})
+    first_last = request.json.get('first_last_name')
+    session_number = request.json.get('session_number')
+    if not first_last or session_number is None:
+        return jsonify({'error': 'first_last_name and session_number required'}), 400
+    try:
+        username = make_user(session_number, first_last)
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+    user = User.query.filter_by(username=username).first()
+    return jsonify({'id': user.id, 'username': username})
 
 @app.route('/webhook/assign', methods=['POST'])
 def assign_questions():
