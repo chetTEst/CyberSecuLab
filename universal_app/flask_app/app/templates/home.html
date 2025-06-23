@@ -1,0 +1,41 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <form id="training-form">
+                <div class="mb-3">
+                    <button id="start-training-btn" type="submit" class="btn btn-primary btn-lg">Начать тренировку</button>
+                </div>
+            </form>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="mt-3 text-center">
+                <img src="{{ url_for('static', filename='images/ctfclasslogo.png') }}" alt="Универсальная тестирующая система" class="img-fluid">
+                <h3 class="mt-2">Тестирующая система</h3>
+            </div>
+        </div>
+    </div>
+<script>
+    document.getElementById("training-form").addEventListener('submit', function(e) {
+        e.preventDefault();
+        var startButton = document.getElementById("start-training-btn");
+
+        startButton.disabled = true;
+        startButton.innerHTML = '<span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span> Начинаем загрузку...';
+
+        $.ajax({
+            url: '{{ url_for('start_training_async') }}',
+            type: 'POST',
+            success: function(response) {
+                window.location.href = response.redirect_url;
+            },
+            error: function() {
+                alert('Возникла непредвиденная ошибка. Повторите попытку позже');
+                startButton.disabled = false;
+                startButton.innerHTML = 'Начать тренировку';
+            }
+        });
+    });
+</script>
+{% endblock %}
