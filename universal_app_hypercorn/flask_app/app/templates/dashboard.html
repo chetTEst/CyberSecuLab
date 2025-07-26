@@ -1,0 +1,160 @@
+<!-- dashboard.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div id="hash-modal"></div>
+
+    <meta name="exam-token" content="{{ paseto_token }}">
+    <meta name="exam-pk" content="{{ paseto_pk }}">
+    <div class="container mt-4">
+
+        <div class="row justify-content-md-center">
+
+            <div class="col-md-8">
+                <h3>Пользователь: <span class="badge badge-light">{{ current_user.first_last_name }}</span></h3>
+                <div id="question-container"></div>
+                <div id="nav-buttons" class="mt-4 mb-4"></div>
+                <div id="feedback" role="alert"></div>
+                <div class="d-flex mt-4">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group mr-2" role="group"><button id="submit-current-btn" class="btn btn-info ms-3">Ответить на вопрос</button></div>
+                        <div class="btn-group" role="group"><button id="submit-all-btn" class="btn btn-warning flex-fill ms-3">Отправить ответы</button></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="{{ logout_link }}" class="btn btn-danger">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div
+        id="toast-container"
+        aria-live="polite"
+        aria-atomic="true"
+        class="position-fixed w-100 h-100 d-flex justify-content-center align-items-center p-3"
+        style="top: 0; left: 0; z-index: 1080; pointer-events: none;"
+        >
+        </div>
+{% endblock %}
+
+{% block scripts %}
+<!-- argon2-bundled.min.js содержит WASM в base64 -->
+<script src="https://cdn.jsdelivr.net/npm/argon2-browser@1.18.0/dist/argon2-bundled.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "crypto": "{{ url_for('static', filename='js/crypto-shim.js') }}",
+    "tweetnacl": "https://cdn.jsdelivr.net/npm/tweetnacl@1.0.3/+esm",
+    "paseto-browser/paseto.v4.public.js": "https://cdn.jsdelivr.net/npm/paseto-browser@0.1.1/lib/paseto.v4.public.js",
+    "argon2": "https://esm.sh/argon2-browser@1.18.0"
+  }
+}
+</script>
+
+<script type="module" src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+<script>
+    // читать cookie по имени
+    function getCookie(name) {
+        return document.cookie
+        .split("; ")
+        .find(r => r.startsWith(name + "="))
+        ?.split("=")[1] || "";
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const socket = io({
+        reconnection: true,
+        reconnectionAttempts: 5,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+        timeout: 20000,
+        transports: ['websocket', 'polling'],
+        forceNew: false,
+        autoConnect: true  // Автоматически подключаемся
+    });
+    const sessionId = "{{ session_identifier }}";
+    const username = getCookie('username');
+    const first_last_name = getCookie('first_last_name');
+    console.log("SessionID", sessionId, typeof(sessionId));
+    
+    // Флаг для отслеживания состояния подключения
+    let isConnected = false;
+    let joinAttempts = 0;
+    const MAX_JOIN_ATTEMPTS = 5;
+
+    // Функция для присоединения к сессии
+    function joinSession() {
+        if (username && sessionId && sessionId !== "0" && socket.connected) {
+            console.log('Запрос join_session на присоединение к сессии', sessionId);
+            socket.emit('join_session', { 
+                session_id: sessionId, 
+                username: username, 
+                first_last_name: first_last_name 
+            });
+        } else if (joinAttempts < MAX_JOIN_ATTEMPTS) {
+          joinAttempts++;
+          console.warn(`Попытка присоединения ${joinAttempts}/${MAX_JOIN_ATTEMPTS}`);
+          setTimeout(joinSession, 2000);
+        } else {
+            console.error('Не удалось присоединиться к сессии после максимального количества попыток');
+        }
+    }
+    
+    // Присоединяемся при первом подключении
+    socket.on('connect', function() {
+        isConnected = true;
+        joinAttempts = 0;
+        console.log('Socket connected');
+        joinSession();
+    });
+    
+
+    socket.on('disconnect', function(reason) {
+        console.log('Disconnected socket:', reason);
+        isConnected = false;
+        if (reason === 'io server disconnect' || reason === 'transport close') {
+            // Сервер разорвал соединение, пробуем переподключиться
+            setTimeout(() => {
+                if (!isConnected) {
+                    socket.connect();
+                }
+            }, 1000);
+        }
+    });
+
+    socket.on('reconnect', function(attemptNumber) {
+        console.log('Reconnected socket after', attemptNumber, 'attempts');
+        isConnected = true;
+        joinSession();
+    });
+
+    socket.on('reconnect_error', function(error) {
+        console.error('Reconnection socket error:', error);
+    });
+    socket.on('connect_error', function(error) {
+        console.error('Connection socket error:', error);
+    });
+
+    socket.onAny((event, ...args) => {
+        console.log('SOCKET EVENT:', event, args);
+    });
+
+
+    // Проверка состояния соединения каждые 30 секунд
+    setInterval(() => {
+        if (!isConnected) {
+            console.log('Checking connection status - attempting to reconnect');
+            socket.connect();
+        }
+    }, 30000);
+
+    socket.on('remove_user', (data) => {
+      if (data.username === username) {
+          console.log('Пользователь был удален администратором');
+          alert('Вы были отключены учителем');
+          window.location.href = '/';
+      }
+    });
+
+});
+</script>
+{% endblock %}

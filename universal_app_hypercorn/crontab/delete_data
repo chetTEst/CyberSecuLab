@@ -1,0 +1,2 @@
+0 23 * * * root /usr/local/bin/cron-script-delete-from-users.sh
+30 23 * * * root /usr/local/bin/cron-script-delete-from-session.sh

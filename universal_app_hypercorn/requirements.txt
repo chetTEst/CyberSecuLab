@@ -1,0 +1,33 @@
+# База данных
+PyMySQL==1.1.1
+cryptography==44.0.0
+
+# Flask основа
+Flask==3.0.0
+flask-login==0.6.3
+Flask-SQLAlchemy==3.1.1
+Flask-WTF==1.2.2
+Flask-Limiter==3.12
+flask-socketio==5.4.1
+
+# ASGI сервер и Socket.IO
+hypercorn[trio]==0.15.0
+eventlet==0.40.2
+python-socketio==5.9.0
+python-engineio==4.7.1
+
+
+# HTTP клиент
+requests==2.31.0
+
+# Безопасность и утилиты
+pyseto==1.8.4
+argon2-cffi==25.1.0
+bleach==6.2.0
+redis==4.6.0
+
+# Дополнительные зависимости для ASGI
+httptools==0.6.1
+uvloop==0.19.0
+
+

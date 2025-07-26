@@ -1,0 +1,129 @@
+/* styles.css */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+#question-area {
+    font-size: 16pt;
+}
+
+table {
+    font-size: 7pt;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: space-between; /* Размещает элементы равномерно */
+    padding: 10px; /* Добавляет внутренние отступы */
+}
+
+.user-name {
+    flex: 1; /* Имя пользователя занимает всё доступное пространство */
+    margin-right: 10px; /* Отступ справа для бейджей */
+}
+
+.badges {
+    display: flex;
+    gap: 10px; /* Расстояние между бейджами */
+    margin-right: 20px; /* Отступ от бейджей до кнопки "Удалить" */
+}
+
+.remove-user-btn {
+    margin-left: auto; /* Прижимает кнопку к правому краю */
+}
+
+.loader {
+  background: #17a2b880;
+  -webkit-animation: load1 1s infinite ease-in-out;
+          animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+  color: #218838;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+          animation-delay: -0.16s;
+}
+.loader:before, .loader:after {
+  background: #17a2b880;
+  -webkit-animation: load1 1s infinite ease-in-out;
+          animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader:before, .loader:after {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+
+@-webkit-keyframes load1 {
+  0%, 90%, 100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  60% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%, 30%, 100% {
+    box-shadow: 0 0;
+    height: 1em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 1em;
+  }
+}
+
+/* переносы + защита от очень длинных слов */
+.essay-text {
+    white-space: pre-wrap;   /* сохраняет \n, но разрешает wrap по пробелам */
+    overflow-wrap: break-word;   /* в крайнем случае ломаем слишком длинное слово */
+    word-break: break-word;      /* то же для старых браузеров */
+}
+
+/* необязательно, но полезно, если ответ может быть длинным */
+.modal-body {
+    max-height: 60vh;       /* 60 % высоты окна */
+    overflow-y: auto;       /* вертикальная прокрутка */
+}
+
+.select-truncate {
+  max-width: 250px;              /* или любая другая подходящая ширина */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;         /* нужно, чтобы работало text-overflow */
+}
+
+.percent-box {
+  width: 64px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 1rem;
+}

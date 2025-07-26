@@ -1,0 +1,2078 @@
+[2025-07-26 17:45:30,970] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 17:45:31,060] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 17:45:31,061] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 17:45:31,061] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Restarting with stat
+[2025-07-26 17:45:31,989] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 17:45:32,078] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 17:45:32,079] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 17:45:32,079] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(36) wsgi starting up on http://0.0.0.0:8000
+ * Detected change in '/app/app/__init__.py', reloading
+ * Restarting with stat
+[2025-07-26 17:45:52,496] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 17:45:52,585] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 17:45:52,585] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 17:45:52,586] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(37) wsgi starting up on http://0.0.0.0:8000
+(37) accepted ('192.168.100.81', 59926)
+[2025-07-26 17:46:45,672] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET / HTTP/1.1" 200 7030 0.088964
+(37) accepted ('192.168.100.81', 59928)
+(37) accepted ('192.168.100.81', 59930)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET /static/css/style.css HTTP/1.1" 304 203 0.012611
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002261
+(37) accepted ('192.168.100.81', 59942)
+(37) accepted ('192.168.100.81', 59944)
+(37) accepted ('192.168.100.81', 59954)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002460
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.003422
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:45] "GET /static/images/ctfclasslogo.png HTTP/1.1" 304 210 0.002179
+(37) accepted ('192.168.100.81', 59956)
+(37) accepted ('192.168.100.81', 59958)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:46] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002314
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:46] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002308
+(37) accepted ('192.168.100.81', 59970)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:49] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 304 207 0.002399
+(37) accepted ('192.168.100.81', 59974)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:49] "GET /static/favicon/manifest.json HTTP/1.1" 200 2410 0.002269
+(37) accepted ('192.168.100.81', 59980)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:50] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002307
+(37) accepted ('192.168.100.81', 59994)
+[2025-07-26 17:46:53,832] DEBUG in routes: === AJAX REQUEST RECEIVED ====== start-training-async =======
+[2025-07-26 17:46:53,833] DEBUG in routes: Получен тип пользователя teacher
+[2025-07-26 17:46:53,834] DEBUG in SetUsers: ========= setUserSession =========
+[2025-07-26 17:46:53,841] DEBUG in SetUsers: Создана сессия <Session (transient 139801659767120)>
+[2025-07-26 17:46:54,030] DEBUG in routes: Создана Сессия 4 https://g2u.run/004x df493923-687d-48ac-ab6a-7f0a38823da5
+[2025-07-26 17:46:54,032] DEBUG in routes: Отправка данных после открытия сессии 4 https://g2u.run/004x df493923-687d-48ac-ab6a-7f0a38823da5
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "POST /start-training-async HTTP/1.1" 200 636 0.207134
+(37) accepted ('192.168.100.81', 60000)
+[2025-07-26 17:46:54,183] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "GET /start-training HTTP/1.1" 200 16053 0.041653
+(37) accepted ('192.168.100.81', 60010)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "GET /static/css/style.css HTTP/1.1" 304 203 0.002631
+(37) accepted ('192.168.100.81', 60022)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002682
+(37) accepted ('192.168.100.81', 60028)
+(37) accepted ('192.168.100.81', 60034)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002222
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:54] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001946
+(37) accepted ('192.168.100.81', 33130)
+(37) accepted ('192.168.100.81', 33146)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:55] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002283
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:55] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002556
+(37) accepted ('192.168.100.81', 33160)
+7cGmUu-Yvmvw7HYBAAAA: Sending packet OPEN data {'sid': '7cGmUu-Yvmvw7HYBAAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+7cGmUu-Yvmvw7HYBAAAA: Received request to upgrade to websocket
+7cGmUu-Yvmvw7HYBAAAA: Upgrade to websocket successful
+7cGmUu-Yvmvw7HYBAAAA: Received packet MESSAGE data 0
+[2025-07-26 17:46:56,875] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:46:56,876] DEBUG in socket_handlers: Подключение - SID: 81VfTftZyFEnNV4CAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+7cGmUu-Yvmvw7HYBAAAA: Sending packet MESSAGE data 0{"sid":"81VfTftZyFEnNV4CAAAB"}
+7cGmUu-Yvmvw7HYBAAAA: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from 81VfTftZyFEnNV4CAAAB [/]
+[2025-07-26 17:46:57,095] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:46:57,096] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:46:57,097] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(37) accepted ('192.168.100.81', 33168)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:57] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.001695
+(37) accepted ('192.168.100.81', 33176)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:46:57] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002249
+(37) accepted ('192.168.100.81', 58108)
+[2025-07-26 17:47:14,776] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:14] "GET / HTTP/1.1" 200 6575 0.006148
+(37) accepted ('192.168.100.81', 58120)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:15] "GET /static/css/style.css HTTP/1.1" 304 203 0.002252
+(37) accepted ('192.168.100.81', 58122)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:15] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002550
+(37) accepted ('192.168.100.81', 58130)
+(37) accepted ('192.168.100.81', 58146)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:15] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001950
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:15] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001829
+(37) accepted ('192.168.100.81', 58158)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:15] "GET /static/images/ctfclasslogo.png HTTP/1.1" 304 210 0.002342
+(37) accepted ('192.168.100.81', 58168)
+[2025-07-26 17:47:16,723] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:16] "GET / HTTP/1.1" 200 6575 0.005476
+(37) accepted ('192.168.100.81', 58180)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:16] "GET /static/css/style.css HTTP/1.1" 304 203 0.002336
+(37) accepted ('192.168.100.81', 58194)
+(37) accepted ('192.168.100.81', 58204)
+(37) accepted ('192.168.100.81', 58212)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:16] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001831
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:16] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001923
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:16] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002039
+(37) accepted ('192.168.100.81', 58214)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:17] "GET /static/images/ctfclasslogo.png HTTP/1.1" 304 210 0.002617
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+(37) accepted ('192.168.100.81', 33634)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5 HTTP/1.1" 302 502 0.008195
+(37) accepted ('192.168.100.81', 33650)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7058 0.013628
+(37) accepted ('192.168.100.81', 33662)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /static/css/style.css HTTP/1.1" 304 203 0.002188
+(37) accepted ('192.168.100.81', 33664)
+(37) accepted ('192.168.100.81', 33674)
+(37) accepted ('192.168.100.81', 33680)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002399
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001854
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:42] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001824
+(37) accepted ('192.168.100.81', 51898)
+[2025-07-26 17:47:45,824] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 17:47:45,828] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 17:47:45,832] DEBUG in SetUsers: Объект сессии <Session 4>
+[2025-07-26 17:47:45,833] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 17:47:45,834] ERROR in RedisCacheLib: Redis get error for key POOL_SIZE: the JSON object must be str, bytes or bytearray, not NoneType
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app/routes.py", line 198, in create_new_user
+    username = makeUser(session_number, first_last_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app/SetUsers.py", line 53, in makeUser
+    pools = range(1, get_pool_size(redis_cache) + 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app/RedisCacheLib.py", line 143, in get_pool_size
+    result = build_and_cache_questions_by_pool(returnonlypool=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: build_and_cache_questions_by_pool() missing 1 required positional argument: 'redis_cache'
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:47:45] "POST /create-new-user HTTP/1.1" 500 17115 0.051707
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+(37) accepted ('192.168.100.81', 51066)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:03] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5 HTTP/1.1" 302 502 0.008056
+(37) accepted ('192.168.100.81', 51082)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:03] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7058 0.006119
+(37) accepted ('192.168.100.81', 51098)
+(37) accepted ('192.168.100.81', 51114)
+(37) accepted ('192.168.100.81', 51124)
+(37) accepted ('192.168.100.81', 51128)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:04] "GET /static/css/style.css HTTP/1.1" 304 203 0.002520
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:04] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001856
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:04] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002036
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:49:04] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002070
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+7cGmUu-Yvmvw7HYBAAAA: Sending packet PING data None
+7cGmUu-Yvmvw7HYBAAAA: Received packet PONG data 
+ * Detected change in '/app/app/RedisCacheLib.py', reloading
+ * Restarting with stat
+[2025-07-26 17:52:20,361] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 17:52:20,445] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 17:52:20,446] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 17:52:20,446] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+[2025-07-26 17:52:20,447] DEBUG in RedisCacheLib: ========== refresh_all_cache ==========
+[2025-07-26 17:52:20,448] DEBUG in RedisCacheLib: ========== build_and_cache_questions_by_pool ==========
+[2025-07-26 17:52:20,465] DEBUG in RedisCacheLib: ========== build_and_cache_correct_answers ==========
+[2025-07-26 17:52:20,469] INFO in RedisCacheLib: CORRECT_ANSWERS cached: 21 questions
+[2025-07-26 17:52:20,470] INFO in RedisCacheLib: All cache refreshed successfully
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(38) wsgi starting up on http://0.0.0.0:8000
+(38) accepted ('192.168.100.81', 36950)
+fVsxcS3XMAxufgl7AAAA: Sending packet OPEN data {'sid': 'fVsxcS3XMAxufgl7AAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+fVsxcS3XMAxufgl7AAAA: Received request to upgrade to websocket
+fVsxcS3XMAxufgl7AAAA: Upgrade to websocket successful
+fVsxcS3XMAxufgl7AAAA: Received packet MESSAGE data 0
+[2025-07-26 17:52:21,148] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:52:21,149] DEBUG in socket_handlers: Подключение - SID: tGyOiOJ4UXTg5ZpoAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+fVsxcS3XMAxufgl7AAAA: Sending packet MESSAGE data 0{"sid":"tGyOiOJ4UXTg5ZpoAAAB"}
+fVsxcS3XMAxufgl7AAAA: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from tGyOiOJ4UXTg5ZpoAAAB [/]
+[2025-07-26 17:52:21,260] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:52:21,261] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:52:21,262] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(38) accepted ('192.168.100.81', 45114)
+[2025-07-26 17:52:25,919] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 17:52:25,927] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 17:52:25,932] DEBUG in SetUsers: Объект сессии <Session 4>
+[2025-07-26 17:52:25,933] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 17:52:25,934] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 17:52:25,945] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 17:52:25,946] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 17:52:25,947] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:25] "POST /create-new-user HTTP/1.1" 200 467 0.051848
+(38) accepted ('192.168.100.81', 45120)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/register HTTP/1.1" 302 1297 0.019497
+(38) accepted ('192.168.100.81', 45132)
+[2025-07-26 17:52:26,295] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/dashboard HTTP/1.1" 200 17484 0.087022
+(38) accepted ('192.168.100.81', 45144)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/css/style.css HTTP/1.1" 304 203 0.011183
+(38) accepted ('192.168.100.81', 45146)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002235
+(38) accepted ('192.168.100.81', 45154)
+(38) accepted ('192.168.100.81', 45166)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002549
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002526
+(38) accepted ('192.168.100.81', 45168)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002519
+(38) accepted ('192.168.100.81', 45170)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:26] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002381
+(38) accepted ('192.168.100.81', 45172)
+zgmf2Fi4zE40QxvqAAAC: Sending packet OPEN data {'sid': 'zgmf2Fi4zE40QxvqAAAC', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+zgmf2Fi4zE40QxvqAAAC: Received request to upgrade to websocket
+zgmf2Fi4zE40QxvqAAAC: Upgrade to websocket successful
+zgmf2Fi4zE40QxvqAAAC: Received packet MESSAGE data 0
+[2025-07-26 17:52:27,676] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:52:27,678] DEBUG in socket_handlers: Подключение - SID: RNyNXIfMKBY4mvRpAAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+zgmf2Fi4zE40QxvqAAAC: Sending packet MESSAGE data 0{"sid":"RNyNXIfMKBY4mvRpAAAD"}
+zgmf2Fi4zE40QxvqAAAC: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4list148710","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from RNyNXIfMKBY4mvRpAAAD [/]
+[2025-07-26 17:52:27,787] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:52:27,789] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:52:27,790] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=4list148710, name=Миша Каша
+[2025-07-26 17:52:39,955] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:52:39,956] DEBUG in socket_handlers: Отключение SID: tGyOiOJ4UXTg5ZpoAAAB
+[2025-07-26 17:52:39,957] DEBUG in socket_handlers: Время соединения: 18.81 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:39] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 18.930098
+(38) accepted ('192.168.100.81', 40360)
+[2025-07-26 17:52:40,174] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:40] "GET /start-training HTTP/1.1" 200 18852 0.056341
+(38) accepted ('192.168.100.81', 40366)
+(38) accepted ('192.168.100.81', 40378)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:40] "GET /static/css/style.css HTTP/1.1" 304 203 0.003625
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:40] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002378
+(38) accepted ('192.168.100.81', 40390)
+(38) accepted ('192.168.100.81', 40396)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:40] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001939
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:40] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002139
+(38) accepted ('192.168.100.81', 40398)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:41] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002296
+(38) accepted ('192.168.100.81', 40400)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:41] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.001974
+(38) accepted ('192.168.100.81', 40406)
+T8-dE9bkyAbn_KVJAAAE: Sending packet OPEN data {'sid': 'T8-dE9bkyAbn_KVJAAAE', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+T8-dE9bkyAbn_KVJAAAE: Received request to upgrade to websocket
+T8-dE9bkyAbn_KVJAAAE: Upgrade to websocket successful
+T8-dE9bkyAbn_KVJAAAE: Received packet MESSAGE data 0
+[2025-07-26 17:52:42,498] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:52:42,499] DEBUG in socket_handlers: Подключение - SID: IkOrdRhHMr_y0cttAAAF, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+T8-dE9bkyAbn_KVJAAAE: Sending packet MESSAGE data 0{"sid":"IkOrdRhHMr_y0cttAAAF"}
+(38) accepted ('192.168.100.81', 40412)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:42] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 304 207 0.002429
+T8-dE9bkyAbn_KVJAAAE: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from IkOrdRhHMr_y0cttAAAF [/]
+[2025-07-26 17:52:42,741] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:52:42,743] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:52:42,744] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(38) accepted ('192.168.100.81', 40416)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:42] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.002007
+(38) accepted ('192.168.100.81', 40418)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:52:43] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002520
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+zgmf2Fi4zE40QxvqAAAC: Sending packet PING data None
+zgmf2Fi4zE40QxvqAAAC: Received packet PONG data 
+[2025-07-26 17:54:58,948] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:54:58,950] DEBUG in socket_handlers: Отключение SID: RNyNXIfMKBY4mvRpAAAD
+[2025-07-26 17:54:58,951] DEBUG in socket_handlers: Время соединения: 151.27 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:54:58] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 151.389592
+(38) accepted ('192.168.100.81', 46048)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:54:59] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/logout HTTP/1.1" 302 917 0.019304
+(38) accepted ('192.168.100.81', 46058)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:54:59] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7306 0.015306
+(38) accepted ('192.168.100.81', 46066)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:00] "GET /static/css/style.css HTTP/1.1" 304 203 0.002941
+(38) accepted ('192.168.100.81', 46074)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:00] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.003795
+(38) accepted ('192.168.100.81', 46084)
+(38) accepted ('192.168.100.81', 46090)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:00] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001961
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:00] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001949
+(38) accepted ('192.168.100.81', 46106)
+[2025-07-26 17:55:02,783] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 17:55:02,786] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 17:55:02,789] DEBUG in SetUsers: Объект сессии <Session 4>
+[2025-07-26 17:55:02,790] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 17:55:02,791] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 17:55:02,795] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 17:55:02,797] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 17:55:02,798] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:02] "POST /create-new-user HTTP/1.1" 200 469 0.030782
+(38) accepted ('192.168.100.81', 46114)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:02] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/register HTTP/1.1" 302 1297 0.013008
+(38) accepted ('192.168.100.81', 46118)
+[2025-07-26 17:55:03,079] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/dashboard HTTP/1.1" 200 17695 0.039362
+(38) accepted ('192.168.100.81', 46120)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/css/style.css HTTP/1.1" 304 203 0.003214
+(38) accepted ('192.168.100.81', 46122)
+(38) accepted ('192.168.100.81', 46128)
+(38) accepted ('192.168.100.81', 46132)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001918
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002111
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001988
+(38) accepted ('192.168.100.81', 46142)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002038
+(38) accepted ('192.168.100.81', 46152)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:55:03] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002088
+(38) accepted ('192.168.100.81', 46156)
+nvQaxHTZxKpsQNHvAAAG: Sending packet OPEN data {'sid': 'nvQaxHTZxKpsQNHvAAAG', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+nvQaxHTZxKpsQNHvAAAG: Received request to upgrade to websocket
+nvQaxHTZxKpsQNHvAAAG: Upgrade to websocket successful
+nvQaxHTZxKpsQNHvAAAG: Received packet MESSAGE data 0
+[2025-07-26 17:55:04,357] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:55:04,359] DEBUG in socket_handlers: Подключение - SID: fhBTwWuyIwqg7ScOAAAH, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+nvQaxHTZxKpsQNHvAAAG: Sending packet MESSAGE data 0{"sid":"fhBTwWuyIwqg7ScOAAAH"}
+nvQaxHTZxKpsQNHvAAAG: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4water56393","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from fhBTwWuyIwqg7ScOAAAH [/]
+[2025-07-26 17:55:04,470] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:55:04,471] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:55:04,472] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=4water56393, name=Миша Каша
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+T8-dE9bkyAbn_KVJAAAE: Sending packet PING data None
+T8-dE9bkyAbn_KVJAAAE: Received packet PONG data 
+nvQaxHTZxKpsQNHvAAAG: Sending packet PING data None
+nvQaxHTZxKpsQNHvAAAG: Received packet PONG data 
+ * Detected change in '/app/app/socket_handlers.py', reloading
+ * Restarting with stat
+[2025-07-26 17:58:04,846] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 17:58:04,972] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 17:58:04,973] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 17:58:04,974] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(39) wsgi starting up on http://0.0.0.0:8000
+(39) accepted ('192.168.100.81', 47438)
+BQ-98BwggNSsvb54AAAA: Sending packet OPEN data {'sid': 'BQ-98BwggNSsvb54AAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+BQ-98BwggNSsvb54AAAA: Received request to upgrade to websocket
+BQ-98BwggNSsvb54AAAA: Upgrade to websocket successful
+BQ-98BwggNSsvb54AAAA: Received packet MESSAGE data 0
+[2025-07-26 17:58:06,126] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:58:06,127] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session_id=007d386b-8777-481d-8516-ecd7bff426e5; username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtqxDAM_JXic9P123K-pRBkWe4uu01KnECh9N-rbBd66GWQRpphpC81tZX7WY0Nb52f1XSpalQhogdttI0pWOOwcmnIwWPQ5K2UlYlDZgOQS7Y1VmOt15hSqaF4W4LBLPrcwFqd67EWyDARau0YIBA14qS9sTFDtEw6G58oU26psJIge-f1N02Slvrapm258iwEuBbQI3EUg-h0NDUlLoihQoGGpXIAylF07bL2bbqhwIzvLOLXXUR4oNcHOrjX5uk-aP8H4tK598syT7fLfFWj_yP2_Z6wNp9dtm6IkOrgAWnAEnFITaMDsK5iOGzOy7o9TNR52z76eDq92f1l3eeT1v5Tdo6zH0lNWZarvFheo75_ABLHfUg.aITqXg.rI7_jflCclnU8FdVuxXCH2vTBDE
+Sec-Websocket-Key: HbVPGrtPTz3SZo6TjlM5cg==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 17:58:06,128] DEBUG in socket_handlers: Подключение - SID: frOCkxE57Hwo0bHLAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+BQ-98BwggNSsvb54AAAA: Sending packet MESSAGE data 0{"sid":"frOCkxE57Hwo0bHLAAAB"}
+BQ-98BwggNSsvb54AAAA: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from frOCkxE57Hwo0bHLAAAB [/]
+[2025-07-26 17:58:06,239] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:58:06,242] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:58:06,245] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(39) accepted ('192.168.100.81', 47444)
+bRuBYIYzrgblh_G-AAAC: Sending packet OPEN data {'sid': 'bRuBYIYzrgblh_G-AAAC', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+bRuBYIYzrgblh_G-AAAC: Received request to upgrade to websocket
+bRuBYIYzrgblh_G-AAAC: Upgrade to websocket successful
+bRuBYIYzrgblh_G-AAAC: Received packet MESSAGE data 0
+[2025-07-26 17:58:06,375] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:58:06,377] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br, zstd
+Sec-Websocket-Version: 13
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Extensions: permessage-deflate
+Sec-Websocket-Key: oTyQ9assijex3aKPUk99yg==
+Cookie: session=.eJxNT0tORDEMuwrqmkXbtGkyZ0F6StJUjIBBeh-xQNydvhkWbCzZlh3nOyxj9e01XPb18OewXHu4BNXWM0nulSup1FYBplZaSSM1MlJA4sTN3Ui6EmVtmRpTc2BQKKJNrUTjPszV2FApIkvBzCPOgoQca8tdhiszUmzzjLQiVCuFOeTYfH2sOalt61j2zze_TSEnTDwQUuxFxTCPkoAURRxMDDpUKSPizI3ruu3Lu0y4yYfP8MsRS7ITgU4sd4T4dDfkQf4bs-Xc8hcvX7L7WnG-GX5-AcTQW34.aITsRg.ow37NOfUY5Rtrm2cHKeOFiGuhoU; session_id=df493923-687d-48ac-ab6a-7f0a38823da5; username=4water56393; first_last_name=%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0; remember_token=8|e6a7356bd4191c96739025f7c168671bcd6bbdb0ae604b2d5424f2e13ebb0cb62834ce3f72b9340cb3e86e3a45eb48a7a4d5e96ee986995827dc4a0eb7750569
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: websocket
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+
+[2025-07-26 17:58:06,378] DEBUG in socket_handlers: Подключение - SID: v26NwXfv3iLODt4-AAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+bRuBYIYzrgblh_G-AAAC: Sending packet MESSAGE data 0{"sid":"v26NwXfv3iLODt4-AAAD"}
+bRuBYIYzrgblh_G-AAAC: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4water56393","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from v26NwXfv3iLODt4-AAAD [/]
+[2025-07-26 17:58:06,484] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:58:06,485] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:58:06,487] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=4water56393, name=Миша Каша
+[2025-07-26 17:58:16,618] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:58:16,619] DEBUG in socket_handlers: Отключение SID: v26NwXfv3iLODt4-AAAD
+[2025-07-26 17:58:16,620] DEBUG in socket_handlers: Время соединения: 10.24 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:16] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 10.356230
+(39) accepted ('192.168.100.81', 38932)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:16] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/logout HTTP/1.1" 302 917 0.061785
+(39) accepted ('192.168.100.81', 38944)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:16] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7308 0.042141
+(39) accepted ('192.168.100.81', 38952)
+(39) accepted ('192.168.100.81', 38966)
+(39) accepted ('192.168.100.81', 38968)
+(39) accepted ('192.168.100.81', 38982)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:17] "GET /static/css/style.css HTTP/1.1" 304 203 0.014443
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:17] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002142
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:17] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002124
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:17] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001977
+(39) accepted ('192.168.100.81', 38998)
+[2025-07-26 17:58:20,348] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 17:58:20,356] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 17:58:20,370] DEBUG in SetUsers: Объект сессии <Session 4>
+[2025-07-26 17:58:20,371] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 17:58:20,374] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 17:58:20,387] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 17:58:20,394] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 17:58:20,395] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "POST /create-new-user HTTP/1.1" 200 466 0.078862
+(39) accepted ('192.168.100.81', 39008)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/register HTTP/1.1" 302 1296 0.018713
+(39) accepted ('192.168.100.81', 39022)
+[2025-07-26 17:58:20,718] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/dashboard HTTP/1.1" 200 17607 0.058812
+(39) accepted ('192.168.100.81', 39032)
+(39) accepted ('192.168.100.81', 39038)
+(39) accepted ('192.168.100.81', 39042)
+(39) accepted ('192.168.100.81', 39048)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /static/css/style.css HTTP/1.1" 304 203 0.002420
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001929
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001869
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:20] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002238
+(39) accepted ('192.168.100.81', 39052)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:21] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002175
+(39) accepted ('192.168.100.81', 39066)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:58:21] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002709
+(39) accepted ('192.168.100.81', 39082)
+Vk_uhEocsyUKUXHIAAAE: Sending packet OPEN data {'sid': 'Vk_uhEocsyUKUXHIAAAE', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+Vk_uhEocsyUKUXHIAAAE: Received request to upgrade to websocket
+Vk_uhEocsyUKUXHIAAAE: Upgrade to websocket successful
+Vk_uhEocsyUKUXHIAAAE: Received packet MESSAGE data 0
+[2025-07-26 17:58:21,954] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:58:21,956] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br, zstd
+Sec-Websocket-Version: 13
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Extensions: permessage-deflate
+Sec-Websocket-Key: ybJfnJ5YNTX8AcVxzwMWAQ==
+Cookie: session=.eJxNjktqBDEMRK8SvM7Ctmx95iyBRrJlZkgygf6sQu4e90wW2TwoFVWq77CM1bdruOzr4a9hufVwCWbUM2vuVSqbVqoA81aopJGIGxsgSxJyb6zdmLNRZhImBwGDokbWSmzSR3Nr0tA4omjBLCPOgoQSK-Wuw00EOdJ8o1SUa-Uwhxybr881MmXb1rHsX-9-n4ecMMlASLEX04Z5lARsqOrQtEGHqmVEnLlxW7d9-dCJu376DL8dsaR2EvhkeRDiy8PQp_hvzJZzy1-8DN2vvkZADD-_xdVbmw.aITtDA.2y2tuo4p7EXTnLPr3maciLF28M0; session_id=df493923-687d-48ac-ab6a-7f0a38823da5; username=4father0366; first_last_name=%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0; remember_token=9|3a7bf161d06d163c927aef891770d66b93f50d56e47806ce08821a222c5a3ece033d785d883bf72ea2b7b19ae18c8c5f7f9026dfb1771b36a790a4fcae730682
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: websocket
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+
+[2025-07-26 17:58:21,958] DEBUG in socket_handlers: Подключение - SID: ZUxJEJpvfQXffyTBAAAF, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+Vk_uhEocsyUKUXHIAAAE: Sending packet MESSAGE data 0{"sid":"ZUxJEJpvfQXffyTBAAAF"}
+Vk_uhEocsyUKUXHIAAAE: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4father0366","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from ZUxJEJpvfQXffyTBAAAF [/]
+[2025-07-26 17:58:22,065] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:58:22,066] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:58:22,067] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=4father0366, name=Миша Каша
+BQ-98BwggNSsvb54AAAA: Sending packet PING data None
+BQ-98BwggNSsvb54AAAA: Received packet PONG data 
+Vk_uhEocsyUKUXHIAAAE: Sending packet PING data None
+Vk_uhEocsyUKUXHIAAAE: Received packet PONG data 
+BQ-98BwggNSsvb54AAAA: Sending packet PING data None
+BQ-98BwggNSsvb54AAAA: Received packet PONG data 
+[2025-07-26 17:59:04,770] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:59:04,772] DEBUG in socket_handlers: Отключение SID: ZUxJEJpvfQXffyTBAAAF
+[2025-07-26 17:59:04,773] DEBUG in socket_handlers: Время соединения: 42.82 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:04] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 42.926130
+(39) accepted ('192.168.100.81', 52066)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:04] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/logout HTTP/1.1" 302 915 0.014288
+(39) accepted ('192.168.100.81', 52072)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:04] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7305 0.007164
+(39) accepted ('192.168.100.81', 52086)
+(39) accepted ('192.168.100.81', 52088)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:05] "GET /static/css/style.css HTTP/1.1" 304 203 0.002454
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:05] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001900
+(39) accepted ('192.168.100.81', 52098)
+(39) accepted ('192.168.100.81', 52106)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:05] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.003363
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:05] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002073
+[2025-07-26 17:59:09,093] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:59:09,095] DEBUG in socket_handlers: Отключение SID: frOCkxE57Hwo0bHLAAAB
+[2025-07-26 17:59:09,096] DEBUG in socket_handlers: Время соединения: 62.97 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 63.078998
+(39) accepted ('192.168.100.81', 52110)
+[2025-07-26 17:59:09,329] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /start-training HTTP/1.1" 200 25360 0.080391
+(39) accepted ('192.168.100.81', 52124)
+(39) accepted ('192.168.100.81', 52136)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /static/css/style.css HTTP/1.1" 304 203 0.003183
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002120
+(39) accepted ('192.168.100.81', 52154)
+(39) accepted ('192.168.100.81', 52150)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002172
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:09] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002196
+(39) accepted ('192.168.100.81', 52160)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:10] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.003703
+(39) accepted ('192.168.100.81', 52172)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:10] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002143
+(39) accepted ('192.168.100.81', 52180)
+v_zqxJOaQlFZCZqsAAAG: Sending packet OPEN data {'sid': 'v_zqxJOaQlFZCZqsAAAG', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+v_zqxJOaQlFZCZqsAAAG: Received request to upgrade to websocket
+v_zqxJOaQlFZCZqsAAAG: Upgrade to websocket successful
+v_zqxJOaQlFZCZqsAAAG: Received packet MESSAGE data 0
+[2025-07-26 17:59:11,526] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:59:11,528] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session_id=007d386b-8777-481d-8516-ecd7bff426e5; username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtqxDAM_JXic9P123K-pRBkWe4uu01KnECh9N-rbBd66GWQRpphpC81tZX7WY0Nb52f1XSpalQhogdttI0pWOOwcmnIwWPQ5K2UlYlDZgOQS7Y1VmOt15hSqaF4W4LBLPrcwFqd67EWyDARau0YIBA14qS9sTFDtEw6G58oU26psJIge-f1N02Slvrapm258iwEuBbQI3EUg-h0NDUlLoihQoGGpXIAylF07bL2bbqhwIzvLOLXXUR4oNcHOrjX5uk-aP8H4tK598syT7fLfFWj_yP2_Z6wNp9dtm6IkOrgAWnAEnFITaMDsK5iOGzOy7o9TNR52z76eDq92f1l3eeT1v5Tdo6zH0lNWZarvFheo75_ABLHfUg.aITqXg.rI7_jflCclnU8FdVuxXCH2vTBDE
+Sec-Websocket-Key: YeMXeHaJ9C2zDS7W07dfVg==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 17:59:11,529] DEBUG in socket_handlers: Подключение - SID: NKk5OhvoPEuvDR8oAAAH, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+v_zqxJOaQlFZCZqsAAAG: Sending packet MESSAGE data 0{"sid":"NKk5OhvoPEuvDR8oAAAH"}
+v_zqxJOaQlFZCZqsAAAG: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from NKk5OhvoPEuvDR8oAAAH [/]
+[2025-07-26 17:59:11,775] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:59:11,777] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:59:11,778] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(39) accepted ('192.168.100.81', 52184)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:11] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 304 207 0.002440
+(39) accepted ('192.168.100.81', 52192)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:11] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.001755
+(39) accepted ('192.168.100.81', 52208)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:12] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002202
+v_zqxJOaQlFZCZqsAAAG: Received packet MESSAGE data 2["remove_user",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4list148710"}]
+received event "remove_user" from NKk5OhvoPEuvDR8oAAAH [/]
+[2025-07-26 17:59:13,239] DEBUG in socket_handlers:  ============== handle_remove_user ================
+[2025-07-26 17:59:13,240] DEBUG in socket_handlers: session_identifier df493923-687d-48ac-ab6a-7f0a38823da5
+[2025-07-26 17:59:13,241] DEBUG in socket_handlers: username 4list148710
+[2025-07-26 17:59:13,247] DEBUG in socket_handlers: delete <User 7>, 4list148710
+emitting event "remove_user" to df493923-687d-48ac-ab6a-7f0a38823da5 [/]
+v_zqxJOaQlFZCZqsAAAG: Received packet MESSAGE data 2["remove_user",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4water56393"}]
+received event "remove_user" from NKk5OhvoPEuvDR8oAAAH [/]
+[2025-07-26 17:59:13,896] DEBUG in socket_handlers:  ============== handle_remove_user ================
+[2025-07-26 17:59:13,898] DEBUG in socket_handlers: session_identifier df493923-687d-48ac-ab6a-7f0a38823da5
+[2025-07-26 17:59:13,899] DEBUG in socket_handlers: username 4water56393
+[2025-07-26 17:59:13,903] DEBUG in socket_handlers: delete <User 8>, 4water56393
+emitting event "remove_user" to df493923-687d-48ac-ab6a-7f0a38823da5 [/]
+[2025-07-26 17:59:20,002] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 17:59:20,003] DEBUG in socket_handlers: Отключение SID: NKk5OhvoPEuvDR8oAAAH
+[2025-07-26 17:59:20,004] DEBUG in socket_handlers: Время соединения: 8.48 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 9.365105
+(39) accepted ('192.168.100.81', 48102)
+[2025-07-26 17:59:20,014] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /start-training HTTP/1.1" 200 18852 0.022673
+(39) accepted ('192.168.100.81', 48104)
+(39) accepted ('192.168.100.81', 48108)
+(39) accepted ('192.168.100.81', 48110)
+(39) accepted ('192.168.100.81', 48114)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /static/css/style.css HTTP/1.1" 304 203 0.002417
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002131
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002118
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:20] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002081
+(39) accepted ('192.168.100.81', 48120)
+(39) accepted ('192.168.100.81', 48132)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:21] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002515
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:21] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002065
+(39) accepted ('192.168.100.81', 48138)
+jmP_o__258C6EQ9bAAAI: Sending packet OPEN data {'sid': 'jmP_o__258C6EQ9bAAAI', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+jmP_o__258C6EQ9bAAAI: Received request to upgrade to websocket
+jmP_o__258C6EQ9bAAAI: Upgrade to websocket successful
+jmP_o__258C6EQ9bAAAI: Received packet MESSAGE data 0
+[2025-07-26 17:59:22,004] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:59:22,005] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session_id=007d386b-8777-481d-8516-ecd7bff426e5; username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtqxDAM_JXic9P123K-pRBkWe4uu01KnECh9N-rbBd66GWQRpphpC81tZX7WY0Nb52f1XSpalQhogdttI0pWOOwcmnIwWPQ5K2UlYlDZgOQS7Y1VmOt15hSqaF4W4LBLPrcwFqd67EWyDARau0YIBA14qS9sTFDtEw6G58oU26psJIge-f1N02Slvrapm258iwEuBbQI3EUg-h0NDUlLoihQoGGpXIAylF07bL2bbqhwIzvLOLXXUR4oNcHOrjX5uk-aP8H4tK598syT7fLfFWj_yP2_Z6wNp9dtm6IkOrgAWnAEnFITaMDsK5iOGzOy7o9TNR52z76eDq92f1l3eeT1v5Tdo6zH0lNWZarvFheo75_ABLHfUg.aITqXg.rI7_jflCclnU8FdVuxXCH2vTBDE
+Sec-Websocket-Key: xeXKyfCuxwFWax8RL5tsCw==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 17:59:22,006] DEBUG in socket_handlers: Подключение - SID: d8D9EOagdinZ1q_YAAAJ, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+jmP_o__258C6EQ9bAAAI: Sending packet MESSAGE data 0{"sid":"d8D9EOagdinZ1q_YAAAJ"}
+jmP_o__258C6EQ9bAAAI: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from d8D9EOagdinZ1q_YAAAJ [/]
+[2025-07-26 17:59:22,244] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:59:22,245] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:59:22,246] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(39) accepted ('192.168.100.81', 48150)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:22] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.001959
+(39) accepted ('192.168.100.81', 48162)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:22] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 304 207 0.002039
+(39) accepted ('192.168.100.81', 48164)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:22] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002541
+(39) accepted ('192.168.100.81', 52686)
+[2025-07-26 17:59:28,023] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 17:59:28,026] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 17:59:28,028] DEBUG in SetUsers: Объект сессии <Session 4>
+[2025-07-26 17:59:28,029] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 17:59:28,031] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 17:59:28,036] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 17:59:28,037] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 17:59:28,038] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "POST /create-new-user HTTP/1.1" 200 467 0.032587
+(39) accepted ('192.168.100.81', 52690)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/register HTTP/1.1" 302 1298 0.012052
+(39) accepted ('192.168.100.81', 52698)
+[2025-07-26 17:59:28,331] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/dashboard HTTP/1.1" 200 17950 0.038830
+(39) accepted ('192.168.100.81', 52704)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/css/style.css HTTP/1.1" 304 203 0.002465
+(39) accepted ('192.168.100.81', 52706)
+(39) accepted ('192.168.100.81', 52722)
+(39) accepted ('192.168.100.81', 52732)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001934
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002105
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001980
+(39) accepted ('192.168.100.81', 52734)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002425
+(39) accepted ('192.168.100.81', 52744)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 17:59:28] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002252
+(39) accepted ('192.168.100.81', 52758)
+vigJwREkApkKiPI4AAAK: Sending packet OPEN data {'sid': 'vigJwREkApkKiPI4AAAK', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+vigJwREkApkKiPI4AAAK: Received request to upgrade to websocket
+vigJwREkApkKiPI4AAAK: Upgrade to websocket successful
+vigJwREkApkKiPI4AAAK: Received packet MESSAGE data 0
+[2025-07-26 17:59:29,587] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 17:59:29,588] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br, zstd
+Sec-Websocket-Version: 13
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Extensions: permessage-deflate
+Sec-Websocket-Key: 4LWnGP7Te+SA+bOLc46QAw==
+Cookie: session=.eJxNjk1OQzEMhK-CsmaRxE5i9yxIT7bjiIpS0PtZVdydtGXB5pPGoxnPLSxj9e09nPb18NewnHs4BdXWM0nuhQuplFYA5g0bppEaGSlU4sTN3Ui6EmVtmRpTc2BQQNGmhtG4D3M1tqoUKwvWzCPOglQ5lpa7DFfmSrHNN9JQqBQKc8ix-fpck-LUtq1j2b8-_DovOdXEo0KKHVWs5oEJSKuIg4lBhyI4Yp25cV63fbnIxFU-fYbfjojJ7gS6Ex-E-PIw5Cn-G7PlPuYvjt8XMY9AMYefXwq1W3w.aITtUA.e_W7sUhemLwSSEi4_GVnCRXoI-A; session_id=df493923-687d-48ac-ab6a-7f0a38823da5; username=4place03802; first_last_name=%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0; remember_token=10|44e97de1798d38e433989fa232941c958944f8b48176e5d966047f28aa9dccab1b5b035526324ebce8b1390f2166b92a4bfc265582864d7e7cca54c3a6e605fd
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: websocket
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+
+[2025-07-26 17:59:29,590] DEBUG in socket_handlers: Подключение - SID: guzCk2_JyMo_MiH0AAAL, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+vigJwREkApkKiPI4AAAK: Sending packet MESSAGE data 0{"sid":"guzCk2_JyMo_MiH0AAAL"}
+vigJwREkApkKiPI4AAAK: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4place03802","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from guzCk2_JyMo_MiH0AAAL [/]
+[2025-07-26 17:59:29,696] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 17:59:29,697] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 17:59:29,698] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=4place03802, name=Миша Каша
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+jmP_o__258C6EQ9bAAAI: Sending packet PING data None
+jmP_o__258C6EQ9bAAAI: Received packet PONG data 
+(39) accepted ('192.168.100.81', 56982)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-36x36.png HTTP/1.1" 200 6271 0.004205
+(39) accepted ('192.168.100.81', 56992)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-48x48.png HTTP/1.1" 200 7023 0.002356
+(39) accepted ('192.168.100.81', 56998)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-72x72.png HTTP/1.1" 200 9278 0.002490
+(39) accepted ('192.168.100.81', 57002)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-96x96.png HTTP/1.1" 200 11780 0.002628
+(39) accepted ('192.168.100.81', 57018)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-144x144.png HTTP/1.1" 200 21220 0.003588
+(39) accepted ('192.168.100.81', 57020)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/android-icon-192x192.png HTTP/1.1" 200 38719 0.004460
+(39) accepted ('192.168.100.81', 57022)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/favicon-16x16.png HTTP/1.1" 200 5084 0.002352
+(39) accepted ('192.168.100.81', 57030)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:09] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 200 5847 0.002487
+(39) accepted ('192.168.100.81', 57040)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/favicon-96x96.png HTTP/1.1" 200 11609 0.002984
+(39) accepted ('192.168.100.81', 57042)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-57x57.png HTTP/1.1" 200 7791 0.002373
+(39) accepted ('192.168.100.81', 57054)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-60x60.png HTTP/1.1" 200 7899 0.003884
+(39) accepted ('192.168.100.81', 57066)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-72x72.png HTTP/1.1" 200 9032 0.003803
+(39) accepted ('192.168.100.81', 57074)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-76x76.png HTTP/1.1" 200 9209 0.002349
+(39) accepted ('192.168.100.81', 57078)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-114x114.png HTTP/1.1" 200 14536 0.002550
+(39) accepted ('192.168.100.81', 57088)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-120x120.png HTTP/1.1" 200 15551 0.002857
+(39) accepted ('192.168.100.81', 57096)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 200 20785 0.004560
+(39) accepted ('192.168.100.81', 57108)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:10] "GET /static/favicon/apple-icon-152x152.png HTTP/1.1" 200 23084 0.004496
+(39) accepted ('192.168.100.81', 57120)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:11] "GET /static/favicon/apple-icon-180x180.png HTTP/1.1" 200 32009 0.003520
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+[2025-07-26 18:03:23,676] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:03:23,677] DEBUG in socket_handlers: Отключение SID: d8D9EOagdinZ1q_YAAAJ
+[2025-07-26 18:03:23,678] DEBUG in socket_handlers: Время соединения: 241.67 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:23] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 242.438462
+(39) accepted ('192.168.100.81', 54690)
+[2025-07-26 18:03:23,909] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:23] "GET /start-training HTTP/1.1" 200 22106 0.041657
+(39) accepted ('192.168.100.81', 54692)
+(39) accepted ('192.168.100.81', 54702)
+(39) accepted ('192.168.100.81', 54706)
+(39) accepted ('192.168.100.81', 54708)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:24] "GET /static/css/style.css HTTP/1.1" 304 203 0.002306
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:24] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001980
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:24] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001872
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:24] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002193
+(39) accepted ('192.168.100.81', 35148)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:25] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.003267
+(39) accepted ('192.168.100.81', 35164)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:25] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002239
+(39) accepted ('192.168.100.81', 35180)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:25] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.001887
+(39) accepted ('192.168.100.81', 35194)
+fz_s8u23fOD2x-t9AAAM: Sending packet OPEN data {'sid': 'fz_s8u23fOD2x-t9AAAM', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+fz_s8u23fOD2x-t9AAAM: Received request to upgrade to websocket
+fz_s8u23fOD2x-t9AAAM: Upgrade to websocket successful
+fz_s8u23fOD2x-t9AAAM: Received packet MESSAGE data 0
+[2025-07-26 18:03:26,230] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:03:26,232] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtqxDAM_JXic9P123K-pRBkWe4uu01KnECh9N-rbBd66GWQRpphpC81tZX7WY0Nb52f1XSpalQhogdttI0pWOOwcmnIwWPQ5K2UlYlDZgOQS7Y1VmOt15hSqaF4W4LBLPrcwFqd67EWyDARau0YIBA14qS9sTFDtEw6G58oU26psJIge-f1N02Slvrapm258iwEuBbQI3EUg-h0NDUlLoihQoGGpXIAylF07bL2bbqhwIzvLOLXXUR4oNcHOrjX5uk-aP8H4tK598syT7fLfFWj_yP2_Z6wNp9dtm6IkOrgAWnAEnFITaMDsK5iOGzOy7o9TNR52z76eDq92f1l3eeT1v5Tdo6zH0lNWZarvFheo75_ABLHfUg.aITqXg.rI7_jflCclnU8FdVuxXCH2vTBDE
+Sec-Websocket-Key: mI+i0rWFLEPOYlR/0gdkww==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 18:03:26,233] DEBUG in socket_handlers: Подключение - SID: VaB6zuiflFjwDiUaAAAN, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+fz_s8u23fOD2x-t9AAAM: Sending packet MESSAGE data 0{"sid":"VaB6zuiflFjwDiUaAAAN"}
+(39) accepted ('192.168.100.81', 35208)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:26] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002288
+fz_s8u23fOD2x-t9AAAM: Received packet MESSAGE data 2["join_session",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"teacher"}]
+received event "join_session" from VaB6zuiflFjwDiUaAAAN [/]
+[2025-07-26 18:03:26,463] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:03:26,464] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:03:26,465] DEBUG in socket_handlers: Данные подключения: session=df493923-687d-48ac-ab6a-7f0a38823da5, user=teacher, name=teacher maybe
+(39) accepted ('192.168.100.81', 35224)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:26] "GET /static/favicon/favicon-32x32.png HTTP/1.1" 304 207 0.002136
+fz_s8u23fOD2x-t9AAAM: Received packet MESSAGE data 2["remove_user",{"session_id":"df493923-687d-48ac-ab6a-7f0a38823da5","username":"4father0366"}]
+received event "remove_user" from VaB6zuiflFjwDiUaAAAN [/]
+[2025-07-26 18:03:28,211] DEBUG in socket_handlers:  ============== handle_remove_user ================
+[2025-07-26 18:03:28,212] DEBUG in socket_handlers: session_identifier df493923-687d-48ac-ab6a-7f0a38823da5
+[2025-07-26 18:03:28,213] DEBUG in socket_handlers: username 4father0366
+[2025-07-26 18:03:28,218] DEBUG in socket_handlers: delete <User 9>, 4father0366
+emitting event "remove_user" to df493923-687d-48ac-ab6a-7f0a38823da5 [/]
+[2025-07-26 18:03:36,302] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:03:36,303] DEBUG in socket_handlers: Отключение SID: VaB6zuiflFjwDiUaAAAN
+[2025-07-26 18:03:36,304] DEBUG in socket_handlers: Время соединения: 10.07 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 11.024751
+(39) accepted ('192.168.100.81', 49726)
+[2025-07-26 18:03:36,337] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET / HTTP/1.1" 200 6575 0.015088
+(39) accepted ('192.168.100.81', 49732)
+(39) accepted ('192.168.100.81', 49740)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /static/css/style.css HTTP/1.1" 304 203 0.003141
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001901
+(39) accepted ('192.168.100.81', 49756)
+(39) accepted ('192.168.100.81', 49768)
+(39) accepted ('192.168.100.81', 49778)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001956
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001953
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:36] "GET /static/images/ctfclasslogo.png HTTP/1.1" 304 210 0.002194
+(39) accepted ('192.168.100.81', 49780)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:37] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.002883
+(39) accepted ('192.168.100.81', 49788)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:37] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.003271
+(39) accepted ('192.168.100.81', 49796)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:37] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.003018
+(39) accepted ('192.168.100.81', 49810)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:38] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.003060
+(39) accepted ('192.168.100.81', 49826)
+[2025-07-26 18:03:39,323] DEBUG in routes: === AJAX REQUEST RECEIVED ====== start-training-async =======
+[2025-07-26 18:03:39,324] DEBUG in routes: Получен тип пользователя teacher
+[2025-07-26 18:03:39,325] DEBUG in SetUsers: ========= setUserSession =========
+[2025-07-26 18:03:39,331] DEBUG in SetUsers: Создана сессия <Session (transient 140457713406608)>
+[2025-07-26 18:03:39,536] DEBUG in routes: Создана Сессия 5 https://g2u.run/004y f76baae7-88fb-4aa9-939d-8a9d1b421f25
+[2025-07-26 18:03:39,538] DEBUG in routes: Отправка данных после открытия сессии 5 https://g2u.run/004y f76baae7-88fb-4aa9-939d-8a9d1b421f25
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "POST /start-training-async HTTP/1.1" 200 636 0.220392
+(39) accepted ('192.168.100.81', 49832)
+[2025-07-26 18:03:39,687] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "GET /start-training HTTP/1.1" 200 15598 0.010300
+(39) accepted ('192.168.100.81', 49844)
+(39) accepted ('192.168.100.81', 49846)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "GET /static/css/style.css HTTP/1.1" 304 203 0.003020
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001886
+(39) accepted ('192.168.100.81', 49856)
+(39) accepted ('192.168.100.81', 49870)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001885
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:39] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001864
+vigJwREkApkKiPI4AAAK: Sending packet PING data None
+vigJwREkApkKiPI4AAAK: Received packet PONG data 
+(39) accepted ('192.168.100.81', 49880)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:40] "GET /static/favicon/manifest.json HTTP/1.1" 304 202 0.003451
+(39) accepted ('192.168.100.81', 49888)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:40] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002542
+(39) accepted ('192.168.100.81', 49890)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:40] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.002372
+(39) accepted ('192.168.100.81', 49902)
+SbEcU4XAF8jEmS74AAAO: Sending packet OPEN data {'sid': 'SbEcU4XAF8jEmS74AAAO', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+SbEcU4XAF8jEmS74AAAO: Received request to upgrade to websocket
+SbEcU4XAF8jEmS74AAAO: Upgrade to websocket successful
+SbEcU4XAF8jEmS74AAAO: Received packet MESSAGE data 0
+[2025-07-26 18:03:41,847] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:03:41,848] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtOxDAM_BWUM2WTNA-734JUOYnDVru0qGkPCPHvuGUlDlxGju0ZT-ZLjXXldlVDpXvjZzVORQ3KB3KgjbYhemt6KpwqsXfkdXZWysKZPbIBwIS2hGKsdZpiTMUnZ5M3hMLHCtZqLMeaz4ZzJq17BvA518xRO2MDQrCcNRoXM2asMbESI3vj9ddNlGduax235cazNKCvnhxlDiIQeh1MiZETkS-QoFIq7CFjEF6d1raNdxKY6Z2F_LoLiQ50-sAezto8nYP6fyAqjVublnm8T_NNDf6vse-nwxqDXOfYAdTUOSLssMfSAWExkoep1h8y12XdHiLqum0fbbhc3uz-su7zRWv3KTvHtx9OTVqWm0Qs0ajvHz0kfa8.aITuSw.ir97FFwgkmY4RtrlZjtBW4W3xfA
+Sec-Websocket-Key: Y3mMoCaLdjHLA50ir8s3vA==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 18:03:41,850] DEBUG in socket_handlers: Подключение - SID: lJfR3XW0bK_T02o9AAAP, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+SbEcU4XAF8jEmS74AAAO: Sending packet MESSAGE data 0{"sid":"lJfR3XW0bK_T02o9AAAP"}
+(39) accepted ('192.168.100.81', 49908)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:41] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.003089
+SbEcU4XAF8jEmS74AAAO: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"teacher"}]
+received event "join_session" from lJfR3XW0bK_T02o9AAAP [/]
+[2025-07-26 18:03:42,013] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:03:42,014] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:03:42,015] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=teacher, name=teacher maybe
+[2025-07-26 18:03:47,478] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:03:47,480] DEBUG in socket_handlers: Отключение SID: guzCk2_JyMo_MiH0AAAL
+[2025-07-26 18:03:47,481] DEBUG in socket_handlers: Время соединения: 257.89 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:47] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 257.999810
+(39) accepted ('192.168.100.81', 34720)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:47] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/logout HTTP/1.1" 302 916 0.013013
+(39) accepted ('192.168.100.81', 34722)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:48] "GET /sessiondf493923-687d-48ac-ab6a-7f0a38823da5/login HTTP/1.1" 200 7306 0.007541
+(39) accepted ('192.168.100.81', 34732)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:48] "GET /static/css/style.css HTTP/1.1" 200 3617 0.002359
+(39) accepted ('192.168.100.81', 34738)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:48] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 200 160735 0.009085
+(39) accepted ('192.168.100.81', 34742)
+(39) accepted ('192.168.100.81', 34752)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:48] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002025
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:48] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001852
+(39) accepted ('192.168.100.81', 47320)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25 HTTP/1.1" 302 502 0.006454
+(39) accepted ('192.168.100.81', 47334)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/login HTTP/1.1" 200 7058 0.006942
+(39) accepted ('192.168.100.81', 47342)
+(39) accepted ('192.168.100.81', 47350)
+(39) accepted ('192.168.100.81', 47356)
+(39) accepted ('192.168.100.81', 47364)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002439
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001830
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /static/css/style.css HTTP/1.1" 304 203 0.001856
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:55] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002037
+(39) accepted ('192.168.100.81', 47370)
+[2025-07-26 18:03:58,059] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:03:58,062] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:03:58,065] DEBUG in SetUsers: Объект сессии <Session 5>
+[2025-07-26 18:03:58,066] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:03:58,068] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:03:58,072] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:03:58,073] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:03:58,074] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "POST /create-new-user HTTP/1.1" 200 469 0.030431
+(39) accepted ('192.168.100.81', 47386)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/register HTTP/1.1" 302 1301 0.013535
+(39) accepted ('192.168.100.81', 47392)
+[2025-07-26 18:03:58,389] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/dashboard HTTP/1.1" 200 17700 0.037297
+(39) accepted ('192.168.100.81', 47398)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /static/css/style.css HTTP/1.1" 304 203 0.002388
+(39) accepted ('192.168.100.81', 47410)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001954
+(39) accepted ('192.168.100.81', 47416)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001852
+(39) accepted ('192.168.100.81', 47420)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:58] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001994
+(39) accepted ('192.168.100.81', 47426)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:59] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002126
+(39) accepted ('192.168.100.81', 47428)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:03:59] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002199
+(39) accepted ('192.168.100.81', 47444)
+9ERIEtzJA_HaFuuuAAAQ: Sending packet OPEN data {'sid': '9ERIEtzJA_HaFuuuAAAQ', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+9ERIEtzJA_HaFuuuAAAQ: Received request to upgrade to websocket
+9ERIEtzJA_HaFuuuAAAQ: Upgrade to websocket successful
+9ERIEtzJA_HaFuuuAAAQ: Received packet MESSAGE data 0
+[2025-07-26 18:04:00,135] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:04:00,136] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br, zstd
+Sec-Websocket-Version: 13
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Extensions: permessage-deflate
+Sec-Websocket-Key: w47AX14r0m8VH6K3b/YEXA==
+Cookie: session=.eJxNjs1OAzEMhF8F5cwhjp3Y7rMgrez8qBWwRbvtCfHuZFsOXD5pPJrxfIdlbH0_h9Ntu_fXsFxaOAV3bkkstaxZ3DJnxHkjJhjAUsWxiIJy71WsuUhyTsIq3FHRkczZK8WqbdTuVWtxiUWNStIRZwEUjZlTs9FdtUjk-caYTHKWMIfc97491wBMXfdtLLfre1_nJUEBHQUhNnKrJQ0CFC9mHatVbJiNRiwzNy7bfls-bGK1zz7Db_dIUA-iHKQHMb48DHuK_8ZsOcb8xfPX-bp2EKYUfn4BDE9bnA.aITuXg.fajc_uYPcbRnXbk99EQDZgH9iIM; session_id=f76baae7-88fb-4aa9-939d-8a9d1b421f25; username=5phone18742; first_last_name=%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0; remember_token=11|9bc6fd0643ab17be34dbc58f1a0a616fa5b68d39c463e4037c95270902d43bf8d50f357b84d25f5b8c71d803c5ecb2e70f75581ccdd4fd973fbb0fce3d4823a9
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: websocket
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+
+[2025-07-26 18:04:00,138] DEBUG in socket_handlers: Подключение - SID: qvnROcMVSBVev_BLAAAR, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+9ERIEtzJA_HaFuuuAAAQ: Sending packet MESSAGE data 0{"sid":"qvnROcMVSBVev_BLAAAR"}
+9ERIEtzJA_HaFuuuAAAQ: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"5phone18742","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from qvnROcMVSBVev_BLAAAR [/]
+[2025-07-26 18:04:00,242] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:04:00,243] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:04:00,244] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=5phone18742, name=Миша Каша
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+9ERIEtzJA_HaFuuuAAAQ: Sending packet PING data None
+9ERIEtzJA_HaFuuuAAAQ: Received packet PONG data 
+SbEcU4XAF8jEmS74AAAO: Sending packet PING data None
+SbEcU4XAF8jEmS74AAAO: Received packet PONG data 
+ * Detected change in '/app/app/__init__.py', reloading
+ * Restarting with stat
+[2025-07-26 18:14:38,021] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 18:14:38,114] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 18:14:38,115] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 18:14:38,115] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(40) wsgi starting up on http://0.0.0.0:8000
+(40) accepted ('192.168.100.81', 36826)
+Wsed04pRY_TirT2BAAAA: Sending packet OPEN data {'sid': 'Wsed04pRY_TirT2BAAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+Wsed04pRY_TirT2BAAAA: Received request to upgrade to websocket
+Wsed04pRY_TirT2BAAAA: Upgrade to websocket successful
+Wsed04pRY_TirT2BAAAA: Received packet MESSAGE data 0
+[2025-07-26 18:14:39,695] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:14:39,697] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: username=1book188091; first_last_name=%D0%9A%D1%80%D0%B8%D1%81%20%D0%9F%D1%80%D0%B8%D1%81; remember_token=7|ff38ce24dbd164daefe3f38b3d6a3b444deda986f82cee8886e2ad5e7ce796c28c148d7c99dffcb42a03645c98774945722ee084574cdd20c49e3fd0b2fd90c3; session=.eJxlUMtOxDAM_BWUM2WTNA-734JUOYnDVru0qGkPCPHvuGUlDlxGju0ZT-ZLjXXldlVDpXvjZzVORQ3KB3KgjbYhemt6KpwqsXfkdXZWysKZPbIBwIS2hGKsdZpiTMUnZ5M3hMLHCtZqLMeaz4ZzJq17BvA518xRO2MDQrCcNRoXM2asMbESI3vj9ddNlGduax235cazNKCvnhxlDiIQeh1MiZETkS-QoFIq7CFjEF6d1raNdxKY6Z2F_LoLiQ50-sAezto8nYP6fyAqjVublnm8T_NNDf6vse-nwxqDXOfYAdTUOSLssMfSAWExkoep1h8y12XdHiLqum0fbbhc3uz-su7zRWv3KTvHtx9OTVqWm0Qs0ajvHz0kfa8.aITuSw.ir97FFwgkmY4RtrlZjtBW4W3xfA
+Sec-Websocket-Key: koEqitkGbMe84uy7DEh83A==
+Sec-Websocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+[2025-07-26 18:14:39,698] DEBUG in socket_handlers: Подключение - SID: FB5RmkyuoGhQBVfxAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+Wsed04pRY_TirT2BAAAA: Sending packet MESSAGE data 0{"sid":"FB5RmkyuoGhQBVfxAAAB"}
+Wsed04pRY_TirT2BAAAA: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"teacher"}]
+received event "join_session" from FB5RmkyuoGhQBVfxAAAB [/]
+[2025-07-26 18:14:39,806] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:14:39,808] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:14:39,808] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=teacher, name=teacher maybe
+(40) accepted ('192.168.100.81', 36836)
+RCrFNNuuru2OJc_AAAAC: Sending packet OPEN data {'sid': 'RCrFNNuuru2OJc_AAAAC', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+RCrFNNuuru2OJc_AAAAC: Received request to upgrade to websocket
+RCrFNNuuru2OJc_AAAAC: Upgrade to websocket successful
+RCrFNNuuru2OJc_AAAAC: Received packet MESSAGE data 0
+[2025-07-26 18:14:40,045] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:14:40,047] DEBUG in socket_handlers: request.headers.get ====== Content-Type: text/plain
+Upgrade: websocket
+Connection: upgrade
+Host: test.ctfclass.ru
+X-Real-Ip: 10.153.244.1
+X-Forwarded-For: 10.153.244.1
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br, zstd
+Sec-Websocket-Version: 13
+Origin: https://test.ctfclass.ru
+Sec-Websocket-Extensions: permessage-deflate
+Sec-Websocket-Key: s65paYUtc6Pgnp3FH8kFrA==
+Cookie: session=.eJxNjs1OAzEMhF8F5cwhjp3Y7rMgrez8qBWwRbvtCfHuZFsOXD5pPJrxfIdlbH0_h9Ntu_fXsFxaOAV3bkkstaxZ3DJnxHkjJhjAUsWxiIJy71WsuUhyTsIq3FHRkczZK8WqbdTuVWtxiUWNStIRZwEUjZlTs9FdtUjk-caYTHKWMIfc97491wBMXfdtLLfre1_nJUEBHQUhNnKrJQ0CFC9mHatVbJiNRiwzNy7bfls-bGK1zz7Db_dIUA-iHKQHMb48DHuK_8ZsOcb8xfPX-bp2EKYUfn4BDE9bnA.aITuXg.fajc_uYPcbRnXbk99EQDZgH9iIM; session_id=f76baae7-88fb-4aa9-939d-8a9d1b421f25; username=5phone18742; first_last_name=%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0; remember_token=11|9bc6fd0643ab17be34dbc58f1a0a616fa5b68d39c463e4037c95270902d43bf8d50f357b84d25f5b8c71d803c5ecb2e70f75581ccdd4fd973fbb0fce3d4823a9
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: websocket
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+
+[2025-07-26 18:14:40,048] DEBUG in socket_handlers: Подключение - SID: 5OyLEdwqb1PvS83lAAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+RCrFNNuuru2OJc_AAAAC: Sending packet MESSAGE data 0{"sid":"5OyLEdwqb1PvS83lAAAD"}
+RCrFNNuuru2OJc_AAAAC: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"5phone18742","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from 5OyLEdwqb1PvS83lAAAD [/]
+[2025-07-26 18:14:40,158] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:14:40,159] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:14:40,161] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=5phone18742, name=Миша Каша
+Wsed04pRY_TirT2BAAAA: Sending packet PING data None
+Wsed04pRY_TirT2BAAAA: Received packet PONG data 
+RCrFNNuuru2OJc_AAAAC: Sending packet PING data None
+RCrFNNuuru2OJc_AAAAC: Received packet PONG data 
+Wsed04pRY_TirT2BAAAA: Sending packet PING data None
+Wsed04pRY_TirT2BAAAA: Received packet PONG data 
+RCrFNNuuru2OJc_AAAAC: Sending packet PING data None
+RCrFNNuuru2OJc_AAAAC: Received packet PONG data 
+ * Detected change in '/app/app/socket_handlers.py', reloading
+ * Restarting with stat
+[2025-07-26 18:15:36,850] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 18:15:36,939] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 18:15:36,940] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 18:15:36,940] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(41) wsgi starting up on http://0.0.0.0:8000
+(41) accepted ('192.168.100.81', 47126)
+HJbs2Pdtkymq37ATAAAA: Sending packet OPEN data {'sid': 'HJbs2Pdtkymq37ATAAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+HJbs2Pdtkymq37ATAAAA: Received request to upgrade to websocket
+HJbs2Pdtkymq37ATAAAA: Upgrade to websocket successful
+HJbs2Pdtkymq37ATAAAA: Received packet MESSAGE data 0
+[2025-07-26 18:15:37,531] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:15:37,533] DEBUG in socket_handlers: Подключение - SID: CAJv8fI-_P-bBcdbAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+HJbs2Pdtkymq37ATAAAA: Sending packet MESSAGE data 0{"sid":"CAJv8fI-_P-bBcdbAAAB"}
+HJbs2Pdtkymq37ATAAAA: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"teacher"}]
+received event "join_session" from CAJv8fI-_P-bBcdbAAAB [/]
+[2025-07-26 18:15:37,637] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:15:37,638] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:15:37,639] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=teacher, name=teacher maybe
+(41) accepted ('192.168.100.81', 47130)
+MW_qlg1vUWFnvm66AAAC: Sending packet OPEN data {'sid': 'MW_qlg1vUWFnvm66AAAC', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+MW_qlg1vUWFnvm66AAAC: Received request to upgrade to websocket
+MW_qlg1vUWFnvm66AAAC: Upgrade to websocket successful
+MW_qlg1vUWFnvm66AAAC: Received packet MESSAGE data 0
+[2025-07-26 18:15:38,151] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:15:38,152] DEBUG in socket_handlers: Подключение - SID: Z4ntLIzMNVh46MCsAAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+MW_qlg1vUWFnvm66AAAC: Sending packet MESSAGE data 0{"sid":"Z4ntLIzMNVh46MCsAAAD"}
+MW_qlg1vUWFnvm66AAAC: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"5phone18742","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from Z4ntLIzMNVh46MCsAAAD [/]
+[2025-07-26 18:15:38,261] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:15:38,262] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:15:38,264] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=5phone18742, name=Миша Каша
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+MW_qlg1vUWFnvm66AAAC: Sending packet PING data None
+MW_qlg1vUWFnvm66AAAC: Received packet PONG data 
+[2025-07-26 18:20:44,081] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:20:44,083] DEBUG in socket_handlers: Отключение SID: Z4ntLIzMNVh46MCsAAAD
+[2025-07-26 18:20:44,084] DEBUG in socket_handlers: Время соединения: 305.93 секунд
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:44] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 306.139235
+(41) accepted ('192.168.100.81', 37078)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:44] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/logout HTTP/1.1" 302 919 0.074324
+(41) accepted ('192.168.100.81', 37080)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:44] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/login HTTP/1.1" 200 7308 0.044140
+(41) accepted ('192.168.100.81', 37096)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:45] "GET /static/css/style.css HTTP/1.1" 200 3617 0.015024
+(41) accepted ('192.168.100.81', 37112)
+(41) accepted ('192.168.100.81', 37122)
+(41) accepted ('192.168.100.81', 37138)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:45] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 200 160735 0.007300
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:45] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 200 89816 0.005696
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:45] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 200 60505 0.004580
+(41) accepted ('192.168.100.81', 37146)
+[2025-07-26 18:20:49,374] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:20:49,377] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:20:49,383] DEBUG in SetUsers: Объект сессии <Session 5>
+[2025-07-26 18:20:49,384] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:20:49,385] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:20:49,392] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:20:49,394] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:20:49,395] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:49] "POST /create-new-user HTTP/1.1" 200 467 0.042229
+(41) accepted ('192.168.100.81', 37156)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:49] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/register HTTP/1.1" 302 1298 0.016188
+(41) accepted ('192.168.100.81', 37160)
+[2025-07-26 18:20:49,702] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:49] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/dashboard HTTP/1.1" 200 17640 0.069157
+(41) accepted ('192.168.100.81', 37184)
+(41) accepted ('192.168.100.81', 37174)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002269
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/css/style.css HTTP/1.1" 304 203 0.001909
+(41) accepted ('192.168.100.81', 37190)
+(41) accepted ('192.168.100.81', 37196)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002513
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002005
+(41) accepted ('192.168.100.81', 37204)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/js/quiz.js HTTP/1.1" 200 32344 0.004349
+(41) accepted ('192.168.100.81', 37208)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:20:50] "GET /static/js/crypto-shim.js HTTP/1.1" 200 1124 0.003661
+(41) accepted ('192.168.100.81', 37222)
+ClbcudoDgxeU8TY4AAAE: Sending packet OPEN data {'sid': 'ClbcudoDgxeU8TY4AAAE', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+ClbcudoDgxeU8TY4AAAE: Received request to upgrade to websocket
+ClbcudoDgxeU8TY4AAAE: Upgrade to websocket successful
+ClbcudoDgxeU8TY4AAAE: Received packet MESSAGE data 0
+[2025-07-26 18:20:51,280] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:20:51,281] DEBUG in socket_handlers: Подключение - SID: Oh7751x9lcSk_-MwAAAF, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+ClbcudoDgxeU8TY4AAAE: Sending packet MESSAGE data 0{"sid":"Oh7751x9lcSk_-MwAAAF"}
+ClbcudoDgxeU8TY4AAAE: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"5list325448","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from Oh7751x9lcSk_-MwAAAF [/]
+[2025-07-26 18:20:51,389] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:20:51,390] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:20:51,391] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=5list325448, name=Миша Каша
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+ClbcudoDgxeU8TY4AAAE: Sending packet PING data None
+ClbcudoDgxeU8TY4AAAE: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+ClbcudoDgxeU8TY4AAAE: Sending packet PING data None
+ClbcudoDgxeU8TY4AAAE: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+ClbcudoDgxeU8TY4AAAE: Sending packet PING data None
+ClbcudoDgxeU8TY4AAAE: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+ClbcudoDgxeU8TY4AAAE: Sending packet PING data None
+ClbcudoDgxeU8TY4AAAE: Received packet PONG data 
+HJbs2Pdtkymq37ATAAAA: Sending packet PING data None
+HJbs2Pdtkymq37ATAAAA: Received packet PONG data 
+ClbcudoDgxeU8TY4AAAE: Sending packet PING data None
+ClbcudoDgxeU8TY4AAAE: Received packet PONG data 
+ * Detected change in '/app/app/socket_handlers.py', reloading
+ * Restarting with stat
+[2025-07-26 18:23:02,127] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 18:23:02,216] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 18:23:02,217] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 18:23:02,217] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(45) wsgi starting up on http://0.0.0.0:8000
+(45) accepted ('192.168.100.81', 33100)
+PJ6bAxysKJ5AERiVAAAA: Sending packet OPEN data {'sid': 'PJ6bAxysKJ5AERiVAAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+PJ6bAxysKJ5AERiVAAAA: Received request to upgrade to websocket
+PJ6bAxysKJ5AERiVAAAA: Upgrade to websocket successful
+(45) accepted ('192.168.100.81', 33116)
+P_WxISys2lyFT7NlAAAB: Sending packet OPEN data {'sid': 'P_WxISys2lyFT7NlAAAB', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+P_WxISys2lyFT7NlAAAB: Received request to upgrade to websocket
+P_WxISys2lyFT7NlAAAB: Upgrade to websocket successful
+PJ6bAxysKJ5AERiVAAAA: Received packet MESSAGE data 0
+[2025-07-26 18:23:03,553] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:23:03,554] DEBUG in socket_handlers: Подключение - SID: aF2mgTjvlwkWJ4aMAAAC, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+PJ6bAxysKJ5AERiVAAAA: Sending packet MESSAGE data 0{"sid":"aF2mgTjvlwkWJ4aMAAAC"}
+P_WxISys2lyFT7NlAAAB: Received packet MESSAGE data 0
+[2025-07-26 18:23:03,608] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:23:03,609] DEBUG in socket_handlers: Подключение - SID: oYbbSSBT2PPw0voGAAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+P_WxISys2lyFT7NlAAAB: Sending packet MESSAGE data 0{"sid":"oYbbSSBT2PPw0voGAAAD"}
+PJ6bAxysKJ5AERiVAAAA: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"5list325448","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from aF2mgTjvlwkWJ4aMAAAC [/]
+[2025-07-26 18:23:03,660] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:23:03,661] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:23:03,663] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=5list325448, name=Миша Каша
+[2025-07-26 18:23:03,709] DEBUG in socket_handlers: Текущий пользователь <User 12> 
+[2025-07-26 18:23:03,711] DEBUG in socket_handlers: Пользователь 5list325448 переподкючен
+aF2mgTjvlwkWJ4aMAAAC is entering room f76baae7-88fb-4aa9-939d-8a9d1b421f25 [/]
+P_WxISys2lyFT7NlAAAB: Received packet MESSAGE data 2["join_session",{"session_id":"f76baae7-88fb-4aa9-939d-8a9d1b421f25","username":"teacher"}]
+received event "join_session" from oYbbSSBT2PPw0voGAAAD [/]
+[2025-07-26 18:23:03,717] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:23:03,719] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:23:03,720] DEBUG in socket_handlers: Данные подключения: session=f76baae7-88fb-4aa9-939d-8a9d1b421f25, user=teacher, name=teacher maybe
+[2025-07-26 18:23:03,723] DEBUG in socket_handlers: Текущий пользователь None 
+[2025-07-26 18:23:03,724] DEBUG in socket_handlers: Подключение учителя к комнате f76baae7-88fb-4aa9-939d-8a9d1b421f25
+[2025-07-26 18:23:03,725] DEBUG in socket_handlers: active_sessions {'f76baae7-88fb-4aa9-939d-8a9d1b421f25': {'5list325448': 'aF2mgTjvlwkWJ4aMAAAC', 'teacher': 'oYbbSSBT2PPw0voGAAAD'}}
+oYbbSSBT2PPw0voGAAAD is entering room f76baae7-88fb-4aa9-939d-8a9d1b421f25 [/]
+emitting event "user_joined" to f76baae7-88fb-4aa9-939d-8a9d1b421f25 [/]
+PJ6bAxysKJ5AERiVAAAA: Sending packet MESSAGE data 2["user_joined",{"username":"teacher"}]
+P_WxISys2lyFT7NlAAAB: Sending packet MESSAGE data 2["user_joined",{"username":"teacher"}]
+[2025-07-26 18:23:14,392] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:23:14,393] DEBUG in socket_handlers: Отключение SID: oYbbSSBT2PPw0voGAAAD
+[2025-07-26 18:23:14,394] DEBUG in socket_handlers: Время соединения: 10.78 секунд
+[2025-07-26 18:23:14,395] DEBUG in socket_handlers: Удален пользователь teacher из сессии f76baae7-88fb-4aa9-939d-8a9d1b421f25
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:14] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 10.941609
+(45) accepted ('192.168.100.81', 46670)
+[2025-07-26 18:23:14,944] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:14] "GET / HTTP/1.1" 200 6575 0.045506
+(45) accepted ('192.168.100.81', 46684)
+(45) accepted ('192.168.100.81', 46688)
+(45) accepted ('192.168.100.81', 46694)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:15] "GET /static/css/style.css HTTP/1.1" 200 3617 0.014507
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:15] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 200 160735 0.009027
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:15] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 200 89816 0.004996
+(45) accepted ('192.168.100.81', 46698)
+(45) accepted ('192.168.100.81', 46702)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:15] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 200 60505 0.003910
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:15] "GET /static/images/ctfclasslogo.png HTTP/1.1" 200 18558 0.004447
+(45) accepted ('192.168.100.81', 46704)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:17] "GET /static/favicon/manifest.json HTTP/1.1" 200 2411 0.002065
+(45) accepted ('192.168.100.81', 46706)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:17] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 200 20785 0.003541
+(45) accepted ('192.168.100.81', 46718)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:17] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 646749 0.025476
+(45) accepted ('192.168.100.81', 46726)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:20] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 200 191801 0.010387
+[2025-07-26 18:23:23,857] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:23:23,859] DEBUG in socket_handlers: Отключение SID: aF2mgTjvlwkWJ4aMAAAC
+[2025-07-26 18:23:23,860] DEBUG in socket_handlers: Время соединения: 20.31 секунд
+[2025-07-26 18:23:23,860] DEBUG in socket_handlers: Удален пользователь 5list325448 из сессии f76baae7-88fb-4aa9-939d-8a9d1b421f25
+[2025-07-26 18:23:23,861] DEBUG in socket_handlers: Удалена пустая сессия f76baae7-88fb-4aa9-939d-8a9d1b421f25
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:23] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 20.462658
+(45) accepted ('192.168.100.81', 46742)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:23] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/logout HTTP/1.1" 302 917 0.020945
+(45) accepted ('192.168.100.81', 46750)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:24] "GET /sessionf76baae7-88fb-4aa9-939d-8a9d1b421f25/login HTTP/1.1" 200 7306 0.015975
+(45) accepted ('192.168.100.81', 46766)
+(45) accepted ('192.168.100.81', 46770)
+(45) accepted ('192.168.100.81', 46772)
+(45) accepted ('192.168.100.81', 46780)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:24] "GET /static/css/style.css HTTP/1.1" 304 203 0.002392
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:24] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001980
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:24] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001927
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:24] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002653
+(45) accepted ('192.168.100.81', 36076)
+[2025-07-26 18:23:28,974] DEBUG in routes: === AJAX REQUEST RECEIVED ====== start-training-async =======
+[2025-07-26 18:23:28,975] DEBUG in routes: Получен тип пользователя teacher
+[2025-07-26 18:23:28,976] DEBUG in SetUsers: ========= setUserSession =========
+[2025-07-26 18:23:28,982] DEBUG in SetUsers: Создана сессия <Session (transient 139817245153616)>
+[2025-07-26 18:23:29,174] DEBUG in routes: Создана Сессия 6 https://g2u.run/004z 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:23:29,176] DEBUG in routes: Отправка данных после открытия сессии 6 https://g2u.run/004z 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "POST /start-training-async HTTP/1.1" 200 635 0.210765
+(45) accepted ('192.168.100.81', 36092)
+[2025-07-26 18:23:29,378] DEBUG in routes: ========= start_training =========
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "GET /start-training HTTP/1.1" 200 15598 0.037209
+(45) accepted ('192.168.100.81', 36096)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "GET /static/css/style.css HTTP/1.1" 304 203 0.002436
+(45) accepted ('192.168.100.81', 36104)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002241
+(45) accepted ('192.168.100.81', 36120)
+(45) accepted ('192.168.100.81', 36126)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001959
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:29] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.003339
+(45) accepted ('192.168.100.81', 36132)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:30] "GET /static/favicon/manifest.json HTTP/1.1" 304 203 0.002555
+(45) accepted ('192.168.100.81', 36144)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:30] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 304 215 0.002136
+(45) accepted ('192.168.100.81', 36148)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:30] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 304 217 0.001903
+(45) accepted ('192.168.100.81', 36152)
+-Hdob5sneLbnEU_wAAAE: Sending packet OPEN data {'sid': '-Hdob5sneLbnEU_wAAAE', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+-Hdob5sneLbnEU_wAAAE: Received request to upgrade to websocket
+-Hdob5sneLbnEU_wAAAE: Upgrade to websocket successful
+-Hdob5sneLbnEU_wAAAE: Received packet MESSAGE data 0
+[2025-07-26 18:23:31,912] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:23:31,913] DEBUG in socket_handlers: Подключение - SID: RPncl_FzMu51DmElAAAF, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+-Hdob5sneLbnEU_wAAAE: Sending packet MESSAGE data 0{"sid":"RPncl_FzMu51DmElAAAF"}
+(45) accepted ('192.168.100.81', 36166)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:31] "GET /static/favicon/apple-icon-144x144.png HTTP/1.1" 304 217 0.002140
+-Hdob5sneLbnEU_wAAAE: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"teacher"}]
+received event "join_session" from RPncl_FzMu51DmElAAAF [/]
+[2025-07-26 18:23:32,190] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:23:32,192] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:23:32,194] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=teacher, name=teacher maybe
+[2025-07-26 18:23:32,198] DEBUG in socket_handlers: Текущий пользователь None 
+[2025-07-26 18:23:32,199] DEBUG in socket_handlers: Подключение учителя к комнате 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:23:32,200] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': 'RPncl_FzMu51DmElAAAF'}}
+RPncl_FzMu51DmElAAAF is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+-Hdob5sneLbnEU_wAAAE: Sending packet MESSAGE data 2["user_joined",{"username":"teacher"}]
+(45) accepted ('192.168.100.81', 59422)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:37] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0 HTTP/1.1" 302 502 0.005926
+(45) accepted ('192.168.100.81', 59430)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:37] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/login HTTP/1.1" 200 7058 0.008017
+(45) accepted ('192.168.100.81', 59438)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:38] "GET /static/css/style.css HTTP/1.1" 304 203 0.002496
+(45) accepted ('192.168.100.81', 59444)
+(45) accepted ('192.168.100.81', 59446)
+(45) accepted ('192.168.100.81', 59462)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:38] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001817
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:38] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001762
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:38] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001830
+(45) accepted ('192.168.100.81', 59474)
+[2025-07-26 18:23:44,358] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:23:44,362] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:23:44,365] DEBUG in SetUsers: Объект сессии <Session 6>
+[2025-07-26 18:23:44,366] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:23:44,367] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:23:44,373] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:23:44,375] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:23:44,376] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "POST /create-new-user HTTP/1.1" 200 467 0.035178
+(45) accepted ('192.168.100.81', 59484)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/register HTTP/1.1" 302 1298 0.013361
+(45) accepted ('192.168.100.81', 59486)
+[2025-07-26 18:23:44,676] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/dashboard HTTP/1.1" 200 18079 0.055436
+(45) accepted ('192.168.100.81', 37372)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /static/css/style.css HTTP/1.1" 304 203 0.002270
+(45) accepted ('192.168.100.81', 37380)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001982
+(45) accepted ('192.168.100.81', 37394)
+(45) accepted ('192.168.100.81', 37402)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001937
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:44] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001936
+(45) accepted ('192.168.100.81', 37416)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:45] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002334
+(45) accepted ('192.168.100.81', 37420)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:23:45] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002834
+(45) accepted ('192.168.100.81', 37424)
+uhD6V_HWIUJvDlFqAAAG: Sending packet OPEN data {'sid': 'uhD6V_HWIUJvDlFqAAAG', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+uhD6V_HWIUJvDlFqAAAG: Received request to upgrade to websocket
+uhD6V_HWIUJvDlFqAAAG: Upgrade to websocket successful
+uhD6V_HWIUJvDlFqAAAG: Received packet MESSAGE data 0
+[2025-07-26 18:23:46,022] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:23:46,023] DEBUG in socket_handlers: Подключение - SID: I7FQzffv1gQv4cM9AAAH, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+uhD6V_HWIUJvDlFqAAAG: Sending packet MESSAGE data 0{"sid":"I7FQzffv1gQv4cM9AAAH"}
+uhD6V_HWIUJvDlFqAAAG: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6piece30540","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from I7FQzffv1gQv4cM9AAAH [/]
+[2025-07-26 18:23:46,131] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:23:46,132] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:23:46,133] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=6piece30540, name=Миша Каша
+[2025-07-26 18:23:46,137] DEBUG in socket_handlers: Текущий пользователь <User 13> 
+[2025-07-26 18:23:46,138] DEBUG in socket_handlers: Пользователь 6piece30540 переподкючен
+I7FQzffv1gQv4cM9AAAH is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+uhD6V_HWIUJvDlFqAAAG: Sending packet PING data None
+uhD6V_HWIUJvDlFqAAAG: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+uhD6V_HWIUJvDlFqAAAG: Sending packet PING data None
+uhD6V_HWIUJvDlFqAAAG: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+uhD6V_HWIUJvDlFqAAAG: Sending packet PING data None
+uhD6V_HWIUJvDlFqAAAG: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+uhD6V_HWIUJvDlFqAAAG: Sending packet PING data None
+uhD6V_HWIUJvDlFqAAAG: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+[2025-07-26 18:25:50,113] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:25:50,114] DEBUG in socket_handlers: Отключение SID: I7FQzffv1gQv4cM9AAAH
+[2025-07-26 18:25:50,115] DEBUG in socket_handlers: Время соединения: 124.09 секунд
+[2025-07-26 18:25:50,116] DEBUG in socket_handlers: Удален пользователь 6piece30540 из сессии 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:50] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 124.206726
+(45) accepted ('192.168.100.81', 53706)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:50] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/logout HTTP/1.1" 302 916 0.021955
+(45) accepted ('192.168.100.81', 53718)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:50] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/login HTTP/1.1" 200 7306 0.006896
+(45) accepted ('192.168.100.81', 53732)
+(45) accepted ('192.168.100.81', 53742)
+(45) accepted ('192.168.100.81', 53746)
+(45) accepted ('192.168.100.81', 53752)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:51] "GET /static/css/style.css HTTP/1.1" 200 3617 0.002518
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:51] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 200 160735 0.008032
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:51] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002648
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:51] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001785
+(45) accepted ('192.168.100.81', 43326)
+[2025-07-26 18:25:55,051] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:25:55,054] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:25:55,057] DEBUG in SetUsers: Объект сессии <Session 6>
+[2025-07-26 18:25:55,058] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:25:55,059] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:25:55,063] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:25:55,064] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:25:55,065] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "POST /create-new-user HTTP/1.1" 200 469 0.027602
+(45) accepted ('192.168.100.81', 43330)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/register HTTP/1.1" 302 1299 0.012431
+(45) accepted ('192.168.100.81', 43338)
+[2025-07-26 18:25:55,362] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/dashboard HTTP/1.1" 200 17152 0.035744
+(45) accepted ('192.168.100.81', 43354)
+(45) accepted ('192.168.100.81', 43366)
+(45) accepted ('192.168.100.81', 43376)
+(45) accepted ('192.168.100.81', 43380)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /static/css/style.css HTTP/1.1" 304 203 0.002180
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001939
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001828
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001998
+(45) accepted ('192.168.100.81', 43390)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:55] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002280
+(45) accepted ('192.168.100.81', 43402)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:25:56] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002353
+(45) accepted ('192.168.100.81', 43406)
+MSOrr18I1UBsm0YDAAAI: Sending packet OPEN data {'sid': 'MSOrr18I1UBsm0YDAAAI', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+MSOrr18I1UBsm0YDAAAI: Received request to upgrade to websocket
+MSOrr18I1UBsm0YDAAAI: Upgrade to websocket successful
+MSOrr18I1UBsm0YDAAAI: Received packet MESSAGE data 0
+[2025-07-26 18:25:56,783] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:25:56,784] DEBUG in socket_handlers: Подключение - SID: XOioR-jBYq9_v_6LAAAJ, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+MSOrr18I1UBsm0YDAAAI: Sending packet MESSAGE data 0{"sid":"XOioR-jBYq9_v_6LAAAJ"}
+MSOrr18I1UBsm0YDAAAI: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6sound60591","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from XOioR-jBYq9_v_6LAAAJ [/]
+[2025-07-26 18:25:56,891] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:25:56,893] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:25:56,894] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=6sound60591, name=Миша Каша
+[2025-07-26 18:25:56,900] DEBUG in socket_handlers: Текущий пользователь <User 14> 
+[2025-07-26 18:25:56,902] DEBUG in socket_handlers: Пользователь 6sound60591 переподкючен
+XOioR-jBYq9_v_6LAAAJ is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+MSOrr18I1UBsm0YDAAAI: Sending packet PING data None
+MSOrr18I1UBsm0YDAAAI: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+MSOrr18I1UBsm0YDAAAI: Sending packet PING data None
+MSOrr18I1UBsm0YDAAAI: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+MSOrr18I1UBsm0YDAAAI: Sending packet PING data None
+MSOrr18I1UBsm0YDAAAI: Received packet PONG data 
+-Hdob5sneLbnEU_wAAAE: Sending packet PING data None
+-Hdob5sneLbnEU_wAAAE: Received packet PONG data 
+ * Detected change in '/app/app/socket_handlers.py', reloading
+ * Restarting with stat
+[2025-07-26 18:27:23,840] DEBUG in __init__: ========== create_app ==========
+Server initialized for eventlet.
+[2025-07-26 18:27:23,940] INFO in RedisCacheLib: Redis подключен успешно init_app
+[2025-07-26 18:27:23,941] INFO in RedisCacheLib: self.redis_client: Redis<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+[2025-07-26 18:27:23,941] DEBUG in RedisCacheLib: ========== get_all_cache_status ==========
+ * Debugger is active!
+ * Debugger PIN: 138-988-774
+(46) wsgi starting up on http://0.0.0.0:8000
+(46) accepted ('192.168.100.81', 42088)
+rDzZBOhNioX98dU2AAAA: Sending packet OPEN data {'sid': 'rDzZBOhNioX98dU2AAAA', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+rDzZBOhNioX98dU2AAAA: Received request to upgrade to websocket
+rDzZBOhNioX98dU2AAAA: Upgrade to websocket successful
+rDzZBOhNioX98dU2AAAA: Received packet MESSAGE data 0
+[2025-07-26 18:27:24,465] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:27:24,466] DEBUG in socket_handlers: Подключение - SID: 6RdK6IJz7P686GCqAAAB, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 0{"sid":"6RdK6IJz7P686GCqAAAB"}
+(46) accepted ('192.168.100.81', 42104)
+9ebYGBErKAiN_8pGAAAC: Sending packet OPEN data {'sid': '9ebYGBErKAiN_8pGAAAC', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+9ebYGBErKAiN_8pGAAAC: Received request to upgrade to websocket
+9ebYGBErKAiN_8pGAAAC: Upgrade to websocket successful
+rDzZBOhNioX98dU2AAAA: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"teacher"}]
+received event "join_session" from 6RdK6IJz7P686GCqAAAB [/]
+[2025-07-26 18:27:24,569] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:27:24,570] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:27:24,570] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=teacher, name=teacher maybe
+[2025-07-26 18:27:24,617] DEBUG in socket_handlers: Текущий пользователь None 
+[2025-07-26 18:27:24,618] DEBUG in socket_handlers: Подключение учителя к комнате 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:27:24,619] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': '6RdK6IJz7P686GCqAAAB'}}
+6RdK6IJz7P686GCqAAAB is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["user_joined",{"username":"teacher"}]
+9ebYGBErKAiN_8pGAAAC: Received packet MESSAGE data 0
+[2025-07-26 18:27:24,627] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:27:24,628] DEBUG in socket_handlers: Подключение - SID: Tmvra63ObTKrDN9HAAAD, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+9ebYGBErKAiN_8pGAAAC: Sending packet MESSAGE data 0{"sid":"Tmvra63ObTKrDN9HAAAD"}
+9ebYGBErKAiN_8pGAAAC: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6sound60591","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from Tmvra63ObTKrDN9HAAAD [/]
+[2025-07-26 18:27:24,744] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:27:24,745] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:27:24,747] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=6sound60591, name=Миша Каша
+[2025-07-26 18:27:24,751] DEBUG in socket_handlers: Текущий пользователь <User 14> 
+[2025-07-26 18:27:24,776] DEBUG in socket_handlers: Подключение ученика 6sound60591 к сокету
+[2025-07-26 18:27:24,778] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': '6RdK6IJz7P686GCqAAAB', '6sound60591': 'Tmvra63ObTKrDN9HAAAD'}}
+Tmvra63ObTKrDN9HAAAD is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["user_joined",{"username":"6sound60591","first_last_name":"\u041c\u0438\u0448\u0430 \u041a\u0430\u0448\u0430","questions":[{"id":5,"qtype":"multichoice","correct":false,"user_correct":false},{"id":4,"qtype":"multichoice","correct":false,"user_correct":false},{"id":6,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":10,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":14,"qtype":"numerical","correct":false,"user_correct":false},{"id":16,"qtype":"matching","correct":false,"user_correct":false},{"id":21,"qtype":"missingword","correct":false,"user_correct":false},{"id":26,"qtype":"description","correct":false,"user_correct":false},{"id":24,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u0435 \u043c\u0435\u0440\u044b \u043f\u043e \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u044e \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043e\u0442\u0435\u043f\u043b\u0435\u043d\u0438\u044f."}]}]
+9ebYGBErKAiN_8pGAAAC: Sending packet MESSAGE data 2["user_joined",{"username":"6sound60591","first_last_name":"\u041c\u0438\u0448\u0430 \u041a\u0430\u0448\u0430","questions":[{"id":5,"qtype":"multichoice","correct":false,"user_correct":false},{"id":4,"qtype":"multichoice","correct":false,"user_correct":false},{"id":6,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":10,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":14,"qtype":"numerical","correct":false,"user_correct":false},{"id":16,"qtype":"matching","correct":false,"user_correct":false},{"id":21,"qtype":"missingword","correct":false,"user_correct":false},{"id":26,"qtype":"description","correct":false,"user_correct":false},{"id":24,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u0435 \u043c\u0435\u0440\u044b \u043f\u043e \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u044e \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043e\u0442\u0435\u043f\u043b\u0435\u043d\u0438\u044f."}]}]
+[2025-07-26 18:27:38,436] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:27:38,437] DEBUG in socket_handlers: Отключение SID: Tmvra63ObTKrDN9HAAAD
+[2025-07-26 18:27:38,438] DEBUG in socket_handlers: Время соединения: 13.81 секунд
+[2025-07-26 18:27:38,439] DEBUG in socket_handlers: Удален пользователь 6sound60591 из сессии 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:38] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 13.964521
+(46) accepted ('192.168.100.81', 59670)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:38] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/logout HTTP/1.1" 302 917 0.024175
+(46) accepted ('192.168.100.81', 59680)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:39] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/login HTTP/1.1" 200 7308 0.048747
+(46) accepted ('192.168.100.81', 59688)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:39] "GET /static/css/style.css HTTP/1.1" 304 203 0.012183
+(46) accepted ('192.168.100.81', 59700)
+(46) accepted ('192.168.100.81', 59714)
+(46) accepted ('192.168.100.81', 59730)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:39] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002138
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:39] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002155
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:39] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002157
+(46) accepted ('192.168.100.81', 59732)
+[2025-07-26 18:27:42,126] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:27:42,131] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:27:42,137] DEBUG in SetUsers: Объект сессии <Session 6>
+[2025-07-26 18:27:42,138] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:27:42,139] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:27:42,146] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:27:42,147] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:27:42,148] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "POST /create-new-user HTTP/1.1" 200 469 0.040236
+(46) accepted ('192.168.100.81', 59740)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/register HTTP/1.1" 302 1299 0.013032
+(46) accepted ('192.168.100.81', 59754)
+[2025-07-26 18:27:42,466] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/dashboard HTTP/1.1" 200 17552 0.054587
+(46) accepted ('192.168.100.81', 59768)
+(46) accepted ('192.168.100.81', 59772)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /static/css/style.css HTTP/1.1" 304 203 0.002648
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.003646
+(46) accepted ('192.168.100.81', 59780)
+(46) accepted ('192.168.100.81', 59794)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001981
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:42] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001972
+(46) accepted ('192.168.100.81', 59810)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:43] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.002352
+(46) accepted ('192.168.100.81', 59820)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:27:43] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002399
+(46) accepted ('192.168.100.81', 59826)
+0g39IdsSXbA0nZdqAAAE: Sending packet OPEN data {'sid': '0g39IdsSXbA0nZdqAAAE', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+0g39IdsSXbA0nZdqAAAE: Received request to upgrade to websocket
+0g39IdsSXbA0nZdqAAAE: Upgrade to websocket successful
+0g39IdsSXbA0nZdqAAAE: Received packet MESSAGE data 0
+[2025-07-26 18:27:43,956] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:27:43,958] DEBUG in socket_handlers: Подключение - SID: oGX6n3wMwU9sRl-dAAAF, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+0g39IdsSXbA0nZdqAAAE: Sending packet MESSAGE data 0{"sid":"oGX6n3wMwU9sRl-dAAAF"}
+0g39IdsSXbA0nZdqAAAE: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6water64545","first_last_name":"%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9A%D0%B0%D1%88%D0%B0"}]
+received event "join_session" from oGX6n3wMwU9sRl-dAAAF [/]
+[2025-07-26 18:27:44,062] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:27:44,063] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:27:44,064] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=6water64545, name=Миша Каша
+[2025-07-26 18:27:44,068] DEBUG in socket_handlers: Текущий пользователь <User 15> 
+[2025-07-26 18:27:44,081] DEBUG in socket_handlers: Подключение ученика 6water64545 к сокету
+[2025-07-26 18:27:44,082] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': '6RdK6IJz7P686GCqAAAB', '6water64545': 'oGX6n3wMwU9sRl-dAAAF'}}
+oGX6n3wMwU9sRl-dAAAF is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["user_joined",{"username":"6water64545","first_last_name":"\u041c\u0438\u0448\u0430 \u041a\u0430\u0448\u0430","questions":[{"id":1,"qtype":"multichoice","correct":false,"user_correct":false},{"id":3,"qtype":"multichoice","correct":false,"user_correct":false},{"id":6,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":10,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":13,"qtype":"numerical","correct":false,"user_correct":false},{"id":16,"qtype":"matching","correct":false,"user_correct":false},{"id":19,"qtype":"missingword","correct":false,"user_correct":false},{"id":27,"qtype":"description","correct":false,"user_correct":false},{"id":22,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}]}]
+0g39IdsSXbA0nZdqAAAE: Sending packet MESSAGE data 2["user_joined",{"username":"6water64545","first_last_name":"\u041c\u0438\u0448\u0430 \u041a\u0430\u0448\u0430","questions":[{"id":1,"qtype":"multichoice","correct":false,"user_correct":false},{"id":3,"qtype":"multichoice","correct":false,"user_correct":false},{"id":6,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":10,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":13,"qtype":"numerical","correct":false,"user_correct":false},{"id":16,"qtype":"matching","correct":false,"user_correct":false},{"id":19,"qtype":"missingword","correct":false,"user_correct":false},{"id":27,"qtype":"description","correct":false,"user_correct":false},{"id":22,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}]}]
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+(46) accepted ('192.168.100.81', 56234)
+[2025-07-26 18:31:04,891] DEBUG in routes: ====== submit_session =======
+[2025-07-26 18:31:04,894] DEBUG in routes: Данные получены от пользователя 6water64545
+[2025-07-26 18:31:04,896] DEBUG in RedisCacheLib: ========== get_correct_answers ==========
+[2025-07-26 18:31:04,897] DEBUG in RedisCacheLib: Полученны данные по ключу CORRECT_ANSWERS: b'{"1": ["\xd1\x81\xd0\xb8\xd0\xbd\xd0\xb8\xd0\xb9 \xd0\xba\xd0\xb8\xd1\x82"], "2": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4"], "3": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4", "\xd0\xb3\xd0\xb5\xd0\xbb\xd0\xb8\xd0\xb9"], "4": ["1938", "1939"], "5": ["1939"], "6": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "7": ["\xd0\xbb\xd0\xbe\xd0\xb6\xd1\x8c"], "8": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "9": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "10": ["\xd1\x80\xd0\xb8\xd0\xbc"], "11": ["\xd0\xb3\xd0\xbe\xd0\xbc\xd0\xb5\xd1\x80"], "12": ["\xd0\xbc\xd0\xb0\xd1\x80\xd1\x81"], "13": ["1440.00"], "14": ["7.00"], "15": ["46.00"], "16": ["\xd0\xbc\xd0\xb5\xd0\xba\xd1\x81\xd0\xb8\xd0\xba\xd0\xb0", "\xd0\xb0\xd0\xb2\xd1\x81\xd1\x82\xd1\x80\xd0\xb8\xd1\x8f", "\xd1\x8f\xd0\xbf\xd0\xbe\xd0\xbd\xd0\xb8\xd1\x8f"], "17": ["\xd1\x82\xd0\xb5\xd0\xbb\xd0\xb5\xd1\x84\xd0\xbe\xd0\xbd", "\xd0\xbb\xd0\xb0\xd0\xbc\xd0\xbf\xd0\xbe\xd1\x87\xd0\xba\xd0\xb0 \xd0\xbd\xd0\xb0\xd0\xba\xd0\xb0\xd0\xbb\xd0\xb8\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xb8\xd1\x8f", "\xd0\xbf\xd0\xb5\xd0\xbd\xd0\xb8\xd1\x86\xd0\xb8\xd0\xbb\xd0\xbb\xd0\xb8\xd0\xbd"], "18": ["1", "3", "6"], "19": ["\xd0\xbd\xd0\xb8\xd0\xbb"], "20": ["\xd0\xb4\xd0\xb0\xd1\x80\xd0\xb2\xd0\xb8\xd0\xbd\xd0\xbe\xd0\xbc"], "21": ["o"]}' {'1': ['синий кит'], '2': ['водород'], '3': ['водород', 'гелий'], '4': ['1938', '1939'], '5': ['1939'], '6': ['правда'], '7': ['ложь'], '8': ['правда'], '9': ['правда'], '10': ['рим'], '11': ['гомер'], '12': ['марс'], '13': ['1440.00'], '14': ['7.00'], '15': ['46.00'], '16': ['мексика', 'австрия', 'япония'], '17': ['телефон', 'лампочка накаливания', 'пенициллин'], '18': ['1', '3', '6'], '19': ['нил'], '20': ['дарвином'], '21': ['o']}
+emitting event "answers_post" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["answers_post",{"username":"6water64545","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"6":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"10":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"13":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"16":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"19":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"27":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":false,"answered":true,"q_type":"essay","client_correct":false,"text":"","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+0g39IdsSXbA0nZdqAAAE: Sending packet MESSAGE data 2["answers_post",{"username":"6water64545","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"6":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"10":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"13":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"16":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"19":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"27":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":false,"answered":true,"q_type":"essay","client_correct":false,"text":"","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+[2025-07-26 18:31:04,996] DEBUG in routes: Выполнен emit в 9e0a9018-87c3-43f4-8290-973911a60bc0 от пользователя 6water64545
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:31:04] "POST /session9e0a9018-87c3-43f4-8290-973911a60bc0/submit HTTP/1.1" 200 295 0.118292
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+(46) accepted ('192.168.100.81', 43956)
+[2025-07-26 18:31:25,786] DEBUG in routes: ====== submit_session =======
+[2025-07-26 18:31:25,788] DEBUG in routes: Данные получены от пользователя 6water64545
+[2025-07-26 18:31:25,789] DEBUG in RedisCacheLib: ========== get_correct_answers ==========
+[2025-07-26 18:31:25,791] DEBUG in RedisCacheLib: Полученны данные по ключу CORRECT_ANSWERS: b'{"1": ["\xd1\x81\xd0\xb8\xd0\xbd\xd0\xb8\xd0\xb9 \xd0\xba\xd0\xb8\xd1\x82"], "2": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4"], "3": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4", "\xd0\xb3\xd0\xb5\xd0\xbb\xd0\xb8\xd0\xb9"], "4": ["1938", "1939"], "5": ["1939"], "6": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "7": ["\xd0\xbb\xd0\xbe\xd0\xb6\xd1\x8c"], "8": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "9": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "10": ["\xd1\x80\xd0\xb8\xd0\xbc"], "11": ["\xd0\xb3\xd0\xbe\xd0\xbc\xd0\xb5\xd1\x80"], "12": ["\xd0\xbc\xd0\xb0\xd1\x80\xd1\x81"], "13": ["1440.00"], "14": ["7.00"], "15": ["46.00"], "16": ["\xd0\xbc\xd0\xb5\xd0\xba\xd1\x81\xd0\xb8\xd0\xba\xd0\xb0", "\xd0\xb0\xd0\xb2\xd1\x81\xd1\x82\xd1\x80\xd0\xb8\xd1\x8f", "\xd1\x8f\xd0\xbf\xd0\xbe\xd0\xbd\xd0\xb8\xd1\x8f"], "17": ["\xd1\x82\xd0\xb5\xd0\xbb\xd0\xb5\xd1\x84\xd0\xbe\xd0\xbd", "\xd0\xbb\xd0\xb0\xd0\xbc\xd0\xbf\xd0\xbe\xd1\x87\xd0\xba\xd0\xb0 \xd0\xbd\xd0\xb0\xd0\xba\xd0\xb0\xd0\xbb\xd0\xb8\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xb8\xd1\x8f", "\xd0\xbf\xd0\xb5\xd0\xbd\xd0\xb8\xd1\x86\xd0\xb8\xd0\xbb\xd0\xbb\xd0\xb8\xd0\xbd"], "18": ["1", "3", "6"], "19": ["\xd0\xbd\xd0\xb8\xd0\xbb"], "20": ["\xd0\xb4\xd0\xb0\xd1\x80\xd0\xb2\xd0\xb8\xd0\xbd\xd0\xbe\xd0\xbc"], "21": ["o"]}' {'1': ['синий кит'], '2': ['водород'], '3': ['водород', 'гелий'], '4': ['1938', '1939'], '5': ['1939'], '6': ['правда'], '7': ['ложь'], '8': ['правда'], '9': ['правда'], '10': ['рим'], '11': ['гомер'], '12': ['марс'], '13': ['1440.00'], '14': ['7.00'], '15': ['46.00'], '16': ['мексика', 'австрия', 'япония'], '17': ['телефон', 'лампочка накаливания', 'пенициллин'], '18': ['1', '3', '6'], '19': ['нил'], '20': ['дарвином'], '21': ['o']}
+emitting event "answers_post" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["answers_post",{"username":"6water64545","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"6":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"10":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"13":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"16":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"19":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"27":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":true,"answered":true,"q_type":"essay","client_correct":true,"text":"\u044f\u0438\u0434\u0444\u044b\u043e\u0441\u0438\u0414\u0426\u0423\u041e\u0421","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+0g39IdsSXbA0nZdqAAAE: Sending packet MESSAGE data 2["answers_post",{"username":"6water64545","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"6":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"10":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"13":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"16":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"19":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"27":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":true,"answered":true,"q_type":"essay","client_correct":true,"text":"\u044f\u0438\u0434\u0444\u044b\u043e\u0441\u0438\u0414\u0426\u0423\u041e\u0421","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+[2025-07-26 18:31:25,823] DEBUG in routes: Выполнен emit в 9e0a9018-87c3-43f4-8290-973911a60bc0 от пользователя 6water64545
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:31:25] "POST /session9e0a9018-87c3-43f4-8290-973911a60bc0/submit HTTP/1.1" 200 295 0.045018
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+0g39IdsSXbA0nZdqAAAE: Sending packet PING data None
+0g39IdsSXbA0nZdqAAAE: Received packet PONG data 
+[2025-07-26 18:33:35,679] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:33:35,680] DEBUG in socket_handlers: Отключение SID: oGX6n3wMwU9sRl-dAAAF
+[2025-07-26 18:33:35,681] DEBUG in socket_handlers: Время соединения: 351.72 секунд
+[2025-07-26 18:33:35,682] DEBUG in socket_handlers: Удален пользователь 6water64545 из сессии 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:35] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 351.914066
+(46) accepted ('192.168.100.81', 33584)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/logout HTTP/1.1" 302 917 0.017082
+(46) accepted ('192.168.100.81', 33586)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/login HTTP/1.1" 200 7308 0.007559
+(46) accepted ('192.168.100.81', 33602)
+(46) accepted ('192.168.100.81', 33618)
+(46) accepted ('192.168.100.81', 33620)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /static/css/style.css HTTP/1.1" 304 203 0.002753
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.003079
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001953
+(46) accepted ('192.168.100.81', 33636)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:36] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.001885
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+(46) accepted ('192.168.100.81', 34914)
+[2025-07-26 18:33:49,563] DEBUG in routes: ====== create-new-user =======
+[2025-07-26 18:33:49,566] DEBUG in SetUsers: ========= makeUser =========
+[2025-07-26 18:33:49,569] DEBUG in SetUsers: Объект сессии <Session 6>
+[2025-07-26 18:33:49,570] DEBUG in RedisCacheLib: ========== get_pool_size ==========
+[2025-07-26 18:33:49,571] DEBUG in RedisCacheLib: Полученны данные по ключу POOL_SIZE: b'10' 10
+[2025-07-26 18:33:49,575] DEBUG in RedisCacheLib: ========== get_questions_by_pool ==========
+[2025-07-26 18:33:49,577] DEBUG in RedisCacheLib: Полученны данные по ключу QUESTIONS_BY_POOL: b'{"1": [1, 2, 5], "2": [3, 4], "3": [6, 7, 8], "4": [9], "5": [10, 11, 12], "6": [13, 14, 15], "7": [16, 17, 18], "8": [19, 20, 21], "9": [25, 26, 27], "10": [22, 23, 24]}' {'1': [1, 2, 5], '2': [3, 4], '3': [6, 7, 8], '4': [9], '5': [10, 11, 12], '6': [13, 14, 15], '7': [16, 17, 18], '8': [19, 20, 21], '9': [25, 26, 27], '10': [22, 23, 24]}
+[2025-07-26 18:33:49,578] DEBUG in SetUsers: Текущее состояние работы с вариантами RANDOM_IN_VARIANTS  = True
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:49] "POST /create-new-user HTTP/1.1" 200 475 0.027749
+(46) accepted ('192.168.100.81', 34918)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:49] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/register HTTP/1.1" 302 1330 0.012294
+(46) accepted ('192.168.100.81', 34928)
+[2025-07-26 18:33:49,980] DEBUG in routes: ====== dashboard =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /session9e0a9018-87c3-43f4-8290-973911a60bc0/dashboard HTTP/1.1" 200 18187 0.038902
+(46) accepted ('192.168.100.81', 34940)
+(46) accepted ('192.168.100.81', 34944)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/css/style.css HTTP/1.1" 304 203 0.002400
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.002025
+(46) accepted ('192.168.100.81', 34960)
+(46) accepted ('192.168.100.81', 34972)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.002038
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002125
+(46) accepted ('192.168.100.81', 34986)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/js/quiz.js HTTP/1.1" 304 202 0.003456
+(46) accepted ('192.168.100.81', 34990)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:33:50] "GET /static/js/crypto-shim.js HTTP/1.1" 304 204 0.002085
+(46) accepted ('192.168.100.81', 35000)
+uLo3xAtkh5U-Zza_AAAG: Sending packet OPEN data {'sid': 'uLo3xAtkh5U-Zza_AAAG', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+uLo3xAtkh5U-Zza_AAAG: Received request to upgrade to websocket
+uLo3xAtkh5U-Zza_AAAG: Upgrade to websocket successful
+uLo3xAtkh5U-Zza_AAAG: Received packet MESSAGE data 0
+[2025-07-26 18:33:51,550] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:33:51,550] DEBUG in socket_handlers: Подключение - SID: 9pgB_HDav9oUKgSeAAAH, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0...
+uLo3xAtkh5U-Zza_AAAG: Sending packet MESSAGE data 0{"sid":"9pgB_HDav9oUKgSeAAAH"}
+uLo3xAtkh5U-Zza_AAAG: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6fire918063","first_last_name":"%D0%9E%D0%BB%D0%B5%D1%81%D1%8F%20%D0%9C%D0%B5%D1%80%D0%BB%D0%B5%D0%B2%D0%B0"}]
+received event "join_session" from 9pgB_HDav9oUKgSeAAAH [/]
+[2025-07-26 18:33:51,657] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:33:51,658] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:33:51,659] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=6fire918063, name=Олеся Мерлева
+[2025-07-26 18:33:51,664] DEBUG in socket_handlers: Текущий пользователь <User 16> 
+[2025-07-26 18:33:51,679] DEBUG in socket_handlers: Подключение ученика 6fire918063 к сокету
+[2025-07-26 18:33:51,680] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': '6RdK6IJz7P686GCqAAAB', '6fire918063': '9pgB_HDav9oUKgSeAAAH'}}
+9pgB_HDav9oUKgSeAAAH is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["user_joined",{"username":"6fire918063","first_last_name":"\u041e\u043b\u0435\u0441\u044f \u041c\u0435\u0440\u043b\u0435\u0432\u0430","questions":[{"id":1,"qtype":"multichoice","correct":false,"user_correct":false},{"id":3,"qtype":"multichoice","correct":false,"user_correct":false},{"id":7,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":11,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":15,"qtype":"numerical","correct":false,"user_correct":false},{"id":18,"qtype":"matching","correct":false,"user_correct":false},{"id":20,"qtype":"missingword","correct":false,"user_correct":false},{"id":25,"qtype":"description","correct":false,"user_correct":false},{"id":22,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}]}]
+uLo3xAtkh5U-Zza_AAAG: Sending packet MESSAGE data 2["user_joined",{"username":"6fire918063","first_last_name":"\u041e\u043b\u0435\u0441\u044f \u041c\u0435\u0440\u043b\u0435\u0432\u0430","questions":[{"id":1,"qtype":"multichoice","correct":false,"user_correct":false},{"id":3,"qtype":"multichoice","correct":false,"user_correct":false},{"id":7,"qtype":"truefalse","correct":false,"user_correct":false},{"id":9,"qtype":"truefalse","correct":false,"user_correct":false},{"id":11,"qtype":"shortanswer","correct":false,"user_correct":false},{"id":15,"qtype":"numerical","correct":false,"user_correct":false},{"id":18,"qtype":"matching","correct":false,"user_correct":false},{"id":20,"qtype":"missingword","correct":false,"user_correct":false},{"id":25,"qtype":"description","correct":false,"user_correct":false},{"id":22,"qtype":"essay","correct":false,"user_correct":false,"essay_text":"","essay_question":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}]}]
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+(46) accepted ('192.168.100.81', 44416)
+[2025-07-26 18:34:07,354] DEBUG in routes: ====== submit_session =======
+[2025-07-26 18:34:07,356] DEBUG in routes: Данные получены от пользователя 6fire918063
+[2025-07-26 18:34:07,357] DEBUG in RedisCacheLib: ========== get_correct_answers ==========
+[2025-07-26 18:34:07,359] DEBUG in RedisCacheLib: Полученны данные по ключу CORRECT_ANSWERS: b'{"1": ["\xd1\x81\xd0\xb8\xd0\xbd\xd0\xb8\xd0\xb9 \xd0\xba\xd0\xb8\xd1\x82"], "2": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4"], "3": ["\xd0\xb2\xd0\xbe\xd0\xb4\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb4", "\xd0\xb3\xd0\xb5\xd0\xbb\xd0\xb8\xd0\xb9"], "4": ["1938", "1939"], "5": ["1939"], "6": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "7": ["\xd0\xbb\xd0\xbe\xd0\xb6\xd1\x8c"], "8": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "9": ["\xd0\xbf\xd1\x80\xd0\xb0\xd0\xb2\xd0\xb4\xd0\xb0"], "10": ["\xd1\x80\xd0\xb8\xd0\xbc"], "11": ["\xd0\xb3\xd0\xbe\xd0\xbc\xd0\xb5\xd1\x80"], "12": ["\xd0\xbc\xd0\xb0\xd1\x80\xd1\x81"], "13": ["1440.00"], "14": ["7.00"], "15": ["46.00"], "16": ["\xd0\xbc\xd0\xb5\xd0\xba\xd1\x81\xd0\xb8\xd0\xba\xd0\xb0", "\xd0\xb0\xd0\xb2\xd1\x81\xd1\x82\xd1\x80\xd0\xb8\xd1\x8f", "\xd1\x8f\xd0\xbf\xd0\xbe\xd0\xbd\xd0\xb8\xd1\x8f"], "17": ["\xd1\x82\xd0\xb5\xd0\xbb\xd0\xb5\xd1\x84\xd0\xbe\xd0\xbd", "\xd0\xbb\xd0\xb0\xd0\xbc\xd0\xbf\xd0\xbe\xd1\x87\xd0\xba\xd0\xb0 \xd0\xbd\xd0\xb0\xd0\xba\xd0\xb0\xd0\xbb\xd0\xb8\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xb8\xd1\x8f", "\xd0\xbf\xd0\xb5\xd0\xbd\xd0\xb8\xd1\x86\xd0\xb8\xd0\xbb\xd0\xbb\xd0\xb8\xd0\xbd"], "18": ["1", "3", "6"], "19": ["\xd0\xbd\xd0\xb8\xd0\xbb"], "20": ["\xd0\xb4\xd0\xb0\xd1\x80\xd0\xb2\xd0\xb8\xd0\xbd\xd0\xbe\xd0\xbc"], "21": ["o"]}' {'1': ['синий кит'], '2': ['водород'], '3': ['водород', 'гелий'], '4': ['1938', '1939'], '5': ['1939'], '6': ['правда'], '7': ['ложь'], '8': ['правда'], '9': ['правда'], '10': ['рим'], '11': ['гомер'], '12': ['марс'], '13': ['1440.00'], '14': ['7.00'], '15': ['46.00'], '16': ['мексика', 'австрия', 'япония'], '17': ['телефон', 'лампочка накаливания', 'пенициллин'], '18': ['1', '3', '6'], '19': ['нил'], '20': ['дарвином'], '21': ['o']}
+emitting event "answers_post" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["answers_post",{"username":"6fire918063","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"7":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"11":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"15":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"18":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"20":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"25":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":false,"answered":true,"q_type":"essay","client_correct":false,"text":"","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+uLo3xAtkh5U-Zza_AAAG: Sending packet MESSAGE data 2["answers_post",{"username":"6fire918063","questions":{"1":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"3":{"correct":false,"answered":true,"q_type":"multichoice","client_correct":false},"7":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"9":{"correct":false,"answered":true,"q_type":"truefalse","client_correct":false},"11":{"correct":false,"answered":true,"q_type":"shortanswer","client_correct":false},"15":{"correct":false,"answered":true,"q_type":"numerical","client_correct":false},"18":{"correct":false,"answered":true,"q_type":"matching","client_correct":false},"20":{"correct":false,"answered":true,"q_type":"missingword","client_correct":false},"25":{"correct":false,"answered":true,"q_type":"description","client_correct":false},"22":{"correct":false,"answered":true,"q_type":"essay","client_correct":false,"text":"","q_text":"\u041e\u0431\u044a\u044f\u0441\u043d\u0438\u0442\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0430 \u043d\u0430 \u0442\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0421\u041c\u0418."}},"session_uuid":"9e0a9018-87c3-43f4-8290-973911a60bc0"}]
+[2025-07-26 18:34:07,392] DEBUG in routes: Выполнен emit в 9e0a9018-87c3-43f4-8290-973911a60bc0 от пользователя 6fire918063
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:07] "POST /session9e0a9018-87c3-43f4-8290-973911a60bc0/submit HTTP/1.1" 200 295 0.048888
+uLo3xAtkh5U-Zza_AAAG: Sending packet PING data None
+uLo3xAtkh5U-Zza_AAAG: Received packet PONG data 
+rDzZBOhNioX98dU2AAAA: Received packet MESSAGE data 2["remove_user",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"6fire918063"}]
+received event "remove_user" from 6RdK6IJz7P686GCqAAAB [/]
+[2025-07-26 18:34:31,330] DEBUG in socket_handlers:  ============== handle_remove_user ================
+[2025-07-26 18:34:31,331] DEBUG in socket_handlers: session_identifier 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:34:31,332] DEBUG in socket_handlers: username 6fire918063
+[2025-07-26 18:34:31,338] DEBUG in socket_handlers: delete <User 16>, 6fire918063
+emitting event "remove_user" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+rDzZBOhNioX98dU2AAAA: Sending packet MESSAGE data 2["remove_user",{"username":"6fire918063"}]
+uLo3xAtkh5U-Zza_AAAG: Sending packet MESSAGE data 2["remove_user",{"username":"6fire918063"}]
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+[2025-07-26 18:34:38,215] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:34:38,216] DEBUG in socket_handlers: Отключение SID: 9pgB_HDav9oUKgSeAAAH
+[2025-07-26 18:34:38,218] DEBUG in socket_handlers: Время соединения: 46.67 секунд
+[2025-07-26 18:34:38,219] DEBUG in socket_handlers: Удален пользователь 6fire918063 из сессии 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 46.869920
+(46) accepted ('192.168.100.81', 51772)
+[2025-07-26 18:34:38,292] DEBUG in routes: ====== home =======
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET / HTTP/1.1" 200 6575 0.014586
+(46) accepted ('192.168.100.81', 51776)
+(46) accepted ('192.168.100.81', 51790)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /static/css/style.css HTTP/1.1" 304 203 0.003062
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /static/css/bootstrap_4.5.0_css_bootstrap.min.css HTTP/1.1" 304 233 0.001837
+(46) accepted ('192.168.100.81', 51802)
+(46) accepted ('192.168.100.81', 51812)
+(46) accepted ('192.168.100.81', 51816)
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 304 210 0.001936
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /static/js/bootstrap_4.5.0_js_bootstrap.min.js HTTP/1.1" 304 226 0.002198
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:38] "GET /static/images/ctfclasslogo.png HTTP/1.1" 200 18558 0.003937
+rDzZBOhNioX98dU2AAAA: Sending packet PING data None
+rDzZBOhNioX98dU2AAAA: Received packet PONG data 
+[2025-07-26 18:34:56,880] DEBUG in socket_handlers:  ============== handle_disconnect ================ WebSocket соединение разорвано
+[2025-07-26 18:34:56,881] DEBUG in socket_handlers: Отключение SID: 6RdK6IJz7P686GCqAAAB
+[2025-07-26 18:34:56,882] DEBUG in socket_handlers: Время соединения: 452.42 секунд
+[2025-07-26 18:34:56,883] DEBUG in socket_handlers: Удален пользователь teacher из сессии 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:34:56,884] DEBUG in socket_handlers: Удалена пустая сессия 9e0a9018-87c3-43f4-8290-973911a60bc0
+10.153.244.1,192.168.100.81 - - [26/Jul/2025 18:34:56] "GET /socket.io/?EIO=4&transport=websocket HTTP/1.1" 200 0 452.571263
+(46) accepted ('192.168.100.81', 55602)
+fCDlpJ5kPzLiLlSWAAAI: Sending packet OPEN data {'sid': 'fCDlpJ5kPzLiLlSWAAAI', 'upgrades': [], 'pingTimeout': 60000, 'pingInterval': 25000}
+fCDlpJ5kPzLiLlSWAAAI: Received request to upgrade to websocket
+fCDlpJ5kPzLiLlSWAAAI: Upgrade to websocket successful
+fCDlpJ5kPzLiLlSWAAAI: Received packet MESSAGE data 0
+[2025-07-26 18:35:27,211] DEBUG in socket_handlers:  ============== handle_connect ================ WebSocket соединение установлено
+[2025-07-26 18:35:27,213] DEBUG in socket_handlers: Подключение - SID: RkdVpYjO39BNTKJAAAAJ, IP: 10.153.244.1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb...
+fCDlpJ5kPzLiLlSWAAAI: Sending packet MESSAGE data 0{"sid":"RkdVpYjO39BNTKJAAAAJ"}
+fCDlpJ5kPzLiLlSWAAAI: Received packet MESSAGE data 2["join_session",{"session_id":"9e0a9018-87c3-43f4-8290-973911a60bc0","username":"teacher"}]
+received event "join_session" from RkdVpYjO39BNTKJAAAAJ [/]
+[2025-07-26 18:35:27,325] DEBUG in socket_handlers:  ============== handle_join ================
+[2025-07-26 18:35:27,326] DEBUG in socket_handlers: Произошел join_session socketio
+[2025-07-26 18:35:27,327] DEBUG in socket_handlers: Данные подключения: session=9e0a9018-87c3-43f4-8290-973911a60bc0, user=teacher, name=teacher maybe
+[2025-07-26 18:35:27,332] DEBUG in socket_handlers: Текущий пользователь None 
+[2025-07-26 18:35:27,333] DEBUG in socket_handlers: Подключение учителя к комнате 9e0a9018-87c3-43f4-8290-973911a60bc0
+[2025-07-26 18:35:27,334] DEBUG in socket_handlers: active_sessions {'9e0a9018-87c3-43f4-8290-973911a60bc0': {'teacher': 'RkdVpYjO39BNTKJAAAAJ'}}
+RkdVpYjO39BNTKJAAAAJ is entering room 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+emitting event "user_joined" to 9e0a9018-87c3-43f4-8290-973911a60bc0 [/]
+fCDlpJ5kPzLiLlSWAAAI: Sending packet MESSAGE data 2["user_joined",{"username":"teacher"}]
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 
+fCDlpJ5kPzLiLlSWAAAI: Sending packet PING data None
+fCDlpJ5kPzLiLlSWAAAI: Received packet PONG data 

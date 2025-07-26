@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  db_lesson13134:
+  db_test_uts:
     image: mysql:latest
     restart: always
     volumes:
@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: lesson13134
       MYSQL_USER: lesson13134
       MYSQL_PASSWORD: lesson13134
-  lesson13134:
+  test_uts:
     build:
       context: .
       dockerfile: Dockerfile_tiangolo

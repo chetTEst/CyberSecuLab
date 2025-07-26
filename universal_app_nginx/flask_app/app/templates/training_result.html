@@ -1,0 +1,294 @@
+<!-- session_login.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <h1>Сессия тренировки №{{ session_link }}</h1> <a href="{{ short_link }}" target="_blank" class="btn btn-primary mt-3">Страница тренировки {{ short_link }}</a>
+        <div class="row">
+            <div class="col">
+                <h4>Логины:</h4>
+                <ul class="list-group">
+                    {% for login in logins %}
+                    <li id="user-{{ login.username }}"
+                        class="list-group-item d-flex align-items-center">
+                        <span class="user-name flex-grow-1">
+                        {{ loop.index }}). {{ login.first_last_name }}
+                        </span>
+                        <div class="percent-box d-flex align-items-center justify-content-center bg-info text-white mx-2"
+                              data-username="{{ login.username }}">
+                          {{ login.percent or '0' }}%
+                        </div>
+                        <!-- ▸ Бейджи под реальное кол-во вопросов -->
+                        <div id="badges-{{ login.username }}" class="badges d-flex gap-2">
+                        {% for q in login.questions %}
+                            {% if q.qtype == 'essay' %}
+                            <button id="{{ login.username }}_q{{ q.id }}"
+                                    class="btn {{ 'btn-outline-success' if q.answered else 'btn-outline-primary' }} btn-sm essay-btn"
+                                    {% if q.essay_text %}
+                                    data-essay-text="{{ q.essay_text }}"
+                                    data-essay-question="{{ q.question }}"
+                                    {% else %}
+                                    disabled
+                                    {% endif %}>Эссе {{ loop.index }}</button>
+                            {% elif q.qtype == 'description' %}
+                            <span id="{{ login.username }}_q{{ q.id }}"
+                                class="badge bg-info">Инф.{{ loop.index }}</span>
+                            {% else %}
+                            <span id="{{ login.username }}_q{{ q.id }}"
+                                class="badge {% if q.answered %}{{ 'bg-success' if q.correct else 'bg-danger' }}{% else %}bg-secondary{% endif %}">Вопр.{{ loop.index }}</span>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+
+                        <button class="btn btn-danger btn-sm float-end remove-user-btn"
+                                data-username="{{ login.username }}">Удалить</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ──────────────── модальное окно для текста эссе ──────────────── -->
+    <div class="modal fade" id="essayModal" tabindex="-1">
+    <div class="modal-dialog modal-lg"><div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Ответ на вопрос</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body"><div id="essayModalBody" class="mb-0"></div></div>
+    </div></div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Инициализация Socket.IO с настройками повторного подключения
+const socket = io({
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+    reconnectionDelayMax: 5000,
+    timeout: 20000
+});
+const essayTexts = {};
+const sessionUuid = "{{ session_uuid }}";
+const socketRoomId = sessionUuid === "0" ? "0" : sessionUuid;
+
+$(document).on('click', '.remove-user-btn', function () {
+    const username = $(this).data('username');
+
+    $(`#user-${username}`).remove();
+
+    const userListItems = document.querySelectorAll('.list-group-item');
+    userListItems.forEach((item, index) => {
+        const userNameElement = item.querySelector('.user-name');
+        const nameParts = userNameElement.textContent.split(')');
+        if (nameParts.length > 1) {
+            userNameElement.textContent = `${index + 1})${nameParts[1]}`;
+        }
+    });
+
+
+    socket.emit('remove_user', {
+        session_id: socketRoomId,
+        username: username
+    });
+});
+
+
+socket.on('connect', () => {
+    console.log('join_session', socketRoomId);
+    socket.emit('join_session', {
+        session_id: socketRoomId,
+        username: 'teacher'
+    });
+});
+
+/* Обработка входящих ответов */
+/* answers_post – пришёл после submit у студента */
+socket.on('answers_post', (data) => {
+  const username = data.username;
+  const questions = data.questions;
+
+  /* перебираем все вопросы, пришедшие в сообщении */
+  console.log(username)
+  console.log(questions)
+
+  const arr = Array.isArray(questions)
+    ? questions
+    : Object.values(questions);
+
+  const filtered = arr.filter(q =>
+    q.q_type !== 'essay' && q.q_type !== 'description'
+  );
+
+  Object.entries(questions).forEach(([qid, {
+    q_type,
+    text = '',
+    correct = false,       // результат серверной проверки
+    client_correct = false, // результат проверки в браузере
+    answered = false,       // добавляем поле answered
+    q_text
+  }]) => {
+
+    /* одинаковый id для <span> (тесты) или <button> (эссе) в training_result.html */
+    const badgeId = `#${username}_q${qid}`;
+
+    /* ----------- ЭССЕ ------------- */
+    if (q_type === 'essay') {
+      /* кэшируем текст, если потом понадобится открыть модалку с эссе */
+      essayTexts[badgeId] = text;
+
+      const $button = $(badgeId);
+      $button
+        .prop('disabled', !text.trim())          // активна только если есть текст
+        .removeClass('btn-outline-primary btn-outline-success btn-outline-danger') // чистим классы
+        .addClass(text.trim() ? 
+          (answered && correct ? 'btn-outline-success' : 
+           answered && !correct ? 'btn-outline-danger"' : 'btn-outline-primary') : 
+          'btn-outline-primary')
+        .attr('data-essay-text', text).attr('data-essay-question', q_text);          // сохраняем текст в data-атрибуте
+      return;
+    }
+
+    /* ----------- DESCRIPTION всегда info ------------- */
+    if (q_type === 'description') {
+      $(badgeId)
+        .removeClass('bg-secondary bg-success bg-danger bg-info')
+        .addClass('bg-info');
+      return;
+    }
+
+    /* ----------- все остальные типы вопросов ------------- */
+    $(badgeId)
+      .removeClass('bg-secondary bg-success bg-danger bg-info') // чистим старые цвета
+      .addClass(answered ? (correct ? 'bg-success' : 'bg-danger') : 'bg-secondary');
+  });
+  const total   = filtered.length;
+  const correct = filtered.filter(q => q.correct).length;
+
+  // получаем строку вида "87.50"
+  const percent = total
+    ? (correct / total * 100).toFixed(2)
+    : "0.00";
+
+  const box = document.querySelector(`.percent-box[data-username="${username}"]`);
+  if (box) {
+    box.textContent = percent + '%';
+  }
+  console.log('answers_post socket');
+});
+
+
+
+socket.on('user_joined', (data) => {
+    if (data.username === 'teacher') return;
+
+    const userList  = document.querySelector('.list-group');
+    const nextIndex = userList.children.length + 1;
+
+    /* badges в том порядке, как пришёл массив */
+    const badgesHtml = data.questions.map((q, idx) => {
+        const index = idx + 1;                    // loop.index
+        
+        if (q.qtype === 'essay') {
+            const hasText = q.essay_text && q.essay_text.trim();
+            const disabled = hasText ? '' : 'disabled';
+            const dataAttr = hasText ? `data-essay-text="${q.essay_text}"` : '';
+            const hasQuestion = q.essay_question && q.essay_question.trim();
+            const dataAttrQ = hasText ? `data-essay-question="${q.essay_question}"` : '';
+            
+            // Кэшируем текст эссе для модального окна
+            if (hasText) {
+                essayTexts[`#${data.username}_q${q.id}`] = q.essay_text;
+            }
+            
+            return `<button id="${data.username}_q${q.id}"
+                           class="btn btn-outline-primary btn-sm essay-btn"
+                           ${disabled} ${dataAttr} ${dataAttrQ}>Эссе ${index}</button>`;
+        } else if (q.qtype === 'description') {
+            return `<span id="${data.username}_q${q.id}"
+                         class="badge bg-info">Инф.${index}</span>`;
+        } else {
+            const badgeClass = q.answered ? (q.correct ? 'bg-success' : 'bg-danger') : 'bg-secondary';
+            return `<span id="${data.username}_q${q.id}"
+                         class="badge ${badgeClass}">Вопр.${index}</span>`;
+        }
+    }).join('');
+
+    const li = document.createElement('li');
+    li.id        = `user-${data.username}`;
+    li.className = 'list-group-item d-flex align-items-center';
+    li.innerHTML = `
+        <span class="user-name flex-grow-1">${nextIndex}). ${data.first_last_name}</span>
+        <div class="percent-box d-flex align-items-center justify-content-center bg-info text-white mx-2" data-username="${data.username}">0%</div>
+        <div id="badges-${data.username}" class="badges d-flex gap-2">
+            ${badgesHtml}
+        </div>
+        <button class="btn btn-danger btn-sm float-end remove-user-btn"
+                data-username="${data.username}">Удалить</button>`;
+    userList.appendChild(li);
+});
+
+socket.on('connect_error', function(error) {
+    console.error('Connection error:', error);
+    // Можно добавить уведомление для пользователя
+    showConnectionError();
+});
+
+socket.on('disconnect', function(reason) {
+    console.log('Disconnected:', reason);
+    if (reason === 'io server disconnect') {
+        // Сервер разорвал соединение, пробуем переподключиться
+        socket.connect();
+    }
+});
+
+socket.on('reconnect', function(attemptNumber) {
+    console.log('Reconnected after', attemptNumber, 'attempts');
+    // Повторно присоединяемся к комнате после переподключения
+    socket.emit('join_session', {
+        session_id: socketRoomId,
+        username: 'teacher'
+    });
+});
+
+socket.on('reconnect_error', function(error) {
+    console.error('Reconnection error:', error);
+});
+
+/* Клик по кнопке-эссе */
+$(document).on('click', '.essay-btn', function () {
+  const id = '#' + this.id;
+  
+  // Сначала пробуем взять из кэша
+  let essayText = essayTexts[id];
+  let essayQuestion = $(this).attr('data-essay-question');
+
+  // Если в кэше нет, пробуем взять из data-атрибута
+  if (!essayText) {
+    essayText = $(this).attr('data-essay-text');
+  }
+  
+  // Если всё равно нет текста
+  if (!essayText) {
+    essayText = 'Ответ ещё не отправлен';
+  }
+
+  const $body = $('#essayModalBody').empty();          // чистим модалку
+  $body.append(essayQuestion)
+  $body.append('<p>ОТВЕТ: </p>')
+  essayText.trim().split(/\n+/).forEach(line => {      // делим по \n
+      $('<p>', { text: line }).appendTo($body);        // безопасная вставка
+  });
+  
+  $('#essayModal').modal('show');
+});
+
+
+</script>
+
+{% endblock %}

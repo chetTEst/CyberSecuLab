@@ -1,0 +1,49 @@
+FROM python:3.11-slim
+
+RUN apt-get update && \
+apt-get upgrade -y && \
+apt-get install -y --no-install-recommends \
+build-essential &&\
+apt-get install -y cron gcc default-mysql-client nano netcat-traditional supervisor && \
+apt-get clean && \
+apt-get autoremove -y && \
+rm -rf /var/lib/apt/lists/*
+
+# Создаем рабочую директорию
+WORKDIR /app
+
+# # Копируем файлы приложения
+# COPY ./flask_app /app
+# COPY ./flask_app/app/static /app/static
+
+# Копируем конфигурационные файлы
+# COPY ./flask_app/gunicorn.conf.py /app/gunicorn.conf.py
+# COPY ./flask_app/asgi.py /app/asgi.py
+# RUN chmod +x asgi.py
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY requirements.txt /var/www/requirements.txt
+
+RUN pip install --no-cache-dir -r /var/www/requirements.txt
+
+
+
+COPY ./crontab/cron-script-delete-from-users.sh /usr/local/bin/cron-script-delete-from-users.sh
+RUN chmod +x /usr/local/bin/cron-script-delete-from-users.sh
+COPY ./crontab/cron-script-delete-from-session.sh /usr/local/bin/cron-script-delete-from-session.sh
+RUN chmod +x /usr/local/bin/cron-script-delete-from-session.sh
+COPY ./crontab/delete_data /etc/cron.d
+RUN chmod 0644 /etc/cron.d/delete_data
+
+
+# Создаем директории для логов
+RUN mkdir -p /var/log/gunicorn /var/log/supervisor 
+RUN mkdir -p /var/log/hypercorn
+
+ENV TZ Europe/Moscow
+EXPOSE 8000
+
+COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
+RUN chmod +x /usr/local/bin/wait-for-db.sh
+
+

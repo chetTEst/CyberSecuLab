@@ -1,0 +1,91 @@
+<!-- login.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Авторизация</div>
+                    <div class="card-body">
+                        <!-- Flash messages -->
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ messages[0] }}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form action="/session{{ session_link }}/login" method="post" id="training-form">
+                            <div class="form-group">
+                                <label for="username">Фамилия и Имя</label>
+                                <input type="text" class="form-control" id="username" name="first_last_name" placeholder="Укажите ваши Фимилию и Имя" required>
+                            </div>
+                            <button id="start-training-btn" type="submit" class="btn btn-primary">Начать тренировку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+function getSessionIdentifier() {
+  const path = window.location.pathname;
+  const match = path.match(/\/session([^/]+)/);
+  return match ? match[1] : null;
+}
+
+function clearLocalData() {
+  const sessionIdentifier = getSessionIdentifier();
+  console.log("Удаление данных для сессии ", sessionIdentifier);
+  localStorage.removeItem(`quiz_answers_${sessionIdentifier}`);
+  localStorage.removeItem(`quiz_states_${sessionIdentifier}`);
+}
+
+function checkClearFlag() {
+  const cookies = document.cookie.split(';');
+  console.log("Получены куки: ", cookies);
+  const clearFlag = cookies.find(cookie => cookie.trim().startsWith('clear_quiz_data='));
+  console.log("Значение clearFlag: ", clearFlag)
+
+  if (clearFlag && clearFlag.includes('true')) {
+    clearLocalData();
+    // Удаляем куку
+    document.cookie = 'clear_quiz_data=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  }
+}
+checkClearFlag();
+
+    document.getElementById("training-form").addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var uname = document.getElementById("username").value;
+        var startButton = document.getElementById("start-training-btn");
+        startButton.disabled = true;
+        startButton.innerHTML = '<span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span> Подключаемся...';
+
+
+        $.ajax({
+            url: '{{ url_for('create_new_user') }}',
+            type: 'POST',
+
+            data: {
+                'first_last_name': uname,
+                'session_number': '{{ session_link }}'
+            },
+
+            success: function(response) {
+                window.location.href = response.redirect_url;
+            },
+            error: function(xhr) {
+                const errorMessage = xhr.responseText || 'Возникла непредвиденная ошибка. Повторите попытку позже';
+                alert(errorMessage);
+                startButton.disabled = false;
+                startButton.innerHTML = 'Начать тренировку';
+            }
+        });
+    });
+window.addEventListener('DOMContentLoaded', () => {
+    sessionStorage.clear();
+});
+</script>
+{% endblock %}
