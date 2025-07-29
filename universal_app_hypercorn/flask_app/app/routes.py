@@ -461,7 +461,7 @@ def submit_session(session_identifier):
     correct_map = get_correct_answers(redis_cache)
 
     for item in results:
-        qid           = int(item['question_id'])
+        qid           = str(item['question_id'])
         client_corr   = bool(item.get('correct', False))
         raw_answer    = item.get('answer', [])
         q_type        = item.get('question_type', "")

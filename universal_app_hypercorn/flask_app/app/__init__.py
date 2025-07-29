@@ -52,6 +52,7 @@ def get_real_ip():
 
 def create_app_for_db() -> Flask:
     app = Flask(__name__, static_folder='./static')
+    app.logger.debug("========== create_app_for_db ==========")
     if PROD_STATE:
         app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}'
     else:
@@ -61,8 +62,6 @@ def create_app_for_db() -> Flask:
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['WTF_CSRF_TIME_LIMIT'] = None
-    app.config['REDIS_URL'] = REDIS_URL
-    app.config['REDIS_CACHE_TTL'] = REDIS_CACHE_TTL
 
     return app
 
@@ -97,9 +96,10 @@ def create_app() -> Flask:
     
     socketio = SocketIO(app,
         async_mode=async_mode,
-        # message_queue=f'{redis_url}/1',
+        message_queue=f'{redis_url}/1',
         # Ограничьте CORS только необходимыми доменами в продакшене
         cors_allowed_origins="*" if not PROD_STATE else ['192.168.100.81',
+                                                         '10.153.244.1',
                                                          f'https://{SUBDOMAIN}.{DOMAIN}',
                                                          f'http://{SUBDOMAIN}.{DOMAIN}'],
         # Отключите логирование в продакшене
@@ -164,7 +164,7 @@ def create_app() -> Flask:
         all_cache_status = get_all_cache_status(redis_cache)
         if not all(all_cache_status.values()):
             try:
-                refresh_all_cache(redis_cache) 
+                refresh_all_cache(redis_cache)
             except Exception as e:
                 app.logger.error(f"Error initializing cache: {e}")
             
@@ -172,15 +172,9 @@ def create_app() -> Flask:
         socket_handlers.init_socketio(socketio)
     
     if PROD_STATE:
-        app.logger.setLevel('WARNING')
+        app.logger.setLevel('ERROR')
     else:
         app.logger.setLevel('DEBUG')
-
-    # Инициализация кэша при старте приложения
-       
         
     return app, socketio
-    
-
-app, socketio = create_app()
 

@@ -15,20 +15,20 @@ DB_PORT="${DB_PORT:-3306}"
 REDIS_HOST="${REDIS_HOST:-redis}"
 REDIS_PORT="${REDIS_PORT:-6379}"
 
-echo "$(date): Ожидание подключения к базе данных $DB_HOST:$DB_PORT..."
+echo "$(date): Ожидание подключения к базе данных $DB_HOST:$DB_PORT..." | tee -a $LOG_FILE
 
 # Ожидание MySQL
 until nc -z -v -w30 $DB_HOST $DB_PORT; do
-echo "$(date): Ожидание $DB_HOST:$DB_PORT..."
+echo "$(date): Ожидание $DB_HOST:$DB_PORT..." | tee -a $LOG_FILE
 sleep 5
 done
 
 echo "$(date): База данных доступна!" | tee -a $LOG_FILE
 
 # Ожидание Redis
-echo "$(date): Ожидание подключения к Redis $REDIS_HOST:$REDIS_PORT..."
+echo "$(date): Ожидание подключения к Redis $REDIS_HOST:$REDIS_PORT..." | tee -a $LOG_FILE
 until nc -z -v -w30 $REDIS_HOST $REDIS_PORT; do
-echo "$(date): Ожидание Redis подключения..."
+echo "$(date): Ожидание Redis подключения..." | tee -a $LOG_FILE
 sleep 5
 done
 
@@ -41,13 +41,13 @@ cd /app && python CreateDb.py | tee -a $LOG_FILE
 echo "$(date): База данных, инициализирована!" | tee -a $LOG_FILE
 
 # Запуск supervisor для управления процессами
-echo "$(date): Запуск supervisor..."
+echo "$(date): Запуск supervisor..." | tee -a $LOG_FILE
 
 # Проверяем конфигурацию supervisor
 if [ -f /etc/supervisor/conf.d/supervisord.conf ]; then
-  echo "$(date): Найдена конфигурация supervisor"
+  echo "$(date): Найдена конфигурация supervisor" | tee -a $LOG_FILE
   supervisord -n -c /etc/supervisor/conf.d/supervisord.conf
 else
-  echo "$(date): Конфигурация supervisor не найдена, запуск с базовой конфигурацией"
+  echo "$(date): Конфигурация supervisor не найдена, запуск с базовой конфигурацией" | tee -a $LOG_FILE
   supervisord -n
 fi

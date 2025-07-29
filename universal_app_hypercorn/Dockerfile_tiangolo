@@ -12,14 +12,14 @@ rm -rf /var/lib/apt/lists/*
 # Создаем рабочую директорию
 WORKDIR /app
 
-# # Копируем файлы приложения
-# COPY ./flask_app /app
-# COPY ./flask_app/app/static /app/static
+ # Копируем файлы приложения
+ COPY ./flask_app /app
+ COPY ./flask_app/app/static /app/static
 
 # Копируем конфигурационные файлы
 # COPY ./flask_app/gunicorn.conf.py /app/gunicorn.conf.py
-# COPY ./flask_app/asgi.py /app/asgi.py
-# RUN chmod +x asgi.py
+# COPY ./flask_app/hypercorn_eventlet.py /app/hypercorn_eventlet.py
+RUN chmod +x /app/hypercorn_eventlet.py
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY requirements.txt /var/www/requirements.txt

@@ -1,0 +1,65 @@
+version: '3.3'
+services:
+  db_test_uts:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: testuts
+      MYSQL_DATABASE: test
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testuseruts
+    networks:
+    - app-network
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+    - app-network
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+  test_uts:
+    build:
+      context: .
+      dockerfile: Dockerfile_tiangolo
+    ports:
+      - "8080:8000"
+    environment:
+      DB_HOST: db_test_uts
+      DB_PORT: 3306
+      DB_ROOT_PASSWORD: testuts
+      DB_PASSWORD: testuseruts
+      DB_DATABASE: test
+      DB_USER: testuser
+      REDIS_URL: "redis://redis:6379"
+      WEBSOCKET_PING_TIMEOUT: "60"
+      WEBSOCKET_PING_INTERVAL: "25"
+      FLASK_DEBUG: "production"  #test #production
+      SECRET_KEY: "_secret_76thvbmn"
+      RANDOM_IN_VARIANTS: "True"
+      SOCKETIO_ASYNC_MODE: "eventlet"
+      SUBDOMAIN: "test"
+      DOMAIN: "ctfclass.ru"
+      GIFT_FILE: "questions.gift"
+      SK_PASERK: "k4.secret."
+      PK_PASERK: "k4.public."
+      TOLLERANCE: 0.01
+    volumes:
+      - ./logs/supervisor:/var/log/supervisor
+      - ./logs/hypercorn:/var/log/hypercorn
+    networks:
+      - app-network
+    command: ["/usr/local/bin/wait-for-db.sh"]
+    depends_on:
+      - db_test_uts
+      - redis
+volumes:
+  db_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge

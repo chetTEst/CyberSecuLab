@@ -1,5 +1,5 @@
 from flask import current_app, request
-from flask_socketio import emit, join_room, leave_room
+from flask_socketio import emit, join_room
 from . import db
 from app.models import User, Assignment, Question, EssayAnswer, Session
 from urllib.parse import unquote

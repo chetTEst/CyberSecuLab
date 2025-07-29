@@ -127,17 +127,6 @@
         joinSession();
     });
 
-    socket.on('reconnect_error', function(error) {
-        console.error('Reconnection socket error:', error);
-    });
-    socket.on('connect_error', function(error) {
-        console.error('Connection socket error:', error);
-    });
-
-    socket.onAny((event, ...args) => {
-        console.log('SOCKET EVENT:', event, args);
-    });
-
 
     // Проверка состояния соединения каждые 30 секунд
     setInterval(() => {

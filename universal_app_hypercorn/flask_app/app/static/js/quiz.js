@@ -215,7 +215,7 @@ function checkClearFlag() {
 const cookies = document.cookie.split(';');
 console.log("Получены куки: ", cookies);
 const clearFlag = cookies.find(cookie => cookie.trim().startsWith('clear_quiz_data='));
-console.log("Значение clearFlag: ", clearFlag)
+console.log("Значение clearFlag: ", clearFlag);
 
 if (clearFlag && clearFlag.includes('true')) {
   clearLocalData();

@@ -311,9 +311,6 @@ socket.on('reconnect', function(attemptNumber) {
     joinSession();
 });
 
-socket.onAny((event, ...args) => {
-    console.log('SOCKET EVENT:', event, args);
-});
 
 // Проверка состояния соединения каждые 30 секунд
 setInterval(() => {
@@ -322,10 +319,6 @@ setInterval(() => {
         socket.connect();
     }
 }, 30000);
-
-socket.on('reconnect_error', function(error) {
-    console.error('Reconnection error:', error);
-});
 
 /* Клик по кнопке-эссе */
 $(document).on('click', '.essay-btn', function () {

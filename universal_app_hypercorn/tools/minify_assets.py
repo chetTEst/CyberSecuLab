@@ -71,7 +71,7 @@ def minify_inline_js(html: str) -> str:
         tokenized, mapping = _tokenize_jinja(code)
 
         # 2) минифицируем JS
-        minified = jsmin(tokenized)
+        minified = jsmin(strip_console(tokenized))
 
         # 3) восстанавливаем Jinja
         minified = _untokenize(minified, mapping)
@@ -85,13 +85,14 @@ def process_templates():
     for tpl in TPL_SRC.rglob("*.html"):
         raw_html = tpl.read_text("utf-8")
 
+        html = minify_inline_js(raw_html)
         # 1. убираем HTML-комментарии / пробелы
-        html = minify(raw_html,
+        html = minify(html,
                       remove_comments=True,
                       remove_empty_space=True)
 
         # 2. минифицируем inline-JS
-        html = minify_inline_js(html)
+
 
         target = TPL_OUT / tpl.relative_to(TPL_SRC)
         target.parent.mkdir(parents=True, exist_ok=True)
