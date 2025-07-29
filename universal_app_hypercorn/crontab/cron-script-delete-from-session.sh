@@ -8,5 +8,5 @@ source /tmp/environment
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 
-mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "DELETE FROM \`$DB_DATABASE\`.session"
-mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "INSERT INTO \`$DB_DATABASE\`.session (id, number, uuid) VALUES (0, 0, NULL)"
+mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "DELETE FROM \`$DB_DATABASE\`.sessions"
+mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT -e "INSERT INTO \`$DB_DATABASE\`.sessions (id, number, uuid) VALUES (0, 0, NULL)"

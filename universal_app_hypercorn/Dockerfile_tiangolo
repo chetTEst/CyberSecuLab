@@ -32,8 +32,8 @@ COPY ./crontab/cron-script-delete-from-users.sh /usr/local/bin/cron-script-delet
 RUN chmod +x /usr/local/bin/cron-script-delete-from-users.sh
 COPY ./crontab/cron-script-delete-from-session.sh /usr/local/bin/cron-script-delete-from-session.sh
 RUN chmod +x /usr/local/bin/cron-script-delete-from-session.sh
-COPY ./crontab/delete_data /etc/cron.d
-RUN chmod 0644 /etc/cron.d/delete_data
+COPY ./crontab/delete_data /var/spool/cron/crontabs/root
+RUN chmod 0600 /var/spool/cron/crontabs/root
 
 
 # Создаем директории для логов
